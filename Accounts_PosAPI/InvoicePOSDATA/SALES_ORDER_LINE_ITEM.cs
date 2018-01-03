@@ -15,8 +15,8 @@ namespace InvoicePOSDATA
     public partial class SALES_ORDER_LINE_ITEM
     {
         public int LINE_ITEM_ID { get; set; }
-        public Nullable<int> ORDER_ID { get; set; }
-        public Nullable<int> PRODUCT { get; set; }
+        public string ORDER_NO { get; set; }
+        public string PRODUCT_CODE { get; set; }
         public string DESCRIPTION { get; set; }
         public Nullable<decimal> ORDER_QTY { get; set; }
         public Nullable<decimal> UNIT_PRICE { get; set; }

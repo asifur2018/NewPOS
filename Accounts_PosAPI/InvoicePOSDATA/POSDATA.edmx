@@ -141,16 +141,21 @@
           <Property Name="SKYPE" Type="nvarchar" MaxLength="100" />
           <Property Name="LAST_SALE" Type="datetime" />
           <Property Name="LAST_PAYMENT" Type="datetime" />
-          <Property Name="AVG_PMT_DATE" Type="datetime" />
+          <Property Name="AVG_PMT_DAYS" Type="int" />
           <Property Name="IS_SUPPLIER" Type="bit" />
           <Property Name="STATEMENT" Type="nvarchar" MaxLength="50" />
           <Property Name="SEND_MAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="SKYPE_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="OS_BALANCE" Type="nvarchar" MaxLength="50" />
           <Property Name="OS_ORDERS" Type="nvarchar" MaxLength="50" />
-          <Property Name="CR_REMAIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="CR_REMAIN" Type="decimal" />
           <Property Name="IS_DELETE" Type="bit" />
           <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="ON_CREDIT_STOP" Type="bit" />
+          <Property Name="CREDIT_LIMIT" Type="decimal" />
+          <Property Name="ON_STOP_AFTER" Type="int" />
+          <Property Name="PUT_ON_STOP_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="STOPPED_ON" Type="datetime" />
         </EntityType>
         <EntityType Name="CUSTOMER_BANK_DETAILS">
           <Key>
@@ -177,6 +182,8 @@
           <Property Name="CUSTOMER_CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="IS_DELETE" Type="bit" />
           <Property Name="STATUS" Type="bit" />
+          <Property Name="STANDARD_DISC_PER" Type="decimal" />
+          <Property Name="STANDART_DISC_DAYS" Type="int" />
         </EntityType>
         <EntityType Name="CUSTOMER_CREDIT_CONTROL">
           <Key>
@@ -483,8 +490,8 @@
             <PropertyRef Name="SALESORDER_DELIVERY_ID" />
           </Key>
           <Property Name="SALESORDER_DELIVERY_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
-          <Property Name="SALESORDER_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_CODE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
           <Property Name="DELIVERY_ID" Type="int" Nullable="false" />
           <Property Name="DELIVERY_DATE" Type="datetime" />
           <Property Name="TRANSACTION_DATE" Type="datetime" />
@@ -495,8 +502,8 @@
             <PropertyRef Name="LINE_ITEM_ID" />
           </Key>
           <Property Name="LINE_ITEM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ORDER_ID" Type="int" />
-          <Property Name="PRODUCT" Type="int" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
+          <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
           <Property Name="ORDER_QTY" Type="decimal" />
           <Property Name="UNIT_PRICE" Type="decimal" />
@@ -506,10 +513,10 @@
         </EntityType>
         <EntityType Name="SALES_VAT_LINE">
           <Key>
-            <PropertyRef Name="VAT_LINE_ID" />
+            <PropertyRef Name="LINE_ITEM_ID" />
           </Key>
-          <Property Name="VAT_LINE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ORDER_ID" Type="int" />
+          <Property Name="LINE_ITEM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
           <Property Name="VAT_RATE" Type="decimal" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="500" />
           <Property Name="NET_AMOUNT" Type="decimal" />
@@ -527,6 +534,7 @@
           <Property Name="POSTCODE" Type="nvarchar" MaxLength="10" />
           <Property Name="COUNTRY" Type="nvarchar" MaxLength="10" />
           <Property Name="CONTACT" Type="nvarchar" MaxLength="100" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SALESORDER_CUSTOMER_INVOICE_TO">
           <Key>
@@ -539,6 +547,7 @@
           <Property Name="POSTCODE" Type="nvarchar" MaxLength="10" />
           <Property Name="COUNTRY" Type="nvarchar" MaxLength="10" />
           <Property Name="CONTACT" Type="nvarchar" MaxLength="100" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
           <Property Name="EC" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="SALESORDER_CUSTOMER_OTHER_DETAILS">
@@ -551,6 +560,7 @@
           <Property Name="MODE" Type="varchar" MaxLength="50" />
           <Property Name="EXPECTED_SHIP" Type="datetime" />
           <Property Name="EXPECTED_PAYMENT" Type="datetime" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
           <Property Name="LAST_CHANGE_SYSTEM_DATE" Type="datetime" />
         </EntityType>
         <EntityType Name="SALESORDER_CUSTOMER_RECURRING_SALES_INVOICE">
@@ -604,7 +614,7 @@
           <Property Name="DYNAMIC_DISC" Type="nvarchar" MaxLength="50" />
           <Property Name="SUPPLIER_INACTIVE" Type="nvarchar" MaxLength="50" />
           <Property Name="REGISTERED" Type="nvarchar" MaxLength="50" />
-          <Property Name="CREDIT_LIMIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CREDIT_LIMIT" Type="decimal" />
           <Property Name="CONTACT_TYPE" Type="nvarchar" MaxLength="50" />
           <Property Name="CONTACT_NAME" Type="nvarchar" MaxLength="50" />
           <Property Name="CONTACT_SALUTATION" Type="nvarchar" MaxLength="50" />
@@ -880,16 +890,21 @@
           <Property Name="SKYPE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="LAST_SALE" Type="DateTime" Precision="3" />
           <Property Name="LAST_PAYMENT" Type="DateTime" Precision="3" />
-          <Property Name="AVG_PMT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AVG_PMT_DAYS" Type="Int32" />
           <Property Name="IS_SUPPLIER" Type="Boolean" />
           <Property Name="STATEMENT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SEND_MAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SKYPE_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="OS_BALANCE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="OS_ORDERS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CR_REMAIN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CR_REMAIN" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IS_DELETE" Type="Boolean" />
           <Property Name="STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ON_CREDIT_STOP" Type="Boolean" />
+          <Property Name="CREDIT_LIMIT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ON_STOP_AFTER" Type="Int32" />
+          <Property Name="PUT_ON_STOP_BY" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="STOPPED_ON" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="CUSTOMER_BANK_DETAILS">
           <Key>
@@ -916,6 +931,8 @@
           <Property Name="CUSTOMER_CODE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="IS_DELETE" Type="Boolean" />
           <Property Name="STATUS" Type="Boolean" />
+          <Property Name="STANDARD_DISC_PER" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="STANDART_DISC_DAYS" Type="Int32" />
         </EntityType>
         <EntityType Name="CUSTOMER_CREDIT_CONTROL">
           <Key>
@@ -1222,8 +1239,8 @@
             <PropertyRef Name="SALESORDER_DELIVERY_ID" />
           </Key>
           <Property Name="SALESORDER_DELIVERY_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
-          <Property Name="SALESORDER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_CODE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="DELIVERY_ID" Type="Int32" Nullable="false" />
           <Property Name="DELIVERY_DATE" Type="DateTime" Precision="3" />
           <Property Name="TRANSACTION_DATE" Type="DateTime" Precision="3" />
@@ -1234,8 +1251,8 @@
             <PropertyRef Name="LINE_ITEM_ID" />
           </Key>
           <Property Name="LINE_ITEM_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ORDER_ID" Type="Int32" />
-          <Property Name="PRODUCT" Type="Int32" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="ORDER_QTY" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="UNIT_PRICE" Type="Decimal" Precision="18" Scale="0" />
@@ -1245,10 +1262,10 @@
         </EntityType>
         <EntityType Name="SALES_VAT_LINE">
           <Key>
-            <PropertyRef Name="VAT_LINE_ID" />
+            <PropertyRef Name="LINE_ITEM_ID" />
           </Key>
-          <Property Name="VAT_LINE_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ORDER_ID" Type="Int32" />
+          <Property Name="LINE_ITEM_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="VAT_RATE" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="NET_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
@@ -1266,6 +1283,7 @@
           <Property Name="POSTCODE" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="COUNTRY" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="CONTACT" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="SALESORDER_CUSTOMER_INVOICE_TO">
           <Key>
@@ -1278,6 +1296,7 @@
           <Property Name="POSTCODE" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="COUNTRY" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="CONTACT" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="EC" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="SALESORDER_CUSTOMER_OTHER_DETAILS">
@@ -1290,6 +1309,7 @@
           <Property Name="MODE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="EXPECTED_SHIP" Type="DateTime" Precision="3" />
           <Property Name="EXPECTED_PAYMENT" Type="DateTime" Precision="3" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="LAST_CHANGE_SYSTEM_DATE" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="SALESORDER_CUSTOMER_RECURRING_SALES_INVOICE">
@@ -1343,7 +1363,7 @@
           <Property Name="DYNAMIC_DISC" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SUPPLIER_INACTIVE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="REGISTERED" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CREDIT_LIMIT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CREDIT_LIMIT" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="CONTACT_TYPE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CONTACT_NAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CONTACT_SALUTATION" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -1554,7 +1574,7 @@
                 <ScalarProperty Name="SKYPE" ColumnName="SKYPE" />
                 <ScalarProperty Name="LAST_SALE" ColumnName="LAST_SALE" />
                 <ScalarProperty Name="LAST_PAYMENT" ColumnName="LAST_PAYMENT" />
-                <ScalarProperty Name="AVG_PMT_DATE" ColumnName="AVG_PMT_DATE" />
+                <ScalarProperty Name="AVG_PMT_DAYS" ColumnName="AVG_PMT_DAYS" />
                 <ScalarProperty Name="IS_SUPPLIER" ColumnName="IS_SUPPLIER" />
                 <ScalarProperty Name="STATEMENT" ColumnName="STATEMENT" />
                 <ScalarProperty Name="SEND_MAIL" ColumnName="SEND_MAIL" />
@@ -1564,6 +1584,11 @@
                 <ScalarProperty Name="CR_REMAIN" ColumnName="CR_REMAIN" />
                 <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
                 <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ON_CREDIT_STOP" ColumnName="ON_CREDIT_STOP" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="ON_STOP_AFTER" ColumnName="ON_STOP_AFTER" />
+                <ScalarProperty Name="PUT_ON_STOP_BY" ColumnName="PUT_ON_STOP_BY" />
+                <ScalarProperty Name="STOPPED_ON" ColumnName="STOPPED_ON" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1591,6 +1616,8 @@
                 <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
                 <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
                 <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="STANDARD_DISC_PER" ColumnName="STANDARD_DISC_PER" />
+                <ScalarProperty Name="STANDART_DISC_DAYS" ColumnName="STANDART_DISC_DAYS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1918,8 +1945,8 @@
             <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_ORDER_DELIVERY">
               <MappingFragment StoreEntitySet="SALES_ORDER_DELIVERY">
                 <ScalarProperty Name="SALESORDER_DELIVERY_ID" ColumnName="SALESORDER_DELIVERY_ID" />
-                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
-                <ScalarProperty Name="SALESORDER_ID" ColumnName="SALESORDER_ID" />
+                <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
                 <ScalarProperty Name="DELIVERY_ID" ColumnName="DELIVERY_ID" />
                 <ScalarProperty Name="DELIVERY_DATE" ColumnName="DELIVERY_DATE" />
                 <ScalarProperty Name="TRANSACTION_DATE" ColumnName="TRANSACTION_DATE" />
@@ -1931,8 +1958,8 @@
             <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_ORDER_LINE_ITEM">
               <MappingFragment StoreEntitySet="SALES_ORDER_LINE_ITEM">
                 <ScalarProperty Name="LINE_ITEM_ID" ColumnName="LINE_ITEM_ID" />
-                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
-                <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="ORDER_QTY" ColumnName="ORDER_QTY" />
                 <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
@@ -1945,8 +1972,8 @@
           <EntitySetMapping Name="SALES_VAT_LINE">
             <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_VAT_LINE">
               <MappingFragment StoreEntitySet="SALES_VAT_LINE">
-                <ScalarProperty Name="VAT_LINE_ID" ColumnName="VAT_LINE_ID" />
-                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="LINE_ITEM_ID" ColumnName="LINE_ITEM_ID" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
                 <ScalarProperty Name="VAT_RATE" ColumnName="VAT_RATE" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="NET_AMOUNT" ColumnName="NET_AMOUNT" />
@@ -1965,6 +1992,7 @@
                 <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
                 <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
                 <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1978,6 +2006,7 @@
                 <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
                 <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
                 <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
                 <ScalarProperty Name="EC" ColumnName="EC" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1991,6 +2020,7 @@
                 <ScalarProperty Name="MODE" ColumnName="MODE" />
                 <ScalarProperty Name="EXPECTED_SHIP" ColumnName="EXPECTED_SHIP" />
                 <ScalarProperty Name="EXPECTED_PAYMENT" ColumnName="EXPECTED_PAYMENT" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
                 <ScalarProperty Name="LAST_CHANGE_SYSTEM_DATE" ColumnName="LAST_CHANGE_SYSTEM_DATE" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -31,7 +31,7 @@ namespace InvoicePOSDATA
         public string DYNAMIC_DISC { get; set; }
         public string SUPPLIER_INACTIVE { get; set; }
         public string REGISTERED { get; set; }
-        public string CREDIT_LIMIT { get; set; }
+        public Nullable<decimal> CREDIT_LIMIT { get; set; }
         public string CONTACT_TYPE { get; set; }
         public string CONTACT_NAME { get; set; }
         public string CONTACT_SALUTATION { get; set; }

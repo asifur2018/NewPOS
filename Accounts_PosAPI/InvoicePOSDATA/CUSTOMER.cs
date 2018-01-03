@@ -43,15 +43,20 @@ namespace InvoicePOSDATA
         public string SKYPE { get; set; }
         public Nullable<System.DateTime> LAST_SALE { get; set; }
         public Nullable<System.DateTime> LAST_PAYMENT { get; set; }
-        public Nullable<System.DateTime> AVG_PMT_DATE { get; set; }
+        public Nullable<int> AVG_PMT_DAYS { get; set; }
         public Nullable<bool> IS_SUPPLIER { get; set; }
         public string STATEMENT { get; set; }
         public string SEND_MAIL { get; set; }
         public string SKYPE_ID { get; set; }
         public string OS_BALANCE { get; set; }
         public string OS_ORDERS { get; set; }
-        public string CR_REMAIN { get; set; }
+        public Nullable<decimal> CR_REMAIN { get; set; }
         public Nullable<bool> IS_DELETE { get; set; }
         public string STATUS { get; set; }
+        public Nullable<bool> ON_CREDIT_STOP { get; set; }
+        public Nullable<decimal> CREDIT_LIMIT { get; set; }
+        public Nullable<int> ON_STOP_AFTER { get; set; }
+        public string PUT_ON_STOP_BY { get; set; }
+        public Nullable<System.DateTime> STOPPED_ON { get; set; }
     }
 }

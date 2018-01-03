@@ -136,16 +136,21 @@
     <Property Name="SKYPE" Type="nvarchar" MaxLength="100" />
     <Property Name="LAST_SALE" Type="datetime" />
     <Property Name="LAST_PAYMENT" Type="datetime" />
-    <Property Name="AVG_PMT_DATE" Type="datetime" />
+    <Property Name="AVG_PMT_DAYS" Type="int" />
     <Property Name="IS_SUPPLIER" Type="bit" />
     <Property Name="STATEMENT" Type="nvarchar" MaxLength="50" />
     <Property Name="SEND_MAIL" Type="nvarchar" MaxLength="50" />
     <Property Name="SKYPE_ID" Type="nvarchar" MaxLength="50" />
     <Property Name="OS_BALANCE" Type="nvarchar" MaxLength="50" />
     <Property Name="OS_ORDERS" Type="nvarchar" MaxLength="50" />
-    <Property Name="CR_REMAIN" Type="nvarchar" MaxLength="50" />
+    <Property Name="CR_REMAIN" Type="decimal" />
     <Property Name="IS_DELETE" Type="bit" />
     <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="ON_CREDIT_STOP" Type="bit" />
+    <Property Name="CREDIT_LIMIT" Type="decimal" />
+    <Property Name="ON_STOP_AFTER" Type="int" />
+    <Property Name="PUT_ON_STOP_BY" Type="nvarchar" MaxLength="50" />
+    <Property Name="STOPPED_ON" Type="datetime" />
   </EntityType>
   <EntityType Name="CUSTOMER_BANK_DETAILS">
     <Key>
@@ -172,6 +177,8 @@
     <Property Name="CUSTOMER_CODE" Type="nvarchar" MaxLength="50" />
     <Property Name="IS_DELETE" Type="bit" />
     <Property Name="STATUS" Type="bit" />
+    <Property Name="STANDARD_DISC_PER" Type="decimal" />
+    <Property Name="STANDART_DISC_DAYS" Type="int" />
   </EntityType>
   <EntityType Name="CUSTOMER_CREDIT_CONTROL">
     <Key>
@@ -478,8 +485,8 @@
       <PropertyRef Name="SALESORDER_DELIVERY_ID" />
     </Key>
     <Property Name="SALESORDER_DELIVERY_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
-    <Property Name="SALESORDER_ID" Type="int" Nullable="false" />
+    <Property Name="CUSTOMER_CODE" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
     <Property Name="DELIVERY_ID" Type="int" Nullable="false" />
     <Property Name="DELIVERY_DATE" Type="datetime" />
     <Property Name="TRANSACTION_DATE" Type="datetime" />
@@ -490,8 +497,8 @@
       <PropertyRef Name="LINE_ITEM_ID" />
     </Key>
     <Property Name="LINE_ITEM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ORDER_ID" Type="int" />
-    <Property Name="PRODUCT" Type="int" />
+    <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
+    <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="50" />
     <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
     <Property Name="ORDER_QTY" Type="decimal" />
     <Property Name="UNIT_PRICE" Type="decimal" />
@@ -501,10 +508,10 @@
   </EntityType>
   <EntityType Name="SALES_VAT_LINE">
     <Key>
-      <PropertyRef Name="VAT_LINE_ID" />
+      <PropertyRef Name="LINE_ITEM_ID" />
     </Key>
-    <Property Name="VAT_LINE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ORDER_ID" Type="int" />
+    <Property Name="LINE_ITEM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
     <Property Name="VAT_RATE" Type="decimal" />
     <Property Name="DESCRIPTION" Type="varchar" MaxLength="500" />
     <Property Name="NET_AMOUNT" Type="decimal" />
@@ -522,6 +529,7 @@
     <Property Name="POSTCODE" Type="nvarchar" MaxLength="10" />
     <Property Name="COUNTRY" Type="nvarchar" MaxLength="10" />
     <Property Name="CONTACT" Type="nvarchar" MaxLength="100" />
+    <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SALESORDER_CUSTOMER_INVOICE_TO">
     <Key>
@@ -534,6 +542,7 @@
     <Property Name="POSTCODE" Type="nvarchar" MaxLength="10" />
     <Property Name="COUNTRY" Type="nvarchar" MaxLength="10" />
     <Property Name="CONTACT" Type="nvarchar" MaxLength="100" />
+    <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
     <Property Name="EC" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="SALESORDER_CUSTOMER_OTHER_DETAILS">
@@ -546,6 +555,7 @@
     <Property Name="MODE" Type="varchar" MaxLength="50" />
     <Property Name="EXPECTED_SHIP" Type="datetime" />
     <Property Name="EXPECTED_PAYMENT" Type="datetime" />
+    <Property Name="ORDER_NO" Type="varchar" MaxLength="50" />
     <Property Name="LAST_CHANGE_SYSTEM_DATE" Type="datetime" />
   </EntityType>
   <EntityType Name="SALESORDER_CUSTOMER_RECURRING_SALES_INVOICE">
@@ -599,7 +609,7 @@
     <Property Name="DYNAMIC_DISC" Type="nvarchar" MaxLength="50" />
     <Property Name="SUPPLIER_INACTIVE" Type="nvarchar" MaxLength="50" />
     <Property Name="REGISTERED" Type="nvarchar" MaxLength="50" />
-    <Property Name="CREDIT_LIMIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="CREDIT_LIMIT" Type="decimal" />
     <Property Name="CONTACT_TYPE" Type="nvarchar" MaxLength="50" />
     <Property Name="CONTACT_NAME" Type="nvarchar" MaxLength="50" />
     <Property Name="CONTACT_SALUTATION" Type="nvarchar" MaxLength="50" />

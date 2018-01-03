@@ -20,6 +20,7 @@ namespace InvoicePOSDATA
         public string MODE { get; set; }
         public Nullable<System.DateTime> EXPECTED_SHIP { get; set; }
         public Nullable<System.DateTime> EXPECTED_PAYMENT { get; set; }
+        public string ORDER_NO { get; set; }
         public Nullable<System.DateTime> LAST_CHANGE_SYSTEM_DATE { get; set; }
     }
 }

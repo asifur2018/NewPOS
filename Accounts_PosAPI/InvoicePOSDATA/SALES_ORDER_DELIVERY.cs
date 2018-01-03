@@ -15,8 +15,8 @@ namespace InvoicePOSDATA
     public partial class SALES_ORDER_DELIVERY
     {
         public int SALESORDER_DELIVERY_ID { get; set; }
-        public int CUSTOMER_ID { get; set; }
-        public int SALESORDER_ID { get; set; }
+        public string CUSTOMER_CODE { get; set; }
+        public string ORDER_NO { get; set; }
         public int DELIVERY_ID { get; set; }
         public Nullable<System.DateTime> DELIVERY_DATE { get; set; }
         public Nullable<System.DateTime> TRANSACTION_DATE { get; set; }

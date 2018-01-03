@@ -14,8 +14,8 @@ namespace InvoicePOSDATA
     
     public partial class SALES_VAT_LINE
     {
-        public int VAT_LINE_ID { get; set; }
-        public Nullable<int> ORDER_ID { get; set; }
+        public int LINE_ITEM_ID { get; set; }
+        public string ORDER_NO { get; set; }
         public Nullable<decimal> VAT_RATE { get; set; }
         public string DESCRIPTION { get; set; }
         public Nullable<decimal> NET_AMOUNT { get; set; }

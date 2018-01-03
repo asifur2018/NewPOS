@@ -35,5 +35,7 @@ namespace InvoicePOSDATA
         public string CUSTOMER_CODE { get; set; }
         public Nullable<bool> IS_DELETE { get; set; }
         public Nullable<bool> STATUS { get; set; }
+        public Nullable<decimal> STANDARD_DISC_PER { get; set; }
+        public Nullable<int> STANDART_DISC_DAYS { get; set; }
     }
 }

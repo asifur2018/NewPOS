@@ -98,7 +98,7 @@
           <ScalarProperty Name="SKYPE" ColumnName="SKYPE" />
           <ScalarProperty Name="LAST_SALE" ColumnName="LAST_SALE" />
           <ScalarProperty Name="LAST_PAYMENT" ColumnName="LAST_PAYMENT" />
-          <ScalarProperty Name="AVG_PMT_DATE" ColumnName="AVG_PMT_DATE" />
+          <ScalarProperty Name="AVG_PMT_DAYS" ColumnName="AVG_PMT_DAYS" />
           <ScalarProperty Name="IS_SUPPLIER" ColumnName="IS_SUPPLIER" />
           <ScalarProperty Name="STATEMENT" ColumnName="STATEMENT" />
           <ScalarProperty Name="SEND_MAIL" ColumnName="SEND_MAIL" />
@@ -108,6 +108,11 @@
           <ScalarProperty Name="CR_REMAIN" ColumnName="CR_REMAIN" />
           <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="ON_CREDIT_STOP" ColumnName="ON_CREDIT_STOP" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="ON_STOP_AFTER" ColumnName="ON_STOP_AFTER" />
+          <ScalarProperty Name="PUT_ON_STOP_BY" ColumnName="PUT_ON_STOP_BY" />
+          <ScalarProperty Name="STOPPED_ON" ColumnName="STOPPED_ON" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -135,6 +140,8 @@
           <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
           <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="STANDARD_DISC_PER" ColumnName="STANDARD_DISC_PER" />
+          <ScalarProperty Name="STANDART_DISC_DAYS" ColumnName="STANDART_DISC_DAYS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -462,8 +469,8 @@
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_ORDER_DELIVERY">
         <MappingFragment StoreEntitySet="SALES_ORDER_DELIVERY">
           <ScalarProperty Name="SALESORDER_DELIVERY_ID" ColumnName="SALESORDER_DELIVERY_ID" />
-          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
-          <ScalarProperty Name="SALESORDER_ID" ColumnName="SALESORDER_ID" />
+          <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
           <ScalarProperty Name="DELIVERY_ID" ColumnName="DELIVERY_ID" />
           <ScalarProperty Name="DELIVERY_DATE" ColumnName="DELIVERY_DATE" />
           <ScalarProperty Name="TRANSACTION_DATE" ColumnName="TRANSACTION_DATE" />
@@ -475,8 +482,8 @@
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_ORDER_LINE_ITEM">
         <MappingFragment StoreEntitySet="SALES_ORDER_LINE_ITEM">
           <ScalarProperty Name="LINE_ITEM_ID" ColumnName="LINE_ITEM_ID" />
-          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
-          <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
           <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
           <ScalarProperty Name="ORDER_QTY" ColumnName="ORDER_QTY" />
           <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
@@ -489,8 +496,8 @@
     <EntitySetMapping Name="SALES_VAT_LINE">
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_VAT_LINE">
         <MappingFragment StoreEntitySet="SALES_VAT_LINE">
-          <ScalarProperty Name="VAT_LINE_ID" ColumnName="VAT_LINE_ID" />
-          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+          <ScalarProperty Name="LINE_ITEM_ID" ColumnName="LINE_ITEM_ID" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
           <ScalarProperty Name="VAT_RATE" ColumnName="VAT_RATE" />
           <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
           <ScalarProperty Name="NET_AMOUNT" ColumnName="NET_AMOUNT" />
@@ -509,6 +516,7 @@
           <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
           <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
           <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -522,6 +530,7 @@
           <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
           <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
           <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
           <ScalarProperty Name="EC" ColumnName="EC" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -535,6 +544,7 @@
           <ScalarProperty Name="MODE" ColumnName="MODE" />
           <ScalarProperty Name="EXPECTED_SHIP" ColumnName="EXPECTED_SHIP" />
           <ScalarProperty Name="EXPECTED_PAYMENT" ColumnName="EXPECTED_PAYMENT" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
           <ScalarProperty Name="LAST_CHANGE_SYSTEM_DATE" ColumnName="LAST_CHANGE_SYSTEM_DATE" />
         </MappingFragment>
       </EntityTypeMapping>

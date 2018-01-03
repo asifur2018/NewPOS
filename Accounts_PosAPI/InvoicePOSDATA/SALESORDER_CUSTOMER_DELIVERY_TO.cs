@@ -21,5 +21,6 @@ namespace InvoicePOSDATA
         public string POSTCODE { get; set; }
         public string COUNTRY { get; set; }
         public string CONTACT { get; set; }
+        public string ORDER_NO { get; set; }
     }
 }
