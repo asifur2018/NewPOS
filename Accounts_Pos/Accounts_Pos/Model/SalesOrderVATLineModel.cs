@@ -8,13 +8,12 @@ namespace Accounts_Pos.Model
 {
     class SalesOrderVATLineModel
     {
-        public string DESCRIPTION { get; set; }
         public int VAT_LINE_ID { get; set; }
-        public int ORDER_ID { get; set; }
-        public double VAT_RATE { get; set; }
-        public double NET_AMOUNT { get; set; }
-        public double VAT_AMOUNT { get; set; }
-        public double TOTAL { get; set; }
-        public int NO { get; set; }
+        public string ORDER_NO { get; set; }
+        public decimal? VAT_RATE { get; set; }
+        public string DESCRIPTION { get; set; }
+        public decimal? NET_AMOUNT { get; set; }
+        public decimal? VAT_AMOUNT { get; set; }
+        public decimal? TOTAL { get; set; }
     }
 }

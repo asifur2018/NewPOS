@@ -62,6 +62,17 @@ namespace Accounts_Pos.Model
         public bool IS_SUPPLIER { get; set; }
         public int CUSTOMER_ID { get; set; }
         public int SLNO { get; set; }
+        public string OS_BALANCE { get; set; }
+        public string OS_ORDERS { get; set; }
+        public decimal? CR_REMAIN { get; set; }
+        public DateTime? STOPPED_ON { get; set; }
+        public int? ON_STOP_AFTER { get; set; }
+        public string PUT_ON_STOP_BY { get; set; }
+        public DateTime? OLDEST_INV_DATE { get; set; }
+        public DateTime? LAST_SALE { get; set; }
+        public DateTime? LAST_PAYMENT { get; set; }
+        public int? AVG_PMT_DAYS { get; set; }
+        public Nullable<System.DateTime> DATES_STARTED { get; set; }
 
         private string error = string.Empty;
         public string Error
