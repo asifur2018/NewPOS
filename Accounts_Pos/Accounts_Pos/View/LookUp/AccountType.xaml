@@ -1,0 +1,34 @@
+﻿<Window x:Class="Accounts_Pos.View.Lookup.AccountType"
+        x:Name="AddAccountType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AccountType" Height="350" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="{Binding GROUP_BOX_TITLE}" Height="268" Margin="10,25,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="659">
+            <Grid>
+                <!--<TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Account Type ID" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding ACC_TYPE_ID}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />-->
+                <TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Account Type Desc" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}" Width="209"/>
+                <TextBox MaxLength="500" HorizontalAlignment="Left"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding selectedAccountType.ACC_TYPE_DESC}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />
+                <Button Content="Add" Command="{Binding AddAccountType}" HorizontalAlignment="Left"  Margin="224,179,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" />
+                <Button Content="Edit" Visibility="{Binding EditButtonVisibility}" Command="{Binding Update}" CommandParameter="{Binding ElementName=AddAccountAnalysisWindow}" HorizontalAlignment="Left" Margin="224,179,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" Grid.Column="1" />
+                <Button Content="Cancel" Command="{Binding Cancel}" HorizontalAlignment="Left" Height="35" Margin="358,179,0,0" VerticalAlignment="Top" Style="{StaticResource CancelBtnLook}" />
+                <TextBlock HorizontalAlignment="Left"  Margin="11,85,0,0" TextWrapping="Wrap" Text="Type " VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}" Width="168"/>
+                <ComboBox HorizontalAlignment="Left" Height="22" Margin="14,112,0,0" VerticalAlignment="Top" Width="280" Style="{StaticResource ComboboxLook}" Text="{Binding selectedAccountType.TYPE,Mode=TwoWay}">
+                    <ComboBoxItem Content="Cr" />
+                    <ComboBoxItem Content="Dr"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left"  Margin="356,85,0,0" TextWrapping="Wrap" Text="Status " VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <ComboBox HorizontalAlignment="Left" Height="22" Margin="357,112,0,0" VerticalAlignment="Top" Width="280" Style="{StaticResource ComboboxLook}" SelectedIndex="{Binding selectedAccountType.STATUS, Mode=TwoWay}">
+                    <ComboBoxItem Content="No" />
+                    <ComboBoxItem Content="Yes"/>
+                </ComboBox>
+                
+
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>

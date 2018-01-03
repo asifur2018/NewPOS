@@ -1,0 +1,23 @@
+﻿<Window x:Class="Accounts_Pos.View.Lookup.GroupType"
+        x:Name="AddGroupType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GroupType" Height="350" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="{Binding GROUP_BOX_TITLE}" Height="171" Margin="10,25,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="659">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Group Code" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox HorizontalAlignment="Left" MaxLength="50"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding selectedGroupType.GROUP_CODE}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />
+                <TextBlock HorizontalAlignment="Left"  Margin="356,19,0,0" TextWrapping="Wrap" Text="Group Type Name" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox HorizontalAlignment="Left" MaxLength="50" Margin="355,44,0,0" TextWrapping="Wrap" Text="{Binding selectedGroupType.GROUP_TYPE_NAME}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />
+                <Button Command="{Binding AddGroupType}" Content="Add" HorizontalAlignment="Left"  Margin="224,88,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" />
+                <Button Content="Edit" Visibility="{Binding EditButtonVisibility}" Command="{Binding Update}" HorizontalAlignment="Left" Margin="224,88,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" Grid.Column="1" />
+                <Button Content="Cancel" Command="{Binding Cancel}" HorizontalAlignment="Left" Height="35" Margin="358,88,0,0" VerticalAlignment="Top" Style="{StaticResource CancelBtnLook}" />
+
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>

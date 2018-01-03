@@ -1,0 +1,208 @@
+﻿<Window x:Class="Accounts_Pos.View.Supplier.SupplierListing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SupplierListing" Height="700" Width="1180" WindowStartupLocation="CenterScreen" >
+    <Grid Style="{StaticResource gridbg}">
+
+        <!--Top menu start here-->
+
+        <Menu IsMainMenu="True"  Name="menu1" VerticalAlignment="Top" Style="{StaticResource menusec}" >
+            <MenuItem Header="_File"  Visibility="Visible" Name="mnuFile" >
+
+                <MenuItem Header="_Managers"  Visibility="Visible" Name="mnuManger" >
+                    <MenuItem Header="_Recurring Transaction Manager"  >
+                    </MenuItem>
+                    <MenuItem Header="_Vat Return Manager"  >
+                    </MenuItem>
+                    <MenuItem Header="_EC Sales List Manager"  >
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Assistants"  Visibility="Visible" Name="mnuAssistants" >
+                    <MenuItem Header="_New Customer"  >
+                    </MenuItem>
+                    <MenuItem Header="_New Supplier"  >
+                    </MenuItem>
+                    <MenuItem Header="_New Bank Account"  >
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_To Do Notes"  >
+                </MenuItem>
+                <MenuItem Header="_Reminders"  >
+                </MenuItem>
+                <MenuItem Header="_Open reports folder"  >
+                </MenuItem>
+                <MenuItem Header="_Exit"  >
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Setting" />
+            <MenuItem Header="_Tools" />
+            <MenuItem Header="_Search" />
+            <MenuItem Header="_Help" />
+        </Menu>
+
+
+        <!--left menu start here-->
+        <TreeView HorizontalAlignment="Left" Width="220" Margin="0,32,0,0" Style="{StaticResource leftmenu}" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+            <Hyperlink Click="Company_Click">
+                Home
+            </Hyperlink>
+            <TreeViewItem Header="Customer" Style="{StaticResource treemenu}" >
+                <!--<TreeViewItem Header="Create" Style="{StaticResource treemenu}" ></TreeViewItem>
+                <TreeViewItem Header="Issue an Invoice" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Issue an Credit Note" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Customer Groups" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Reports" Style="{StaticResource treemenu}"></TreeViewItem>-->
+                <Hyperlink Click="CustomerListing_Click">
+                    CustomerListing
+                </Hyperlink>
+            </TreeViewItem>
+
+            <TreeViewItem Header="Sales" Style="{StaticResource treemenu}">
+                <TreeViewItem Header="Quick Journal" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Debit Journal/Invoices" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Credit Journal" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Recurring Sales" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Ledger" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Receipts" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Reports" Style="{StaticResource treemenu}"></TreeViewItem>
+            </TreeViewItem>
+
+            <TreeViewItem Header="Purchase" Style="{StaticResource treemenu}">
+                <TreeViewItem Header="Supplier" Style="{StaticResource treemenu}" HorizontalAlignment="Right" Width="195" >
+                    <Hyperlink Click="SupplierListing_Click">
+                        SupplierListing
+                    </Hyperlink>
+                    <Hyperlink Click="AddSupplier_Click">
+                        Add Supplier
+                    </Hyperlink>
+                </TreeViewItem>
+
+                <!--<TreeViewItem Header="Suppliers" Style="{StaticResource treemenu}">
+                    <TreeViewItem Header="TasNav Interactive Flow" Style="{StaticResource treemenu}"></TreeViewItem>
+                    <TreeViewItem Header="Maintain Suppliers" Style="{StaticResource treemenu}"></TreeViewItem>
+                    <TreeViewItem Header="Supplier Account Enquiry" Style="{StaticResource treemenu}"></TreeViewItem>
+                    <TreeViewItem Header="Maintain Supplier Groups" Style="{StaticResource treemenu}"></TreeViewItem>
+                    <TreeViewItem Header="CIS Batch Verification " Style="{StaticResource treemenu}"></TreeViewItem>
+                </TreeViewItem>-->
+                <TreeViewItem Header="Enter/Change Journals" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Supplier Reports" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Purchase Ledger reports" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Payments on Account" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Payments with Remittances" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="CIS Payments" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="End of Period Programs" Style="{StaticResource treemenu}"></TreeViewItem>
+            </TreeViewItem>
+
+            <TreeViewItem Header="Cashbook" Style="{StaticResource treemenu}">
+                <TreeViewItem Header="Demo 1" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 2" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 3" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 4" Style="{StaticResource treemenu}"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Products" Style="{StaticResource treemenu}">
+                <Hyperlink Click="ProductListing_Click">
+                    ProductListing
+                </Hyperlink>
+
+
+            </TreeViewItem>
+            <TreeViewItem Header="Sales Orders" Style="{StaticResource treemenu}">
+                <TreeViewItem Header="Demo 1" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 2" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 3" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 4" Style="{StaticResource treemenu}"></TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+        <!--left menu end here-->
+
+        <Button  Command="{Binding AddSupplierClick}" HorizontalAlignment="Left"  Margin="231,33,0,0" VerticalAlignment="Top"  Style="{StaticResource Imagebtn}">
+            <DockPanel>
+                <Image Source="../../Images/New.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="New" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center" />
+            </DockPanel>
+        </Button>
+        <Button Command="{Binding EditSupplier,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"  Margin="283,33,0,0" VerticalAlignment="Top" Style="{StaticResource Imagebtn}">
+            <DockPanel>
+                <Image Source="../../Images/edit.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Edit" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center"/>
+            </DockPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left"  Margin="335,33,0,0" VerticalAlignment="Top" Width="72" Style="{StaticResource Imagebtn}">
+            <DockPanel>
+                <Image Source="../../Images/Duplicate.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Duplicate" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center"/>
+            </DockPanel>
+        </Button>
+        <Button Command="{Binding DeleteSupplier,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Margin="414,33,0,0" VerticalAlignment="Top"  Style="{StaticResource Imagebtn}" Width="55">
+            <DockPanel>
+                <Image Source="../../Images/Delete.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Delete" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center"/>
+            </DockPanel>
+
+        </Button>
+
+        <Button  HorizontalAlignment="Left"  Margin="476,33,0,0" VerticalAlignment="Top" Height="77" Width="73" Style="{StaticResource Imagebtn}">
+            <DockPanel>
+                <Image Source="../../Images/Customer-report.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Customer&#xa; Receipt" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center"/>
+            </DockPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left"  Margin="556,33,0,0" VerticalAlignment="Top" Style="{StaticResource Imagebtn}" Width="69">
+            <DockPanel>
+                <Image Source="../../Images/Print-List.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Print List" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center" />
+            </DockPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left"  Margin="632,33,0,0" VerticalAlignment="Top" Style="{StaticResource Imagebtn}" Width="63">
+            <DockPanel>
+                <Image Source="../../Images/Reports.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Reports" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center" />
+            </DockPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left"  Margin="702,33,0,0" VerticalAlignment="Top" Style="{StaticResource Imagebtn}" Width="86" >
+            <DockPanel>
+                <Image Source="../../Images/Reports.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Statements" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center" />
+            </DockPanel>
+        </Button>
+
+
+        <DataGrid   ItemsSource="{Binding Path=ListGrid,AsyncState=true,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedItem="{Binding Path=selectSupplier}" AutoGenerateColumns="False"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"     Name="dataGrid1" Margin="247,112,24,22" VerticalAlignment="Stretch"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="#f9f9f9"  FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#f9f9f9" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center"  EnableRowVirtualization="false" EnableColumnVirtualization="false" CanUserAddRows="False" CanUserReorderColumns="False" >
+            <DataGrid.Style>
+                <Style TargetType="DataGrid">
+                    <Setter Property="AlternatingRowBackground" Value="#ffffff"/>
+                    <Setter Property="RowBackground" Value="#f9f9f9"/>
+                    <Setter Property="BorderBrush" Value="#dddddd"/>
+                    <Setter Property="FontWeight" Value="Normal"/>
+                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Normal"/>
+                </Style>
+            </DataGrid.Style>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#ffffff" />
+                            <Setter Property="FontWeight" Value="Normal" />
+                            <Setter Property="BorderBrush" Value="#dddddd"/>
+                            <Setter Property="Background" Value="Red" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn   TextBlock.Foreground="Red"  Width="50" MaxWidth="50" Header="Sl.No" Binding="{Binding SLNO}"  />
+                <DataGridTextColumn    Width="150"  Header="SUPPLIER_CODE" Binding="{Binding SUPPLIER_CODE}"  />
+                <DataGridTextColumn    Width="250"  Header="SUPPLIER_NAME" Binding="{Binding SUPPLIER_NAME}"  />
+                <DataGridTextColumn   Width="100" Header="Bin"  Binding="{Binding POSTCODE}"/>
+                <DataGridTextColumn   Width="100" Header="ADDRESS"  Binding="{Binding ADDRESS}"/>
+                <DataGridTextColumn   Width="100" Header="COUNTRY"  Binding="{Binding COUNTRY}"/>
+                <DataGridTextColumn Visibility="Collapsed"  Width="100" Header="SupplierId"  Binding="{Binding SUPPLIER_ID}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

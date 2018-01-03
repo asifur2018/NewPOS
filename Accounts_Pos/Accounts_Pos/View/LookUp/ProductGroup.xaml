@@ -1,0 +1,23 @@
+﻿<Window x:Class="Accounts_Pos.View.Lookup.ProductGroup"
+        x:Name="AddProductGroup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Product Group" Height="450" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="{Binding GROUP_BOX_TITLE}" Height="317" Margin="10,25,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="659">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Group Code" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox HorizontalAlignment="Left"  MaxLength="50" Margin="11,40,0,0" TextWrapping="Wrap" Text="{Binding selectedProductGroup.GROUP_CODE}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" Width="624" />
+                <Button Content="Add" Command="{Binding AddProductGroup}" HorizontalAlignment="Left"  Margin="224,228,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" />
+                <Button Content="Edit" Visibility="{Binding EditButtonVisibility}" Command="{Binding Update}" CommandParameter="{Binding ElementName=AddAccountAnalysisWindow}" HorizontalAlignment="Left" Margin="224,228,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" Grid.Column="1" />
+                <Button Content="Cancel" Command="{Binding Cancel}" HorizontalAlignment="Left" Height="35" Margin="358,228,0,0" VerticalAlignment="Top" Style="{StaticResource CancelBtnLook}" />
+                <TextBlock HorizontalAlignment="Left"  Margin="11,79,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox HorizontalAlignment="Left" MaxLength="500"  Margin="11,104,0,0" TextWrapping="Wrap" Text="{Binding selectedProductGroup.GROUP_DESCRIPTION}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" Width="624" Height="85" />
+
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>

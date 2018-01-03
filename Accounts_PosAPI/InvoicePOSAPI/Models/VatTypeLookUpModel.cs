@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace InvoicePOSAPI.Models
+{
+    public class VatTypeLookUpModel
+    {
+        public string VAT_TYPE_NAME { get; set; }
+        public bool? DELIVERY_TYPE_APPLICABLE { get; set; }
+        public bool? DELIVERY_MODE { get; set; }
+        public int VAT_TYPE_ID { get; set; }
+    }
+}

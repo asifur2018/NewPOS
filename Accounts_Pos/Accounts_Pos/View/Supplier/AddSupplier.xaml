@@ -1,0 +1,209 @@
+﻿<Window x:Class="Accounts_Pos.View.Supplier.AddSupplier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddSupplier" Height="700" Width="1180" WindowStartupLocation="CenterScreen">
+    <Grid Style="{StaticResource gridbg}">
+        <GroupBox Header="Supplier Name and Code" HorizontalAlignment="Left" Height="58" Margin="10,10,0,0" VerticalAlignment="Top" Width="1138" Style="{StaticResource headinggroup}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="557*"/>
+                    <ColumnDefinition Width="328*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Supplier Code " VerticalAlignment="Top" Style="{StaticResource Instrcuttextitalicprod}" Width="102"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,9,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.SUPPLIER_CODE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="258"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="414,11,0,0" TextWrapping="Wrap" Text="Name :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="52"/>
+                <TextBox HorizontalAlignment="Left"  Margin="466,8,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.SUPPLIER_NAME, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="209"/>
+                <CheckBox IsChecked="{Binding IS_CUSTOMER,UpdateSourceTrigger=PropertyChanged}" Content="Also Customer" HorizontalAlignment="Left" Height="16" Margin="104,12,0,0" VerticalAlignment="Top" Width="167" Style="{StaticResource checkbox}" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+        <!--left side start here-->
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,82,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,89,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,89,0,0" TextWrapping="Wrap" Text="General Information" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,139,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,146,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="36" Margin="53,138,0,0" TextWrapping="Wrap" Text="Settlement Disc. / epayments / Notes
+
+" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}" Width="152"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,197,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,204,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,204,0,0" TextWrapping="Wrap" Text="Subcontractor" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,256,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,263,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,263,0,0" TextWrapping="Wrap" Text="NL Distribution" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,316,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,323,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,323,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,116,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,173,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,232,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,291,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+
+        <!--left side end here-->
+
+        <Rectangle Fill="#FFF4F4F5" Height="34" Margin="219,83,0,0" Stroke="Black" VerticalAlignment="Top" Style="{StaticResource PageHeadBg}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="230,88,0,0" TextWrapping="Wrap" Text="General Information" VerticalAlignment="Top" Width="437" Style="{StaticResource PageHead}"/>
+        <Button Content="Save and Next" Visibility="{Binding CreatVisible}" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="35" Margin="993,613,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}"/>
+        <Button Content="Update"  Visibility="{Binding UpdVisible}" Command="{Binding Path=UpdateData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="35" Margin="993,613,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}"/>
+        <Button Content="Cancel" Command="{Binding Path=Cancel,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="35" Margin="224,612,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
+        <GroupBox Header="Address Information" Height="195" Margin="220,129,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,10,0,0" TextWrapping="Wrap" Text="Address :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left" Height="58" Margin="92,10,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.ADDRESS, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         ScrollViewer.CanContentScroll="True" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,78,0,0" TextWrapping="Wrap" Text="Postcode :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,75,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.POSTCODE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,107,0,0" TextWrapping="Wrap" Text="Country :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,104,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.COUNTRY, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,136,0,0" TextWrapping="Wrap" Text="Website :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,133,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.WEBSITE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>
+
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="Contacts" Height="274" Margin="220,332,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Type :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <ComboBox SelectedItem="{Binding Path=CONTACT_TYPE,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="93,8,0,0" VerticalAlignment="Top" Width="334" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="Accounts"/>
+                    <ComboBoxItem Content="Demo"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,44,0,0" TextWrapping="Wrap" Text="Name :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,40,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CONTACT_NAME, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,73,0,0" TextWrapping="Wrap" Text="Salutation :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,69,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CONTACT_SALUTATION, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="231"/>
+                <ComboBox SelectedValue="{Binding Path=PRICE_TYPE,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="335,69,0,0" VerticalAlignment="Top" Width="92" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="Faithfully"/>
+                    <ComboBoxItem Content="Demo"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,102,0,0" TextWrapping="Wrap" Text="Telephone :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,98,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CONTACT_PHONE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="143"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="243,102,0,0" TextWrapping="Wrap" Text="Extn Number :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
+                <TextBox HorizontalAlignment="Left"  Margin="335,98,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CONTACT_EXTN_NO, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="92"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,131,0,0" TextWrapping="Wrap" Text="Mobile :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,127,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CONTACT_MOBILE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="143"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="243,131,0,0" TextWrapping="Wrap" Text="Fax :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
+                <TextBox HorizontalAlignment="Left"  Margin="285,127,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CONTACT_FAX, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="142"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,162,0,0" TextWrapping="Wrap" Text="Email :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,158,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.EMAIL, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,193,0,0" TextWrapping="Wrap" Text="Skype :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="92,189,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.SKYPE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}"/>
+
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="General" Height="256" Margin="687,130,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Date started :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <!--<TextBox Height="22" Margin="111,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left"/>-->
+                <DatePicker HorizontalAlignment="Left" Margin="111,10,0,0" SelectedDate="{Binding selectSupplier.DATE_STARTED}" VerticalAlignment="Top"  Width="100"/>
+
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="210,12,0,0" TextWrapping="Wrap" Text="Price :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockright}"/>
+                <!--<ComboBox HorizontalAlignment="Left" Height="24" Margin="328,8,0,0" VerticalAlignment="Top" Width="99" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content=""/>
+                    <ComboBoxItem Content="Demo"/>
+                </ComboBox>-->
+                <ComboBox SelectedValue="{Binding Path=PRICE_TYPE,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="328,10,0,0" VerticalAlignment="Top" Style="{StaticResource combobox}" Width="100">
+                    <ComboBoxItem IsSelected="True">Qty Disc</ComboBoxItem>
+                    <ComboBoxItem>Retail(Ex VAT)</ComboBoxItem>
+                    <ComboBoxItem>Trade</ComboBoxItem>
+                    <ComboBoxItem>Wholesale</ComboBoxItem>
+                    <ComboBoxItem>Retail</ComboBoxItem>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,40,0,0" TextWrapping="Wrap" Text="Statement :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <!--<TextBox Height="22" Margin="111,38,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.ADDRESS, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left"/>-->
+                <ComboBox  SelectedValue="{Binding Path=selectSupplier.STATEMENT,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="111,38,0,0" VerticalAlignment="Top" Style="{StaticResource combobox}" Width="100">
+                    <!--<ComboBox   SelectedValue="{Binding selectSupplier.STATEMENT,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedValuePath="STATEMENT" HorizontalAlignment="Left" Height="24" Margin="111,38,0,0" VerticalAlignment="Top" Style="{StaticResource combobox}" Width="100">-->
+                    <ComboBoxItem IsSelected="True">Post $ Email</ComboBoxItem>
+                    <ComboBoxItem>Email Only</ComboBoxItem>
+                    <ComboBoxItem>Post Only</ComboBoxItem>
+                    <ComboBoxItem>None</ComboBoxItem>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="210,40,0,0" TextWrapping="Wrap" Text="Dynamic Disc :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockright}"/>
+                <ComboBox  SelectedValue="{Binding Path=selectSupplier.DYNAMIC_DISC,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="328,38,0,0" VerticalAlignment="Top" Style="{StaticResource combobox}" Width="100">
+                    <ComboBoxItem IsSelected="True">Yes</ComboBoxItem>
+                    <ComboBoxItem>No</ComboBoxItem>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,69,0,0" TextWrapping="Wrap" Text="Send Mail :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <ComboBox SelectedValue="{Binding Path=SEND_MAIL,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="112,66,0,0" VerticalAlignment="Top" Width="99" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="210,69,0,0" TextWrapping="Wrap" Text="Supplier Inactive :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockright}"/>
+                <ComboBox SelectedValue="{Binding Path=SUPPLIER_INACTIVE,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="329,66,0,0" VerticalAlignment="Top" Width="99" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="No"/>
+                    <ComboBoxItem Content="Yes"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,97,0,0" TextWrapping="Wrap" Text="Vat Type :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <ComboBox  SelectedValue="{Binding Path=VAT_TYPE,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="112,94,0,0" VerticalAlignment="Top" Width="99" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="210,97,0,0" TextWrapping="Wrap" Text="Registered :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockright}"/>
+                <ComboBox  SelectedValue="{Binding Path=selectSupplier.REGISTERED,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="328,95,0,0" VerticalAlignment="Top" Style="{StaticResource combobox}" Width="100">
+                    <ComboBoxItem IsSelected="True">Yes</ComboBoxItem>
+                    <ComboBoxItem>No</ComboBoxItem>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,125,0,0" TextWrapping="Wrap" Text="Vat Number :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <ComboBox Height="22" Margin="111,123,0,0"  Text="" VerticalAlignment="Top" Style="{StaticResource combobox}" SelectedIndex="0"  HorizontalAlignment="Left" Width="50" IsEnabled="False">
+                    <ComboBoxItem IsSelected="True">GB</ComboBoxItem>
+
+                </ComboBox>
+                <TextBox Height="22" Margin="218,123,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.VAT_NUMBER,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxvatno}"  HorizontalAlignment="Left"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,152,0,0" TextWrapping="Wrap" Text="D-U-S-N No :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <TextBox Height="22" Margin="111,150,-11,0" TextWrapping="Wrap" Text="{Binding selectSupplier.ADDRESS, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Style="{StaticResource dusn}"  HorizontalAlignment="Left"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,179,0,0" TextWrapping="Wrap" Text="Our Acct Ref :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <TextBox Height="22" Margin="111,177,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.ADDRESS, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Style="{StaticResource dusn}"  HorizontalAlignment="Left"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,207,0,-4" TextWrapping="Wrap" Text="Sub Contractor :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <ComboBox SelectedValue="{Binding Path=SUB_CONTRACTOR,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="112,205,0,0" VerticalAlignment="Top" Width="316" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox Header="Purchase Ledger Credit Information" Height="57" Margin="689,392,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Cash Acct. :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <ComboBox SelectedValue="{Binding Path=CASH_ACC,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedIndex="0" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="91,8,0,0" VerticalAlignment="Top" Width="99" Style="{StaticResource combobox}">
+                    <ComboBoxItem IsSelected="True" Content="No"/>
+                    <ComboBoxItem Content="Yes"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="210,12,0,0" TextWrapping="Wrap" Text="Credit Limit :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockright}"/>
+                <TextBox Height="22" Margin="328,10,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.CREDIT_LIMIT,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left"/>
+
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="Cash Flow Information" Height="96" Margin="689,453,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Last Payment :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}" Width="90"/>
+                <TextBox IsEnabled="False" Height="22" Margin="328,10,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.AVG_PMT_DAY,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="210,12,0,0" TextWrapping="Wrap" Text="Avg PMt Days :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockright}"/>
+                <!--<TextBox IsEnabled="False" Height="22" Margin="106,10,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.VAT_NUMBER,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left"/>-->
+                <DatePicker HorizontalAlignment="Left" Margin="106,10,0,0" SelectedDate="{Binding selectSupplier.LAST_PAYMENT}" VerticalAlignment="Top"  Width="100"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,45,0,0" TextWrapping="Wrap" Text="Def Pmt Day :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}" Width="90"/>
+                <TextBox Height="22" Margin="106,43,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.DEF_PMT_DAY,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left" Width="322"/>
+
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="Analysis Option" Height="55" Margin="689,551,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=Instrcuttextitalicprod}" Width="66"/>
+                <TextBox IsEnabled="False" Height="22" Margin="259,10,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.GROUP_DESC,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left" Width="168"/>
+                <TextBox Height="22" Margin="81,10,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.GROUP,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left" Width="168"/>
+
+
+            </Grid>
+
+        </GroupBox>
+    </Grid>
+</Window>

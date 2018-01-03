@@ -1,0 +1,94 @@
+﻿<Window x:Class="Accounts_Pos.View.Supplier.SupplierDocuments"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SupplierDocuments" Height="700" Width="1180" WindowStartupLocation="CenterScreen">
+    <Grid Style="{StaticResource gridbg}">
+        <GroupBox Header="Supplier Name and Code" HorizontalAlignment="Left" Height="58" Margin="10,10,0,0" VerticalAlignment="Top" Width="1138" Style="{StaticResource headinggroup}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="557*"/>
+                    <ColumnDefinition Width="328*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Supplier Code " VerticalAlignment="Top" Style="{StaticResource Instrcuttextitalicprod}" Width="102"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,9,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.SUPPLIER_CODE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="258"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="414,11,0,0" TextWrapping="Wrap" Text="Name :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="52"/>
+                <TextBox HorizontalAlignment="Left"  Margin="466,8,0,0" TextWrapping="Wrap" Text="{Binding selectSupplier.SUPPLIER_NAME, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="209"/>
+                <CheckBox Content="Also Customer" IsChecked="{Binding IS_CUSTOMER,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="16" Margin="104,12,0,0" VerticalAlignment="Top" Width="167" Style="{StaticResource checkbox}" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+        <!--left side start here-->
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,82,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,89,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,89,0,0" TextWrapping="Wrap" Text="General Information" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse HorizontalAlignment="Left" Height="30" Margin="10,139,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,146,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="36" Margin="53,138,0,0" TextWrapping="Wrap" Text="Settlement Disc. / epayments / Notes" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}" Width="152"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,197,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,204,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,204,0,0" TextWrapping="Wrap" Text="Subcontractor" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,256,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,263,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,263,0,0" TextWrapping="Wrap" Text="NL Distribution" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,316,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,323,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,323,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,116,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,173,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,232,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,291,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+
+        <!--left side end here-->
+
+        <Rectangle Fill="#FFF4F4F5" Height="34" Margin="219,83,0,0" Stroke="Black" VerticalAlignment="Top" Style="{StaticResource PageHeadBg}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="230,88,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top" Width="437" Style="{StaticResource PageHead}"/>
+
+        <GroupBox Header="Document Manager" HorizontalAlignment="Left" Height="459" Margin="220,125,0,0" VerticalAlignment="Top" Width="897" Style="{StaticResource headinggroup}">
+            <Grid>
+                <DataGrid   ItemsSource="{Binding Path=ListGrid,AsyncState=true,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedItem="{Binding Path=selectSupplierDocument}" AutoGenerateColumns="False"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"     Name="dataGrid1" Margin="0,0,0,0" VerticalAlignment="Stretch"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="#f9f9f9"  FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#f9f9f9" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center"  EnableRowVirtualization="false" EnableColumnVirtualization="false" CanUserAddRows="False" CanUserReorderColumns="False" >
+                    <!--<DataGrid SelectionMode="Single"  ItemsSource="{Binding  Path=ListGrid,Mode=TwoWay, AsyncState=true,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=selectDelivery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"    RowHeight="28" IsReadOnly="True"  Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1" AutoGenerateColumns="False"     Name="dataGrid1" Margin="0,0,0,0" VerticalAlignment="Top"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="White" FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#dddddd" VerticalGridLinesBrush="#dddddd" HorizontalAlignment="Left" TextBlock.TextAlignment="Center" ColumnWidth="*" EnableRowVirtualization="false" EnableColumnVirtualization="false" CanUserAddRows="False" CanUserReorderColumns="False" >-->
+                    <!--<DataGrid  SelectionMode="Single" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged, Path=ListGrid}" SelectedItem="{Binding Path=SelectedEmployee}"  RowHeight="35"  FontSize="14" Cursor="Hand"  BorderBrush="Transparent" GridLinesVisibility="Horizontal" BorderThickness="1" IsReadOnly="True" AutoGenerateColumns="False"     Name="dataGrid1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="454" Width="1007"  AlternationCount="2">-->
+                    <DataGrid.Style>
+                        <Style TargetType="DataGrid">
+                            <Setter Property="AlternatingRowBackground" Value="#ffffff"/>
+                            <Setter Property="RowBackground" Value="#f9f9f9"/>
+                            <Setter Property="BorderBrush" Value="#dddddd"/>
+                            <Setter Property="FontWeight" Value="Normal"/>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Normal"/>
+                        </Style>
+                    </DataGrid.Style>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#4cbf64" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn    Width="150"  Header="File Name" Binding="{Binding FILE_NAME}"  />
+                        <DataGridTextColumn    Width="250"  Header="Modified" Binding="{Binding DATE}"  />
+                        <DataGridTextColumn   Width="100" Header="Type"  Binding="{Binding TYPE_ID_DOC}"/>
+                        <DataGridTextColumn   Width="100" Header="Size"  Binding="{Binding SIZE}"/>
+                        <DataGridTextColumn   Width="100" Header="Tag"  Binding="{Binding TAG}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--<Rectangle Fill="#ffffff" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" Stroke="#dddddd" VerticalAlignment="Top" Width="865"/>-->
+                <Button Content="Home" HorizontalAlignment="Left" Height="28" Margin="11,386,0,0" VerticalAlignment="Top" Width="160"/>
+                <Button Content="Add Document" Command="{Binding DocumentUpload}" HorizontalAlignment="Left" Height="28" Margin="188,386,0,0" VerticalAlignment="Top" Width="160"/>
+                <Button Content="Delete Document" Command="{Binding DocumentDelete}" HorizontalAlignment="Left" Height="28" Margin="367,386,0,0" VerticalAlignment="Top" Width="160"/>
+                <Button Content="Open Document" Command="{Binding DocumentOpen}" HorizontalAlignment="Left" Height="28" Margin="543,386,0,0" VerticalAlignment="Top" Width="160"/>
+                <Button Content="Document Properties" Command="{Binding DocumentProperties}" HorizontalAlignment="Left" Height="28" Margin="717,386,0,0" VerticalAlignment="Top" Width="160"/>
+
+            </Grid>
+        </GroupBox>
+
+
+        <Button Content="Save and Next" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="35" Margin="993,613,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}"/>
+        <Button Content="Cancel" Command="{Binding Cancel,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="35" Margin="224,612,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
+        <Button Content="Back"   HorizontalAlignment="Left" Height="35" Margin="842,612,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
+    </Grid>
+</Window>

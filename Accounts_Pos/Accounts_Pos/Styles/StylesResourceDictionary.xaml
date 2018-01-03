@@ -1,0 +1,690 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctrl="clr-namespace:Accounts_Pos.Helpers">
+    <Style x:Key="greenbtn" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#ff0000"></Setter>
+    </Style>
+    <Style x:Key="LoginBg" TargetType="Rectangle">
+        <Setter Property="Stroke" Value="#dddddd"></Setter>
+    </Style>
+
+    <Style x:Key="LogiBtn" TargetType="Button">
+        <Setter Property="Background" Value="#2677a5"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#2677a5"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="TextboxprdrC" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="335"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+    <Style x:Key="Instrcuttextitalicprod" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="70"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="GridRowText" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="70"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Background" Value="Silver"/>
+    </Style>
+    <Style x:Key="textbolockleft" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="70"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="textbolockleftbig" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="textbolockright" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="115"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Right"/>
+    </Style>
+
+    <Style x:Key="textbolockleftcredit" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="130"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="textbolockleftcomm" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="172"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+
+    <Style x:Key="textbox" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="335"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="textboxcredit" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="265"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="textboxcomm" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="150"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="textboxcommright" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="150"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Right"></Setter>
+    </Style>
+
+    <Style x:Key="textboxbank" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="210"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="textboxsmall" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="textboxvatno" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="248"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="dusn" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="317"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="headinggroup" TargetType="{x:Type GroupBox}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+    </Style>
+
+    <Style x:Key="topbar" TargetType="{x:Type Rectangle}">
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="Stroke" Value="#000fff"></Setter>
+    </Style>
+    <Style x:Key="checkbox" TargetType="{x:Type CheckBox}">
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+    </Style>
+    <Style x:Key="menusec" TargetType="{x:Type Menu}">
+        <Setter Property="Background" Value="#f5f5f5"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="14"/>
+        
+    </Style>
+    <Style x:Key="leftmenu" TargetType="{x:Type TreeView}">
+        <Setter Property="Background" Value="#f5f5f5"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="BorderBrush" Value="#f5f5f5"></Setter>
+    </Style>
+    <Style x:Key="leftmenutree" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="Background" Value="#f5f5f5"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="Padding" Value="0 4 4 4"></Setter>
+        
+
+    </Style>
+    <Style x:Key="treemenu" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="Padding" Value="0 4 4 4"></Setter>
+    </Style>
+    <Style x:Key="gridbg" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="#ffffff"></Setter>
+    </Style>
+
+    <Style x:Key="textbolockbigbank" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="textbolockbold" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+    <Style x:Key="textbolockline" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"></Setter>
+        <Setter Property="Foreground" Value="#2677a5"></Setter>
+        <Setter Property="TextDecorations" Value="Underline"/>
+    </Style>
+    <Style x:Key="combobox" TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+    </Style>
+    <Style x:Key="checkboxcredit" TargetType="{x:Type CheckBox}">
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+    </Style>
+    <Style x:Key="tabcontrolglobal" TargetType="{x:Type TabControl}">
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+       
+    </Style>
+    <Style x:Key="tabitemhor" TargetType="{x:Type TabItem}">
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <!--<Setter Property="Background" Value="#2677a5"></Setter>-->
+        <!--<Setter Property="Foreground" Value="#ffffff"></Setter>-->
+        <!--<Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#ffffff"></Setter>
+            </Trigger>
+        </Style.Triggers>-->
+        
+    </Style>
+    <Style x:Key="SaveBtn" TargetType="{x:Type Button}">
+        
+        <Setter Property="Background" Value="#2677a5"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#2677a5"></Setter>
+        <Setter Property="Width" Value="140"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="CancelBtn" TargetType="{x:Type Button}">
+
+        <Setter Property="Background" Value="#e5e5e5"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Foreground" Value="#333333"></Setter>
+        <Setter Property="BorderBrush" Value="#e5e5e5"></Setter>
+        <Setter Property="Width" Value="140"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="AddBtn" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#35aa47"></Setter>
+        <Setter Property="Foreground" Value="#fff"></Setter>
+        <Setter Property="BorderBrush" Value="#35aa47"></Setter>
+        <Setter Property="Width" Value="77"></Setter>
+        <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background" Value="#000000" />
+            <Setter Property="Foreground" Value="#000000"></Setter>
+        </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="EditBtn" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#ffb848"></Setter>
+        <Setter Property="Foreground" Value="#fff"></Setter>
+        <Setter Property="BorderBrush" Value="#ffb848"></Setter>
+        <Setter Property="Width" Value="77"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+                <Setter Property="Width" Value="77"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DeleteBtn" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#d2322d"></Setter>
+        <Setter Property="Foreground" Value="#fff"></Setter>
+        <Setter Property="BorderBrush" Value="#d2322d"></Setter>
+        <Setter Property="Width" Value="77"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DefaultBtn" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#d8d8d8"></Setter>
+        <Setter Property="Foreground" Value="#fff"></Setter>
+        <Setter Property="BorderBrush" Value="#d8d8d8"></Setter>
+        <Setter Property="Width" Value="77"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="PageHead" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="205"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="17"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter  Property="Foreground" Value="#000000"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <!--<Setter Property="Block.BorderBrush" Value="#cccccc"></Setter>-->
+    </Style>
+    <Style x:Key="PageHeadBg" TargetType="{x:Type Rectangle}">
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="Stroke" Value="#000"></Setter>
+       
+        
+    </Style>
+    <Style x:Key="circle" TargetType="Ellipse">
+        <Setter Property="Stroke" Value="#dddddd"></Setter>
+    </Style>
+    <Style x:Key="textblockrow" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Width" Value="30"> </Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+    <Style x:Key="textblockrowname" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Width" Value="130"></Setter>
+    </Style>
+    <Style x:Key="LineStep" TargetType="{x:Type Rectangle}">
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="Stroke" Value="#ddd"></Setter>
+        <Setter Property="Width" Value="5"></Setter>
+        <Setter Property="Height" Value="20"></Setter>
+
+
+    </Style>
+    <Style x:Key="LineStepSelected" TargetType="{x:Type Rectangle}">
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="Stroke" Value="#2677a5"></Setter>
+        <Setter Property="Width" Value="5"></Setter>
+        <Setter Property="Height" Value="20"></Setter>
+        <Setter Property="Fill" Value="#2677a5"></Setter>
+    </Style>
+    <Style x:Key="textblockrownameSelected" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Width" Value="130"></Setter>
+        <Setter Property="Foreground" Value="#2677a5"></Setter>
+    </Style>
+    <Style x:Key="CircleSelected" TargetType="Ellipse">
+        <Setter Property="Stroke" Value="#2677a5"></Setter>
+        <Setter Property="Fill" Value="#2677a5"></Setter>
+    </Style>
+    <Style x:Key="Textblockrowselected" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Width" Value="30"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+    </Style>
+    <Style x:Key="Imagebtn" TargetType="Button">
+        <Setter Property="Height" Value="60"></Setter>
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#ffffff"></Setter>
+        <Setter Property="Width" Value="45"></Setter>
+    </Style>
+    <Style x:Key="ImageDropDownbtn" TargetType="ctrl:DropDownButton">
+        <Setter Property="Height" Value="60"></Setter>
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#ffffff"></Setter>
+        <Setter Property="Width" Value="45"></Setter>
+    </Style>
+    <Style x:Key="Recatnglefull" TargetType="Rectangle">
+        <Setter Property="Stroke" Value="#eeeeee"></Setter>
+        <Setter Property="Fill" Value="#f5f5f5"></Setter>
+    </Style>
+    <Style x:Key="DatagridCustomer" TargetType="DataGrid">
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#dddddd"></Setter>
+    </Style>
+    <Style x:Key="filterbtn" TargetType="Button">
+        <Setter Property="Background" Value="#f5f5f5"></Setter>
+    </Style>
+    
+    <Style x:Key="Instrcuttext" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="InstrcuttextGroup" TargetType="GroupBox">
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="InstrcuttextRadio" TargetType="RadioButton">
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="fileName" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="15"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="Instrcuttextitalic" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontStyle" Value="Oblique">
+        </Setter>
+    </Style>
+    <Style x:Key="RadioInstruct" TargetType="RadioButton">
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="CancelBtncom" TargetType="{x:Type Button}">
+
+        <Setter Property="Background" Value="#e5e5e5"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Foreground" Value="#333333"></Setter>
+        <Setter Property="BorderBrush" Value="#e5e5e5"></Setter>
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        
+    </Style>
+    <Style x:Key="SaveBtnCom" TargetType="{x:Type Button}">
+
+        <Setter Property="Background" Value="#2677a5"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#2677a5"></Setter>
+        <Setter Property="Width" Value="140"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="textbolockRightComp" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Right"></Setter>
+    </Style>
+    <Style x:Key="textbolockleftComp" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="textbolockleftInstruct" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="LineHeight" Value="20"></Setter>
+    </Style>
+    <Style x:Key="textbolockinstComphead" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Height" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Foreground" Value="#2677a5"></Setter>
+    </Style>
+    <Style x:Key="textbolockloginclick" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Height" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <!--<Setter Property="Foreground" Value="#2677a5"></Setter>-->
+    </Style>
+
+    <Style x:Key="clickhere" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <!--<Setter Property="Height" Value="20"></Setter>-->
+        <!--<Setter Property="FontWeight" Value="Bold"/>-->
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Foreground" Value="#2677a5"></Setter>
+        <Setter Property="TextDecorations" Value="Underline"></Setter>
+    </Style>
+    <Style x:Key="textbolockleftInstructtwo" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="LineHeight" Value="16"></Setter>
+    </Style>
+
+    <Style x:Key="textbolockbigName" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="textbolockRightCompbold" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextAlignment" Value="Right"></Setter>
+    </Style>
+    <Style x:Key="gridbgimg" TargetType="Grid">
+        <Setter Property="Background" Value="#907b76"></Setter>
+       
+    </Style>
+
+    <!--<Style x:Key="MyImage" TargetType="Window">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="../../Images/accounting software_bg.jpg"></ImageBrush>
+            </Setter.Value>
+        </Setter>
+
+    </Style>-->
+    <!--<ImageBrush x:Key="MyImageBrush" ImageSource="../../Images/accounting software_bg.jpg" />-->
+    <!--<Style x:Key="MyImagebrush" TargetType="Window">
+        
+        
+    </Style>
+    <Application.Resources>
+        <ImageBrush x:Key="MyImageBrush" ImageSource="Images/curtains.png" />
+    </Application.Resources>-->
+    <Style x:Key="Tabcompany" TargetType="TabControl">
+        <Setter Property="BorderBrush" Value="#dddddd"></Setter>
+        <!--<Setter Property="Background" Value="#ffffff"></Setter>-->
+        <Setter Property="Opacity" Value="0.9"></Setter>
+        <Setter Property="Background" Value="#ffffff"></Setter>
+    </Style>
+    <Style x:Key="TabItemComany" TargetType="TabItem">
+        <Setter Property="Background" Value="#2677a5"></Setter>
+        <Setter Property="Padding" Value="8"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="Opacity" Value="1"></Setter>
+        <Setter Property="BorderBrush" Value="#dddddd"></Setter>
+          
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#2677a5" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+               
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="StartButton" TargetType="Button">
+        <Setter Property="Background" Value="#2677a5"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="FontSize" Value="15"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="BorderBrush" Value="#2677a5"></Setter>
+    </Style>
+    <Style x:Key="SupportHeader" TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="#2677a5"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="Textbolocknamefield" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="TextAlignment" Value="Right"></Setter>
+        <Setter Property="Foreground" Value="#2677a5"></Setter>
+    </Style>
+    <Style x:Key="comapnyheading" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="TextBoxLook" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="280"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Padding" Value="4 3 4 0" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="TextBolockLook" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="105"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Key="TextBolockLookWide" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="200"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="AddBtnLook" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#35aa47"></Setter>
+        <Setter Property="Foreground" Value="#fff"></Setter>
+        <Setter Property="BorderBrush" Value="#35aa47"></Setter>
+        <Setter Property="Width" Value="120"></Setter>
+        <Setter Property="Height" Value="35"></Setter>
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="CancelBtnLook" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#d8d8d8"></Setter>
+        <Setter Property="Foreground" Value="#000"></Setter>
+        <Setter Property="BorderBrush" Value="#d8d8d8"></Setter>
+        <Setter Property="FontSize" Value="13"></Setter>
+
+        <Setter Property="Width" Value="120"></Setter>
+        <Setter Property="Height" Value="35"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ViewHeadingGroup" TargetType="{x:Type GroupBox}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="Background" Value="#fff"></Setter>
+    </Style>
+
+    <Style x:Key="ComboboxLook" TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+        <Setter Property="FontWeight" Value="Normal"></Setter>
+        <Setter Property="BorderBrush" Value="#cccccc"></Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,141 @@
+﻿<Window x:Class="Accounts_Pos.View.Customer.CreditControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Customer"  Height="700" Width="1180"  ScrollViewer.HorizontalScrollBarVisibility="Auto" Top="0" Left="50">
+    <Grid Style="{StaticResource gridbg}">
+
+        <!--left side start here-->
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,8,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,15,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,15,0,0" TextWrapping="Wrap" Text="General Information" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,65,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,72,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,72,0,0" TextWrapping="Wrap" Text="Miscellaneous" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,123,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,130,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,130,0,0" TextWrapping="Wrap" Text="Delivery Address" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,182,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,189,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,189,0,0" TextWrapping="Wrap" Text="Sales Summary" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,242,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,249,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,249,0,0" TextWrapping="Wrap" Text="Defaults" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,305,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,312,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,312,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,364,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,371,0,0" TextWrapping="Wrap" Text="7" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,371,0,0" TextWrapping="Wrap" Text="NL Distribution" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,425,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,432,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,432,0,0" TextWrapping="Wrap" Text="Credit Control" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,487,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,494,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,498,0,0" TextWrapping="Wrap" Text="Communications" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,42,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,99,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,158,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,217,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,279,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,339,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,399,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,461,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <!--left side end here-->
+        <Grid>
+            <Rectangle Fill="#FFF4F4F5" Height="34" Margin="219,8,0,0" Stroke="Black" VerticalAlignment="Top" Style="{StaticResource PageHeadBg}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="230,13,0,0" TextWrapping="Wrap" Text="Credit Control" VerticalAlignment="Top" Width="437" Style="{StaticResource PageHead}"/>
+            <GroupBox Header="Address Information" Height="433" Margin="222,53,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,10,0,0" TextWrapping="Wrap" Text="Credit Limit :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,7,0,0" TextWrapping="Wrap" Text="{Binding CREDIT_LIMIT, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,40,0,0" TextWrapping="Wrap" Text="Settlement Due :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,37,0,0" TextWrapping="Wrap" Text="{Binding SETTLEMENT_DUE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}" Width="226"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,70,0,0" TextWrapping="Wrap" Text="Settlement Discount :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,68,0,0" TextWrapping="Wrap" Text="{Binding SETTLEMENT_DISCOUNT, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,101,0,0" TextWrapping="Wrap" Text="Payment Due :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,98,0,0" TextWrapping="Wrap" Text="{Binding PAYMENT_DUE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,131,0,0" TextWrapping="Wrap" Text="Payment Due from :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <ComboBox SelectedValue="{Binding Path=PAYMENT_FROM,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="155,129,0,0" VerticalAlignment="Top" Width="266" Style="{StaticResource combobox}">
+                        <ComboBoxItem IsSelected="True" Content="Days After Invoice date"/>
+                        <ComboBoxItem Content="Demo"/>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,161,0,0" TextWrapping="Wrap" Text="Average Time to Pay :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,158,0,0" TextWrapping="Wrap" Text="{Binding AVG_TIME, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textboxcredit}" Width="226"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,192,0,0" TextWrapping="Wrap" Text="Trading Terms Text :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,189,0,0" TextWrapping="Wrap" Text="{Binding TREDING_TERMS, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,223,0,0" TextWrapping="Wrap" Text="Credit Ref. :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,220,0,0" TextWrapping="Wrap" Text="{Binding CREDIT_REF, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,253,0,0" TextWrapping="Wrap" Text="Bureau :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <ComboBox SelectedValue="{Binding Path=BUREAU,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="155,250,0,0" VerticalAlignment="Top" Width="266" Style="{StaticResource combobox}">
+                        <ComboBoxItem IsSelected="True" Content=""/>
+                        <ComboBoxItem Content="Demo"/>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,283,0,0" TextWrapping="Wrap" Text="Priority Customer :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <CheckBox Content="" IsChecked="{Binding IS_PRIORITY,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="19" Margin="156,286,0,0" VerticalAlignment="Top" Width="88"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,314,0,-26" TextWrapping="Wrap" Text="Credit Position :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <ComboBox SelectedValue="{Binding Path=CREDIT_POSITION,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="155,311,0,0" VerticalAlignment="Top" Width="266" Style="{StaticResource combobox}">
+                        <ComboBoxItem IsSelected="True" Content="Good"/>
+                        <ComboBoxItem Content="Demo"/>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,345,0,-57" TextWrapping="Wrap" Text="Account Status :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="11,376,0,-88" TextWrapping="Wrap" Text="Dung Number :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,373,0,-87" TextWrapping="Wrap" Text="{Binding DUNS_NUMBER, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="387,40,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}" Width="34"/>
+                    <TextBlock HorizontalAlignment="Left"  Margin="391,161,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftcredit}" Width="30"/>
+                    <ComboBox SelectedValue="{Binding Path=ACCOUNT_STATUS,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedValuePath="Content" HorizontalAlignment="Left" Height="24" Margin="155,345,0,0" VerticalAlignment="Top" Width="266" Style="{StaticResource combobox}">
+                        <ComboBoxItem IsSelected="True" Content="Open"/>
+                        <ComboBoxItem Content="Demo"/>
+                    </ComboBox>
+
+
+
+
+
+
+                </Grid>
+
+            </GroupBox>
+            <GroupBox Header="Credit Review" Height="520" Margin="674,53,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,10,0,0" TextWrapping="Wrap" Text="Account Opened :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <!--<TextBox HorizontalAlignment="Left"  Margin="156,7,0,0" TextWrapping="Wrap" Text="{Binding ACCOUNT_OPENED, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>-->
+                    <DatePicker HorizontalAlignment="Left" Margin="156,7,0,0" SelectedDate="{Binding selectCustomer.ACCOUNT_OPENED}" VerticalAlignment="Top"  Width="100"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,40,0,0" TextWrapping="Wrap" Text="Last Credit Review :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,37,0,0" TextWrapping="Wrap" Text="{Binding LAST_CREDIT, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,70,0,0" TextWrapping="Wrap" Text="Next Credit Review :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,67,0,0" TextWrapping="Wrap" Text="{Binding NEXT_CREDIT, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,102,0,0" TextWrapping="Wrap" Text="Application Date :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <!--<TextBox HorizontalAlignment="Left"  Margin="156,99,0,0" TextWrapping="Wrap" Text="{Binding APPLICATION_DATE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>-->
+                    <DatePicker HorizontalAlignment="Left" Margin="156,99,0,0" SelectedDate="{Binding selectCustomer.APPLICATION_DATE}" VerticalAlignment="Top"  Width="100"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,132,0,0" TextWrapping="Wrap" Text="Date Received :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <!--<TextBox HorizontalAlignment="Left"  Margin="156,129,0,0" TextWrapping="Wrap" Text="{Binding DATE_RECEIVED, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}"/>-->
+                    <DatePicker HorizontalAlignment="Left" Margin="156,129,0,0" SelectedDate="{Binding selectCustomer.DATE_RECEIVED}" VerticalAlignment="Top"  Width="100"/>
+                    <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,163,0,-10" TextWrapping="Wrap" Text="Memo :" VerticalAlignment="Top" Style="{StaticResource textbolockleftcredit}"/>
+                    <TextBox HorizontalAlignment="Left"  Margin="156,160,0,0" TextWrapping="Wrap" Text="{Binding MEMO, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textboxcredit}" Height="330"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Restrictions" Height="82" Margin="222,491,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="445">
+                <Grid>
+                    <CheckBox Content="Can change Credit" IsChecked="{Binding IS_CHANGE_CREDIT,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Style="{StaticResource checkboxcredit }"/>
+                    <CheckBox Content="Terms Agreed" IsChecked="{Binding IS_TERMS_AGREED,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Style="{StaticResource checkboxcredit }"/>
+                    <CheckBox Content="Restrict mailing" IsChecked="{Binding IS_RESTRICT_MAILING,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="221,11,0,0" VerticalAlignment="Top" Style="{StaticResource checkboxcredit }"/>
+                    <CheckBox Content="Account on Hold" IsChecked="{Binding IS_ACCOUNT_HOLD,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="221,34,0,0" VerticalAlignment="Top" Style="{StaticResource checkboxcredit }"/>
+
+                </Grid>
+
+            </GroupBox>
+            <Button Content="Back" HorizontalAlignment="Left" Height="35" Margin="225,589,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}" Width="87"/>
+            <Button Content="Save and Next" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="35" Margin="319,588,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}"/>
+            <Button Content="Cancel" Command="{Binding Path=Cancel,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="35" Margin="977,588,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
+        </Grid>
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="Accounts_Pos.View.Lookup.TaxabilityCIS"
+        x:Name="AddTaxabilityCIS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TaxabilityCIS" Height="350" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="{Binding GROUP_BOX_TITLE}" Height="268" Margin="10,25,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="659">
+            <Grid>
+                <!--<TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Taxable CIS Id" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding TAXABLE_CIS_ID}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />-->
+                <TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Taxable CIS Description" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLookWide}"/>
+                <TextBox MaxLength="500" HorizontalAlignment="Left"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding selectedTaxabilityCIS.TAXABLE_CIS_DESC}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" Height="66" Width="624" />
+                <Button Content="Add" Command="{Binding AddTaxibilityCIS}" HorizontalAlignment="Left"  Margin="224,122,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" />
+                <Button Content="Edit" Visibility="{Binding EditButtonVisibility}" Command="{Binding Update}" CommandParameter="{Binding ElementName=AddAccountAnalysisWindow}" HorizontalAlignment="Left" Margin="224,122,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" Grid.Column="1" />
+                <Button Content="Cancel" Command="{Binding Cancel}" HorizontalAlignment="Left" Height="35" Margin="358,122,0,0" VerticalAlignment="Top" Style="{StaticResource CancelBtnLook}" />
+
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>

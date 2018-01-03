@@ -1,0 +1,25 @@
+﻿<Window x:Class="Accounts_Pos.View.Lookup.DeliveryType"
+        x:Name="AddDeliveryType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DeliveryType" Height="350" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="{Binding GROUP_BOX_TITLE}" Height="268" Margin="10,25,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="659">
+            <Grid>
+                <!--<TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding ID}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />-->
+                <TextBlock HorizontalAlignment="Left"  Margin="11,19,0,0" TextWrapping="Wrap" Text="Code" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left"  Margin="11,44,0,0" TextWrapping="Wrap" Text="{Binding selectedDeliveryType.CODE}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" />
+                <Button Content="Add" Command="{Binding AddDeliveryType}" HorizontalAlignment="Left"  Margin="224,179,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" />
+                <Button Content="Edit" Visibility="{Binding EditButtonVisibility}" Command="{Binding Update}" CommandParameter="{Binding ElementName=AddAccountAnalysisWindow}" HorizontalAlignment="Left" Margin="224,179,0,0" VerticalAlignment="Top" Style="{StaticResource AddBtnLook}" Grid.Column="1" />
+                <Button Content="Cancel" Command="{Binding Cancel}" HorizontalAlignment="Left" Height="35" Margin="358,179,0,0" VerticalAlignment="Top" Style="{StaticResource CancelBtnLook}" />
+                <TextBlock HorizontalAlignment="Left"  Margin="11,78,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Style="{StaticResource ResourceKey=TextBolockLook}" Width="168"/>
+                <TextBox MaxLength="50" HorizontalAlignment="Left"  Margin="11,101,0,0" TextWrapping="Wrap" Text="{Binding selectedDeliveryType.NAME}" VerticalAlignment="Top" Style="{StaticResource TextBoxLook}" Width="624" />
+
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>

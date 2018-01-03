@@ -1,0 +1,74 @@
+﻿<Window x:Class="Accounts_Pos.View.Customer.Documents"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Customer"  Height="700" Width="1180"  ScrollViewer.HorizontalScrollBarVisibility="Auto" Top="0" Left="50">
+    <Grid Style="{StaticResource gridbg}">
+
+        <!--left side start here-->
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,8,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,15,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,15,0,0" TextWrapping="Wrap" Text="General Information" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,65,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,72,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,72,0,0" TextWrapping="Wrap" Text="Miscellaneous" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,123,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,130,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,130,0,0" TextWrapping="Wrap" Text="Delivery Address" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,182,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,189,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,189,0,0" TextWrapping="Wrap" Text="Sales Summary" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,242,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,249,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,249,0,0" TextWrapping="Wrap" Text="Defaults" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,305,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,312,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,312,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,364,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,371,0,0" TextWrapping="Wrap" Text="7" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,371,0,0" TextWrapping="Wrap" Text="NL Distribution" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,425,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,432,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,432,0,0" TextWrapping="Wrap" Text="Credit Control" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,487,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,494,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,498,0,0" TextWrapping="Wrap" Text="Communications" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,42,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,99,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,158,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,217,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,279,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,339,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,399,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,461,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <!--left side end here-->
+        <Grid>
+            <Rectangle Fill="#FFF4F4F5" Height="34" Margin="219,8,0,0" Stroke="Black" VerticalAlignment="Top" Style="{StaticResource PageHeadBg}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="230,13,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top" Width="437" Style="{StaticResource PageHead}"/>
+            <GroupBox Header="Document Manager" HorizontalAlignment="Left" Height="495" Margin="222,53,0,0" VerticalAlignment="Top" Width="897" Style="{StaticResource headinggroup}">
+                <Grid>
+                    <Rectangle Fill="#ffffff" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" Stroke="#dddddd" VerticalAlignment="Top" Width="865"/>
+                    <Button Content="Home" HorizontalAlignment="Left" Height="28" Margin="11,426,0,0" VerticalAlignment="Top" Width="160"/>
+                    <Button Content="Add Document" HorizontalAlignment="Left" Height="28" Margin="188,426,0,0" VerticalAlignment="Top" Width="160"/>
+                    <Button Content="Delete Document" HorizontalAlignment="Left" Height="28" Margin="367,426,0,0" VerticalAlignment="Top" Width="160"/>
+                    <Button Content="Open Document" HorizontalAlignment="Left" Height="28" Margin="543,426,0,0" VerticalAlignment="Top" Width="160"/>
+                    <Button Content="Document Properties" HorizontalAlignment="Left" Height="28" Margin="717,426,0,0" VerticalAlignment="Top" Width="160"/>
+
+                </Grid>
+            </GroupBox>
+            <Button Content="Back" HorizontalAlignment="Left" Height="35" Margin="225,570,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}" Width="87"/>
+            <Button Content="Save and Next" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="35" Margin="319,570,0,0" VerticalAlignment="Top" Style="{StaticResource SaveBtn}"/>
+            <Button Content="Delete" HorizontalAlignment="Left" Height="35" Margin="468,570,0,0" VerticalAlignment="Top" Width="104"/>
+            <Button Content="Cancel" HorizontalAlignment="Left" Height="35" Margin="1015,570,0,0" VerticalAlignment="Top" Width="104"/>
+
+        </Grid>
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>

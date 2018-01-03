@@ -1,0 +1,36 @@
+﻿<Window x:Class="Accounts_Pos.View.Restore.SuccessRestore"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CompanyExist" Height="450" Width="720" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,17,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,24,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,24,0,0" TextWrapping="Wrap" Text="Upload File" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+            <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,74,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,81,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,81,0,0" TextWrapping="Wrap" Text="Choose File" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+            <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,132,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,139,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,139,0,0" TextWrapping="Wrap" Text="Ready To Restore" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+            <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,191,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,198,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,198,0,0" TextWrapping="Wrap" Text="Submit" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+            <Rectangle  HorizontalAlignment="Left"  Margin="24,50,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+            <Rectangle  HorizontalAlignment="Left"  Margin="24,108,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+            <Rectangle  HorizontalAlignment="Left"  Margin="24,167,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+            <GroupBox Header="Restore" Height="327" Margin="204,17,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="488">
+                <Grid>
+                    <Image Source="../../Images/sucess-icon.png" Stretch="Uniform"  Width="50" Height="50" Margin="205,39,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="-13.813,-4.353"/>
+                    <TextBlock HorizontalAlignment="Left" Height="31" Margin="11,142,0,0" TextWrapping="Wrap" Text="You can now use the company by selecting it from the
+Companies tab in company Manager." VerticalAlignment="Top" Width="455" Style="{StaticResource restoreradio}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="11,115,0,0" TextWrapping="Wrap" Text="You have successfully restored your dataset overwriting
+an existing dataset." VerticalAlignment="Top" Width="455" />
+
+                </Grid>
+            </GroupBox>
+            <Button Content="Close"  HorizontalAlignment="Left" Height="35" Margin="608,358,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtnCom}" Width="84"/>
+
+        </Grid>
+    </Grid>
+</Window>

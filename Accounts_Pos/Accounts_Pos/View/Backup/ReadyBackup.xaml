@@ -1,0 +1,44 @@
+﻿<Window x:Class="Accounts_Pos.View.Backup.ReadyBackup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ReadyBackup" Height="450" Width="720" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,17,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,24,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,24,0,0" TextWrapping="Wrap" Text="Select Company" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,74,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,81,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,81,0,0" TextWrapping="Wrap" Text="Choose a Folder" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,132,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,139,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,139,0,0" TextWrapping="Wrap" Text="Ready To Backup" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,191,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,198,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,198,0,0" TextWrapping="Wrap" Text="Submit" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,50,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,108,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,167,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <GroupBox Header="Ready to Backup" Height="327" Margin="204,17,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="488">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="10,31,0,0" TextWrapping="Wrap" Text="The backup(s) will be created in the following folder." VerticalAlignment="Top" Width="456" Style="{StaticResource restoreradio}"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,56,0,0" TextWrapping="Wrap" Text="C:\Users\Infosolz\Documets" VerticalAlignment="Top" Width="456" Style="{StaticResource restoreradio}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,13,0,0" TextWrapping="Wrap" Text="Select the companies you want to back up." VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftrestore}" Width="455" Height="20" />
+                <Rectangle Fill="#2677a5" HorizontalAlignment="Left" Height="32" Margin="0,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="476" Opacity="100" StrokeThickness="0"/>
+                <Rectangle Fill="#ffffff" HorizontalAlignment="Left" Height="32" Margin="0,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="476" Opacity="100" StrokeThickness="0"/>
+
+                <TextBlock HorizontalAlignment="Left" Height="20" Margin="12,95,0,0" TextWrapping="Wrap" Text="Company Name" VerticalAlignment="Top" Width="106" Foreground="#ffffff" Style="{StaticResource comapnyheading}"/>
+                <TextBlock HorizontalAlignment="Left" Height="20" Margin="359,95,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" Width="111" Foreground="#ffffff" Style="{StaticResource comapnyheading}"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,127,0,0" TextWrapping="Wrap" Text="Demo Company" VerticalAlignment="Top" Width="344" Style="{StaticResource restoreradio}"/>
+                <TextBlock HorizontalAlignment="Left" Height="20" Margin="359,128,0,0" TextWrapping="Wrap" Text="Queued" VerticalAlignment="Top" Width="107" Style="{StaticResource Nobackup}"/>
+                <Rectangle Fill="#f5f5f5" HorizontalAlignment="Left" Height="32" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="476" Opacity="100" StrokeThickness="0"/>
+                <TextBlock HorizontalAlignment="Left" Height="20" Margin="359,163,0,0" TextWrapping="Wrap" Text="Completed" VerticalAlignment="Top" Width="107" Style="{StaticResource Nobackup}"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,162,0,0" TextWrapping="Wrap" Text="Demo Company" VerticalAlignment="Top" Width="344" Style="{StaticResource restoreradio}"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Start"  HorizontalAlignment="Left" Height="35" Margin="608,358,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtnCom}" Width="84"/>
+        <Button Content="Cancel"  HorizontalAlignment="Left" Height="35" Margin="206,358,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtncom}" Width="84"/>
+        <Button Content="Back"  HorizontalAlignment="Left" Height="35" Margin="515,358,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtncom}" Width="84"/>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="Accounts_Pos.View.Company.AddCompany"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NewCompanyAssistant"  Margin="12,5,0,0" Height="450" Width="720" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Ellipse  HorizontalAlignment="Left" Height="30" Margin="10,17,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource CircleSelected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,24,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  Style="{StaticResource Textblockrowselected}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,24,0,0" TextWrapping="Wrap" Text="Company Information" VerticalAlignment="Top"  Style="{StaticResource textblockrownameSelected}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,74,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,81,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,81,0,0" TextWrapping="Wrap" Text="Company Assistant" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,132,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,139,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,139,0,0" TextWrapping="Wrap" Text="Preview and Save" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,191,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,198,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,198,0,0" TextWrapping="Wrap" Text="Login Credential" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,50,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,108,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,167,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <GroupBox Header="Company Details" Height="287" Margin="204,17,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="488">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,18,0,0" TextWrapping="Wrap" Text="Company name :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockRightComp}" />
+                <TextBox HorizontalAlignment="Left"  Margin="133,15,0,0" TextWrapping="Wrap" Text="{Binding selectCompany.COMPANY_NAME, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,44,0,0" TextWrapping="Wrap" Text="Address :" VerticalAlignment="Top" Style="{StaticResource textbolockRightComp}"/>
+                <TextBox HorizontalAlignment="Left" Height="58" Margin="133,44,0,0" TextWrapping="Wrap" Text="{Binding ADDRESS, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         ScrollViewer.CanContentScroll="True" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,112,0,0" TextWrapping="Wrap" Text="Postcode :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockRightComp}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="133,109,0,0" TextWrapping="Wrap" Text="{Binding selectCompany.POSTCODE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,141,0,0" TextWrapping="Wrap" Text="Country :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockRightComp}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="133,138,0,0" TextWrapping="Wrap" Text="{Binding COUNTRY, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,170,0,0" TextWrapping="Wrap" Text="Telephone :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockRightComp}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="133,167,0,0" TextWrapping="Wrap" Text="{Binding selectCompany.TELEPHONE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,200,0,0" TextWrapping="Wrap" Text="Fax :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockRightComp}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="133,197,0,0" TextWrapping="Wrap" Text="{Binding selectCompany.FAX, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,229,0,0" TextWrapping="Wrap" Text="Website :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockRightComp}"/>
+                <TextBox HorizontalAlignment="Left"  Margin="133,226,0,0" TextWrapping="Wrap" Text="{Binding WEBSITE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Next" Command="{Binding CompanyAssistantClick}"   HorizontalAlignment="Left" Height="35" Margin="608,331,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtnCom}" Width="84"/>
+        <Button Content="Back"  HorizontalAlignment="Left" Height="35" Margin="516,331,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtncom}" Width="84"/>
+        <Button Content="Cancel"  HorizontalAlignment="Left" Height="35" Margin="206,331,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtncom}" Width="84"/>
+
+    </Grid>
+</Window>

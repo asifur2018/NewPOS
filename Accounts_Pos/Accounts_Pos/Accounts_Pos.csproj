@@ -1,0 +1,763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{718F0AA7-9024-4476-9810-C98FE525583D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Accounts_Pos</RootNamespace>
+    <AssemblyName>Accounts_Pos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\30-10-17 - Copy\Sandhya\Accounts_PosApi\Accounts_PosApi\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.0\Libraries\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Helpers\CustomGrid.cs" />
+    <Compile Include="Helpers\DateValidation.cs" />
+    <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\DropDownButton .cs" />
+    <Compile Include="Helpers\IModal.cs" />
+    <Compile Include="Helpers\NotificationObject.cs" />
+    <Compile Include="Helpers\SimpleCommand.cs" />
+    <Compile Include="Model\AccountAnalysisLookUpModel.cs" />
+    <Compile Include="Model\AccountTypeLookUpModel.cs" />
+    <Compile Include="Model\CompanyModel.cs" />
+    <Compile Include="Model\ConfigurationModel.cs" />
+    <Compile Include="Model\CreditControlModel.cs" />
+    <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\DefaultModel.cs" />
+    <Compile Include="Model\DeliveryAddressModel.cs" />
+    <Compile Include="Model\DeliveryModeLookUpModel.cs" />
+    <Compile Include="Model\DeliveryTypeLookUpModel.cs" />
+    <Compile Include="Model\DevelopmentCompanyModel.cs" />
+    <Compile Include="Model\DocumentModel.cs" />
+    <Compile Include="Model\GlobalData.cs" />
+    <Compile Include="Model\GroupLookUpModel.cs" />
+    <Compile Include="Model\GroupTypeLookUpModel.cs" />
+    <Compile Include="Model\InternationalSettingsModel.cs" />
+    <Compile Include="Model\MarketCodeLookUpModel.cs" />
+    <Compile Include="Model\MiscellaneousModel.cs" />
+    <Compile Include="Model\NatureOfProductLookUpModel.cs" />
+    <Compile Include="Model\NominalAccountDetailsLookUpModel.cs" />
+    <Compile Include="Model\ProductGroupLookUpModel.cs" />
+    <Compile Include="Model\ProductModel.cs" />
+    <Compile Include="Model\ProductPictureModel.cs" />
+    <Compile Include="Model\ProductTypeLookUpModel.cs" />
+    <Compile Include="Model\SalesOrderItemLineModel.cs" />
+    <Compile Include="Model\SalesOrderModel.cs" />
+    <Compile Include="Model\SalesOrderVATLineModel.cs" />
+    <Compile Include="Model\SupplierModel.cs" />
+    <Compile Include="Model\SystemDetailsModel.cs" />
+    <Compile Include="Model\TaxibilityCISLookUpModel.cs" />
+    <Compile Include="Model\VatTypeLookUpModel.cs" />
+    <Compile Include="ViewModel\Company\AddCompanyViewModel.cs" />
+    <Compile Include="ViewModel\Company\CompanyAssistantViewModel.cs" />
+    <Compile Include="ViewModel\Company\CompanyViewModel.cs" />
+    <Compile Include="ViewModel\Company\Company_LoginViewModel.cs" />
+    <Compile Include="ViewModel\Company\LoginCredentialsViewModel.cs" />
+    <Compile Include="ViewModel\Company\NewCompanyAssistantViewModel.cs" />
+    <Compile Include="ViewModel\Company\ViewCompanyViewModel.cs" />
+    <Compile Include="ViewModel\Customer\CreditControlViewModel.cs" />
+    <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customer\DefaultsViewModel.cs" />
+    <Compile Include="ViewModel\Customer\DeliveryAddressViewModel.cs" />
+    <Compile Include="ViewModel\Customer\DocumentsViewModel.cs" />
+    <Compile Include="ViewModel\Customer\MiscellaneousViewModel.cs" />
+    <Compile Include="ViewModel\Customer\SalesSummeryViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\AccountAnalysisViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\AccountTypeViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\DeliveryModeViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\DeliveryTypeViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\GroupTypeViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\GroupViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\MarketCodeViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\NatureOfProductViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\NominalAccountDetailsViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\ProductGroupViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\ProductTypeViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\TaxibilityCISViewModel.cs" />
+    <Compile Include="ViewModel\LookUp\VatTypeViewModel.cs" />
+    <Compile Include="ViewModel\Product\AssemblyBreakdownViewModel.cs" />
+    <Compile Include="ViewModel\Product\ProductDocumentViewModel.cs" />
+    <Compile Include="ViewModel\Product\ProductPictureViewModel.cs" />
+    <Compile Include="ViewModel\Product\ProductViewModel.cs" />
+    <Compile Include="ViewModel\Product\Product_MiscellaneousViewModel.cs" />
+    <Compile Include="ViewModel\SalesOrder\SalesOrderViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SettlementDiscViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SubContractorViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SupplierDocumentViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SupplierNLDistributionViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
+    <Compile Include="View\Backup\BackupSuccess.xaml.cs">
+      <DependentUpon>BackupSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Backup\ChooseFolder.xaml.cs">
+      <DependentUpon>ChooseFolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Backup\ReadyBackup.xaml.cs">
+      <DependentUpon>ReadyBackup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Backup\SelectCompany.xaml.cs">
+      <DependentUpon>SelectCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\AddCompany.xaml.cs">
+      <DependentUpon>AddCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\CompanyList.xaml.cs">
+      <DependentUpon>CompanyList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\CompanyAssistant.xaml.cs">
+      <DependentUpon>CompanyAssistant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\Company_Login.xaml.cs">
+      <DependentUpon>Company_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\LoginCredential.xaml.cs">
+      <DependentUpon>LoginCredential.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\NewCompanyAssistant.xaml.cs">
+      <DependentUpon>NewCompanyAssistant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\SaveFile.xaml.cs">
+      <DependentUpon>SaveFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\ViewCompany.xaml.cs">
+      <DependentUpon>ViewCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Communications.xaml.cs">
+      <DependentUpon>Communications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\CreditControl.xaml.cs">
+      <DependentUpon>CreditControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\CustomerList.xaml.cs">
+      <DependentUpon>CustomerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Defaults.xaml.cs">
+      <DependentUpon>Defaults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\DeliveryAddress.xaml.cs">
+      <DependentUpon>DeliveryAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Documents.xaml.cs">
+      <DependentUpon>Documents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Miscellaneous.xaml.cs">
+      <DependentUpon>Miscellaneous.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\NLDistribution.xaml.cs">
+      <DependentUpon>NLDistribution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\SalesSummery.xaml.cs">
+      <DependentUpon>SalesSummery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\AddCustomer.xaml.cs">
+      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\AccountAnalysis.xaml.cs">
+      <DependentUpon>AccountAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\AccountType.xaml.cs">
+      <DependentUpon>AccountType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\DeliveryMode.xaml.cs">
+      <DependentUpon>DeliveryMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\DeliveryType.xaml.cs">
+      <DependentUpon>DeliveryType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\Group.xaml.cs">
+      <DependentUpon>Group.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\GroupType.xaml.cs">
+      <DependentUpon>GroupType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\MarketCode.xaml.cs">
+      <DependentUpon>MarketCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\NatureProduct.xaml.cs">
+      <DependentUpon>NatureProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\NomialAccountDetails.xaml.cs">
+      <DependentUpon>NomialAccountDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ProductGroup.xaml.cs">
+      <DependentUpon>ProductGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ProductType.xaml.cs">
+      <DependentUpon>ProductType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\TaxabilityCIS.xaml.cs">
+      <DependentUpon>TaxabilityCIS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\VatType.xaml.cs">
+      <DependentUpon>VatType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewAccountAnalysis.xaml.cs">
+      <DependentUpon>ViewAccountAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewAccountType.xaml.cs">
+      <DependentUpon>ViewAccountType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewDeliveryMode.xaml.cs">
+      <DependentUpon>ViewDeliveryMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewDeliveryType.xaml.cs">
+      <DependentUpon>ViewDeliveryType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewGroup.xaml.cs">
+      <DependentUpon>ViewGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewGroupType.xaml.cs">
+      <DependentUpon>ViewGroupType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewMarketCode.xaml.cs">
+      <DependentUpon>ViewMarketCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewNatureProduct.xaml.cs">
+      <DependentUpon>ViewNatureProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewNominalAccountDetails.xaml.cs">
+      <DependentUpon>ViewNominalAccountDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewProductGroup.xaml.cs">
+      <DependentUpon>ViewProductGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewProductType.xaml.cs">
+      <DependentUpon>ViewProductType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewTaxabilityCIS.xaml.cs">
+      <DependentUpon>ViewTaxabilityCIS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LookUp\ViewVatType.xaml.cs">
+      <DependentUpon>ViewVatType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\AssemblyBreakdown.xaml.cs">
+      <DependentUpon>AssemblyBreakdown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\ProductDocument.xaml.cs">
+      <DependentUpon>ProductDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\ProductImage.xaml.cs">
+      <DependentUpon>ProductImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\Product_Listing.xaml.cs">
+      <DependentUpon>Product_Listing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\Product_Miscellaneous.xaml.cs">
+      <DependentUpon>Product_Miscellaneous.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\QutySold.xaml.cs">
+      <DependentUpon>QutySold.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\Sales.xaml.cs">
+      <DependentUpon>Sales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Restore\ChooseFolder.xaml.cs">
+      <DependentUpon>ChooseFolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Restore\CompanyExist.xaml.cs">
+      <DependentUpon>CompanyExist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Restore\ReadyforRestore.xaml.cs">
+      <DependentUpon>ReadyforRestore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Restore\RestoreCompanyAssistant.xaml.cs">
+      <DependentUpon>RestoreCompanyAssistant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Restore\SuccessRestore.xaml.cs">
+      <DependentUpon>SuccessRestore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesOrder\SalesOrder.xaml.cs">
+      <DependentUpon>SalesOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier\AddSupplier.xaml.cs">
+      <DependentUpon>AddSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier\SettlementDisc.xaml.cs">
+      <DependentUpon>SettlementDisc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier\SubContractor.xaml.cs">
+      <DependentUpon>SubContractor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier\SupplierDocuments.xaml.cs">
+      <DependentUpon>SupplierDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier\SupplierListing.xaml.cs">
+      <DependentUpon>SupplierListing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Supplier\SupplierNLDistribution.xaml.cs">
+      <DependentUpon>SupplierNLDistribution.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles\StylesResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Backup\BackupSuccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Backup\ChooseFolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Backup\ReadyBackup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Backup\SelectCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\AddCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\CompanyList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\CompanyAssistant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\Company_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\LoginCredential.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\NewCompanyAssistant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\SaveFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\ViewCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\Communications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\CreditControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\CustomerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\Defaults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\DeliveryAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\Documents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\Miscellaneous.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\NLDistribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\SalesSummery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\AddCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\AccountAnalysis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\AccountType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\DeliveryMode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\DeliveryType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\Group.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\GroupType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\MarketCode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\NatureProduct.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\NomialAccountDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\ProductGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\ProductType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\TaxabilityCIS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\VatType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\ViewAccountAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewAccountType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewDeliveryMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewDeliveryType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewGroupType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LookUp\ViewMarketCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewNatureProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewNominalAccountDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewProductGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewProductType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewTaxabilityCIS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LookUp\ViewVatType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\AssemblyBreakdown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\ProductDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\ProductImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\Product_Listing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\Product_Miscellaneous.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\QutySold.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\Sales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Restore\ChooseFolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Restore\CompanyExist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Restore\ReadyforRestore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Restore\RestoreCompanyAssistant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Restore\SuccessRestore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesOrder\SalesOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Supplier\AddSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Supplier\SettlementDisc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Supplier\SubContractor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Supplier\SupplierDocuments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Supplier\SupplierListing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Supplier\SupplierNLDistribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer-report.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Duplicate.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\New.png" />
+    <Resource Include="Images\Print-List.png" />
+    <Resource Include="Images\Reports.png" />
+    <Resource Include="Images\Statements.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ban.png" />
+    <Resource Include="Images\filter-icon.png" />
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\accounting software_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backup.png" />
+    <Resource Include="Images\help.png" />
+    <Resource Include="Images\new-company.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sucess-icon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
