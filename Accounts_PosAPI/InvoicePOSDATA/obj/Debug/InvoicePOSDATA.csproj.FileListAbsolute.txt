@@ -1163,3 +1163,12 @@ D:\tanima\13.12.2017_SalesOrder\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\Invoice
 D:\tanima\13.12.2017_SalesOrder\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
 D:\tanima\13.12.2017_SalesOrder\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb
 D:\tanima\13.12.2017_SalesOrder\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csprojResolveAssemblyReference.cache
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.exe.config
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.exe
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.pdb
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\EntityFramework.dll
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\EntityFramework.xml
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.Properties.Resources.resources
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csproj.GenerateResource.Cache
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb

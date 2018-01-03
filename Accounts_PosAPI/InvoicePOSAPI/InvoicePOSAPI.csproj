@@ -166,6 +166,7 @@
     <Compile Include="Controllers\ProductAPIController.cs" />
     <Compile Include="Controllers\ProductGroupLookUpAPIController.cs" />
     <Compile Include="Controllers\ProductTypeLookUpAPIController.cs" />
+    <Compile Include="Controllers\SalesOrderAPIController.cs" />
     <Compile Include="Controllers\SupplierAPIController.cs" />
     <Compile Include="Controllers\TaxibilityCISLookUpAPIController.cs" />
     <Compile Include="Controllers\ValueController.cs" />
@@ -195,6 +196,16 @@
     <Compile Include="Models\ProductGroupLookUpModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductTypeLookUpModel.cs" />
+    <Compile Include="Models\SalesOrderCreditInformationModel.cs" />
+    <Compile Include="Models\SalesOrderCustomerDeliveryTo Model.cs" />
+    <Compile Include="Models\SalesOrderCustomerInvoiceToModel.cs" />
+    <Compile Include="Models\SalesOrderCustomerOtherDetailsModel.cs" />
+    <Compile Include="Models\SalesOrderCustomerRecurringSalesInvoiceModel.cs" />
+    <Compile Include="Models\SalesOrderCustomerRecurringSalesLinesModel.cs" />
+    <Compile Include="Models\SalesOrderDeliveryModel.cs" />
+    <Compile Include="Models\SalesOrderLineItemModel.cs" />
+    <Compile Include="Models\SalesOrderModel.cs" />
+    <Compile Include="Models\SalesVatLineModel.cs" />
     <Compile Include="Models\SupplierModel.cs" />
     <Compile Include="Models\SystemDetailsModel.cs" />
     <Compile Include="Models\TaxibilityCISLookUpModel.cs" />
