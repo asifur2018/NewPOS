@@ -442,6 +442,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SALES_JOURNAL_DEBIT">
+      <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_JOURNAL_DEBIT">
+        <MappingFragment StoreEntitySet="SALES_JOURNAL_DEBIT">
+          <ScalarProperty Name="JOURNAL_ID" ColumnName="JOURNAL_ID" />
+          <ScalarProperty Name="LEDGER" ColumnName="LEDGER" />
+          <ScalarProperty Name="TRX_TYPE" ColumnName="TRX_TYPE" />
+          <ScalarProperty Name="POSTING_NO" ColumnName="POSTING_NO" />
+          <ScalarProperty Name="POSTING_DATE" ColumnName="POSTING_DATE" />
+          <ScalarProperty Name="POSTING_TYPE" ColumnName="POSTING_TYPE" />
+          <ScalarProperty Name="DEF_DIST" ColumnName="DEF_DIST" />
+          <ScalarProperty Name="GENERAL_CODE" ColumnName="GENERAL_CODE" />
+          <ScalarProperty Name="GENERAL_NAME" ColumnName="GENERAL_NAME" />
+          <ScalarProperty Name="REF_NO" ColumnName="REF_NO" />
+          <ScalarProperty Name="INV_DATE" ColumnName="INV_DATE" />
+          <ScalarProperty Name="INV_EXP_DATE" ColumnName="INV_EXP_DATE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+          <ScalarProperty Name="OS_BAL" ColumnName="OS_BAL" />
+          <ScalarProperty Name="CREDIT_REMAINING" ColumnName="CREDIT_REMAINING" />
+          <ScalarProperty Name="NET_BAL" ColumnName="NET_BAL" />
+          <ScalarProperty Name="TAX_AMT" ColumnName="TAX_AMT" />
+          <ScalarProperty Name="TOTAL_AMT" ColumnName="TOTAL_AMT" />
+          <ScalarProperty Name="COST" ColumnName="COST" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SALES_ORDER">
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_ORDER">
         <MappingFragment StoreEntitySet="SALES_ORDER">
@@ -490,6 +518,27 @@
           <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
           <ScalarProperty Name="VAT" ColumnName="VAT" />
           <ScalarProperty Name="LINE_AMOUNT" ColumnName="LINE_AMOUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALES_QUICK_JOURNAL">
+      <EntityTypeMapping TypeName="ACCOUNTS_POSModel.SALES_QUICK_JOURNAL">
+        <MappingFragment StoreEntitySet="SALES_QUICK_JOURNAL">
+          <ScalarProperty Name="QUICKJOURNAL_ID" ColumnName="QUICKJOURNAL_ID" />
+          <ScalarProperty Name="QUICKJOURNAL_CODE" ColumnName="QUICKJOURNAL_CODE" />
+          <ScalarProperty Name="JOURNAL_DATE" ColumnName="JOURNAL_DATE" />
+          <ScalarProperty Name="CUSTOMER" ColumnName="CUSTOMER" />
+          <ScalarProperty Name="REFERENCE" ColumnName="REFERENCE" />
+          <ScalarProperty Name="JOURNAL_DESC" ColumnName="JOURNAL_DESC" />
+          <ScalarProperty Name="NL_ACC1" ColumnName="NL_ACC1" />
+          <ScalarProperty Name="NL_ACC2" ColumnName="NL_ACC2" />
+          <ScalarProperty Name="VAT_PER" ColumnName="VAT_PER" />
+          <ScalarProperty Name="TOTAL_VAT" ColumnName="TOTAL_VAT" />
+          <ScalarProperty Name="NET_AMOUNT" ColumnName="NET_AMOUNT" />
+          <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -27,9 +27,11 @@
     <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.PRODUCT_MISCELLANEOUS" />
     <EntitySet Name="PRODUCT_PICTURE" EntityType="ACCOUNTS_POSModel.PRODUCT_PICTURE" />
     <EntitySet Name="PRODUCT_TYPE_LOOKUP" EntityType="ACCOUNTS_POSModel.PRODUCT_TYPE_LOOKUP" />
+    <EntitySet Name="SALES_JOURNAL_DEBIT" EntityType="ACCOUNTS_POSModel.SALES_JOURNAL_DEBIT" />
     <EntitySet Name="SALES_ORDER" EntityType="ACCOUNTS_POSModel.SALES_ORDER" />
     <EntitySet Name="SALES_ORDER_DELIVERY" EntityType="ACCOUNTS_POSModel.SALES_ORDER_DELIVERY" />
     <EntitySet Name="SALES_ORDER_LINE_ITEM" EntityType="ACCOUNTS_POSModel.SALES_ORDER_LINE_ITEM" />
+    <EntitySet Name="SALES_QUICK_JOURNAL" EntityType="ACCOUNTS_POSModel.SALES_QUICK_JOURNAL" />
     <EntitySet Name="SALES_VAT_LINE" EntityType="ACCOUNTS_POSModel.SALES_VAT_LINE" />
     <EntitySet Name="SALESORDER_CUSTOMER_DELIVERY_TO" EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_DELIVERY_TO" />
     <EntitySet Name="SALESORDER_CUSTOMER_INVOICE_TO" EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_INVOICE_TO" />
@@ -458,6 +460,33 @@
     <Property Name="PRODUCT_TYPE_DESCRIPTION" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
     <Property Name="PRODUCT_TYPE_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="SALES_JOURNAL_DEBIT">
+    <Key>
+      <PropertyRef Name="JOURNAL_ID" />
+    </Key>
+    <Property Name="JOURNAL_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LEDGER" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TRX_TYPE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="POSTING_NO" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="POSTING_DATE" Type="DateTime" Precision="3" />
+    <Property Name="POSTING_TYPE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DEF_DIST" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="GENERAL_CODE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="GENERAL_NAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="REF_NO" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="INV_DATE" Type="DateTime" Precision="3" />
+    <Property Name="INV_EXP_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PROJECT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="OS_BAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CREDIT_REMAINING" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NET_BAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TAX_AMT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL_AMT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="COST" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IS_DELETE" Type="Boolean" />
+    <Property Name="STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
   <EntityType Name="SALES_ORDER">
     <Key>
       <PropertyRef Name="SALESORDER_ID" />
@@ -505,6 +534,26 @@
     <Property Name="DISCOUNT" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="VAT" Type="Int32" />
     <Property Name="LINE_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="SALES_QUICK_JOURNAL">
+    <Key>
+      <PropertyRef Name="QUICKJOURNAL_ID" />
+    </Key>
+    <Property Name="QUICKJOURNAL_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="QUICKJOURNAL_CODE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="JOURNAL_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CUSTOMER" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="REFERENCE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="JOURNAL_DESC" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NL_ACC1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NL_ACC2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="VAT_PER" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TOTAL_VAT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NET_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IS_DELETE" Type="Boolean" />
+    <Property Name="STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="COMPANY_ID" Type="Int32" />
   </EntityType>
   <EntityType Name="SALES_VAT_LINE">
     <Key>

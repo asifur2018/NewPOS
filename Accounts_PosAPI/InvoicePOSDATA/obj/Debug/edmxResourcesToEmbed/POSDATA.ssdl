@@ -27,9 +27,11 @@
     <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_MISCELLANEOUS" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PRODUCT_PICTURE" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_PICTURE" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PRODUCT_TYPE_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_TYPE_LOOKUP" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SALES_JOURNAL_DEBIT" EntityType="ACCOUNTS_POSModel.Store.SALES_JOURNAL_DEBIT" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SALES_ORDER" EntityType="ACCOUNTS_POSModel.Store.SALES_ORDER" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SALES_ORDER_DELIVERY" EntityType="ACCOUNTS_POSModel.Store.SALES_ORDER_DELIVERY" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SALES_ORDER_LINE_ITEM" EntityType="ACCOUNTS_POSModel.Store.SALES_ORDER_LINE_ITEM" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SALES_QUICK_JOURNAL" EntityType="ACCOUNTS_POSModel.Store.SALES_QUICK_JOURNAL" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SALES_VAT_LINE" EntityType="ACCOUNTS_POSModel.Store.SALES_VAT_LINE" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SALESORDER_CUSTOMER_DELIVERY_TO" EntityType="ACCOUNTS_POSModel.Store.SALESORDER_CUSTOMER_DELIVERY_TO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SALESORDER_CUSTOMER_INVOICE_TO" EntityType="ACCOUNTS_POSModel.Store.SALESORDER_CUSTOMER_INVOICE_TO" store:Type="Tables" Schema="dbo" />
@@ -458,6 +460,33 @@
     <Property Name="PRODUCT_TYPE_DESCRIPTION" Type="nvarchar" MaxLength="500" />
     <Property Name="PRODUCT_TYPE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
   </EntityType>
+  <EntityType Name="SALES_JOURNAL_DEBIT">
+    <Key>
+      <PropertyRef Name="JOURNAL_ID" />
+    </Key>
+    <Property Name="JOURNAL_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LEDGER" Type="nvarchar" MaxLength="50" />
+    <Property Name="TRX_TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="POSTING_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="POSTING_DATE" Type="datetime" />
+    <Property Name="POSTING_TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DEF_DIST" Type="nvarchar" MaxLength="50" />
+    <Property Name="GENERAL_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="GENERAL_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="REF_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="INV_DATE" Type="datetime" />
+    <Property Name="INV_EXP_DATE" Type="datetime" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROJECT" Type="nvarchar" MaxLength="50" />
+    <Property Name="OS_BAL" Type="decimal" />
+    <Property Name="CREDIT_REMAINING" Type="decimal" />
+    <Property Name="NET_BAL" Type="decimal" />
+    <Property Name="TAX_AMT" Type="decimal" />
+    <Property Name="TOTAL_AMT" Type="decimal" />
+    <Property Name="COST" Type="decimal" />
+    <Property Name="IS_DELETE" Type="bit" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="SALES_ORDER">
     <Key>
       <PropertyRef Name="SALESORDER_ID" />
@@ -505,6 +534,26 @@
     <Property Name="DISCOUNT" Type="decimal" />
     <Property Name="VAT" Type="int" />
     <Property Name="LINE_AMOUNT" Type="decimal" />
+  </EntityType>
+  <EntityType Name="SALES_QUICK_JOURNAL">
+    <Key>
+      <PropertyRef Name="QUICKJOURNAL_ID" />
+    </Key>
+    <Property Name="QUICKJOURNAL_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="QUICKJOURNAL_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="JOURNAL_DATE" Type="datetime" />
+    <Property Name="CUSTOMER" Type="nvarchar" MaxLength="50" />
+    <Property Name="REFERENCE" Type="nvarchar" MaxLength="50" />
+    <Property Name="JOURNAL_DESC" Type="nvarchar" MaxLength="50" />
+    <Property Name="NL_ACC1" Type="nvarchar" MaxLength="50" />
+    <Property Name="NL_ACC2" Type="nvarchar" MaxLength="50" />
+    <Property Name="VAT_PER" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL_VAT" Type="decimal" />
+    <Property Name="NET_AMOUNT" Type="decimal" />
+    <Property Name="TOTAL_AMOUNT" Type="decimal" />
+    <Property Name="IS_DELETE" Type="bit" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="COMPANY_ID" Type="int" />
   </EntityType>
   <EntityType Name="SALES_VAT_LINE">
     <Key>

@@ -16,6 +16,7 @@ using Accounts_Pos.Helpers;
 using Accounts_Pos.Model;
 using Accounts_Pos.View.Company;
 using Accounts_Pos.View.Product;
+using Accounts_Pos.View.Sales;
 using Accounts_Pos.View.Supplier;
 using Accounts_Pos.ViewModel;
 using Accounts_Pos.ViewModel.Customer;
@@ -80,6 +81,14 @@ namespace Accounts_Pos.View.Customer
             cancel.Cancel_Customer();
             SupplierListing _SL = new SupplierListing();
             _SL.ShowDialog();
+        }
+
+        private void CustomerJournal_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerViewModel cancel = new CustomerViewModel();
+            cancel.Cancel_Customer();
+            CustomerJournalDebit _JD = new CustomerJournalDebit();
+            _JD.ShowDialog();
         }
 
 

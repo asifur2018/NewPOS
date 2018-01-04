@@ -150,6 +150,7 @@
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ProductPictureModel.cs" />
     <Compile Include="Model\ProductTypeLookUpModel.cs" />
+    <Compile Include="Model\SalesModel.cs" />
     <Compile Include="Model\SalesOrderContactsInformationModel.cs" />
     <Compile Include="Model\SalesOrderCreditInformationModel.cs" />
     <Compile Include="Model\SalesOrderCustomerDeliveryToModel.cs" />
@@ -200,6 +201,9 @@
     <Compile Include="ViewModel\Product\ProductViewModel.cs" />
     <Compile Include="ViewModel\Product\Product_MiscellaneousViewModel.cs" />
     <Compile Include="ViewModel\SalesOrder\SalesOrderViewModel.cs" />
+    <Compile Include="ViewModel\Sales\CustomerJournalDebitViewMode.cs" />
+    <Compile Include="ViewModel\Sales\QuickJournalEntryViewModel.cs" />
+    <Compile Include="ViewModel\Sales\RecurringSalesViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SettlementDiscViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SubContractorViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierDocumentViewModel.cs" />
@@ -396,6 +400,15 @@
     </Compile>
     <Compile Include="View\SalesOrder\SalesOrderView.xaml.cs">
       <DependentUpon>SalesOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\CustomerJournalDebit.xaml.cs">
+      <DependentUpon>CustomerJournalDebit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\QuickJournalEntry.xaml.cs">
+      <DependentUpon>QuickJournalEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\recurringsales.xaml.cs">
+      <DependentUpon>recurringsales.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Supplier\AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
@@ -686,6 +699,18 @@
     <Page Include="View\SalesOrder\SalesOrderView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Sales\CustomerJournalDebit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\QuickJournalEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\recurringsales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Supplier\AddSupplier.xaml">
       <SubType>Designer</SubType>

@@ -51,9 +51,11 @@ namespace InvoicePOSDATA
         public DbSet<PRODUCT_MISCELLANEOUS> PRODUCT_MISCELLANEOUS { get; set; }
         public DbSet<PRODUCT_PICTURE> PRODUCT_PICTURE { get; set; }
         public DbSet<PRODUCT_TYPE_LOOKUP> PRODUCT_TYPE_LOOKUP { get; set; }
+        public DbSet<SALES_JOURNAL_DEBIT> SALES_JOURNAL_DEBIT { get; set; }
         public DbSet<SALES_ORDER> SALES_ORDER { get; set; }
         public DbSet<SALES_ORDER_DELIVERY> SALES_ORDER_DELIVERY { get; set; }
         public DbSet<SALES_ORDER_LINE_ITEM> SALES_ORDER_LINE_ITEM { get; set; }
+        public DbSet<SALES_QUICK_JOURNAL> SALES_QUICK_JOURNAL { get; set; }
         public DbSet<SALES_VAT_LINE> SALES_VAT_LINE { get; set; }
         public DbSet<SALESORDER_CUSTOMER_DELIVERY_TO> SALESORDER_CUSTOMER_DELIVERY_TO { get; set; }
         public DbSet<SALESORDER_CUSTOMER_INVOICE_TO> SALESORDER_CUSTOMER_INVOICE_TO { get; set; }

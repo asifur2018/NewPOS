@@ -1172,3 +1172,13 @@ D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.Properties
 D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csproj.GenerateResource.Cache
 D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
 D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.exe.config
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.exe
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\InvoicePOSDATA.pdb
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\EntityFramework.dll
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\bin\Debug\EntityFramework.xml
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csprojResolveAssemblyReference.cache
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.Properties.Resources.resources
+D:\_GIT\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csproj.GenerateResource.Cache

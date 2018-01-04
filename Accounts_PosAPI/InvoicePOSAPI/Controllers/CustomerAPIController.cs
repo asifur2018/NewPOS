@@ -134,50 +134,50 @@ namespace InvoicePOSAPI.Controllers
         }
 
 
-        [HttpGet]
-        public HttpResponseMessage GetCustomerBankDetails(string _CustomerCode)
-        {
+        //[HttpGet]
+        //public HttpResponseMessage GetCustomerBankDetails(string _CustomerCode)
+        //{
 
-            try
-            {
+        //    try
+        //    {
 
-                var str = (from a in db.CUSTOMER_BANK_DETAILS
-                           where ((a.CUSTOMER_CODE.Equals(_CustomerCode)) && (a.IS_DELETE == false))
-                           select new CustomerBankDetailsModel
-                           {
+        //        var str = (from a in db.CUSTOMER_BANK_DETAILS
+        //                   where ((a.CUSTOMER_CODE.Equals(_CustomerCode)) && (a.IS_DELETE == false))
+        //                   select new CustomerBankDetailsModel
+        //                   {
 
-                               BANK_ID = a.BANK_ID,
-                               BACS_REF = a.BACS_REF,
-                               ACCOUNT_NAME = a.ACCOUNT_NAME,
-                               BANK_NAME = a.BANK_NAME,
-                               STREET1 = a.STREET1,
-                               STREET2 = a.STREET2,
-                               TOWN = a.TOWN,
-                               COUNTRY = a.COUNTRY,
-                               POST_CODE = a.POST_CODE,
-                               SHORT_CODE = a.SHORT_CODE,
-                               ACCOUNT_NUMBER = a.ACCOUNT_NUMBER,
-                               PAYMENT_REF = a.PAYMENT_REF,
-                               BIC_SWIFT = a.BIC_SWIFT,
-                               IBAN = a.IBAN,
-                               ROLL_NO = a.ROLL_NO,
-                               PAYMENT_METHOD = a.PAYMENT_METHOD,
-                               ONLINE_RECEIPT = a.ONLINE_RECEIPT,
-                               NOTES = a.NOTES,
-                               CUSTOMER_CODE = a.CUSTOMER_CODE,
-                               IS_DELETE = a.IS_DELETE,
-                               STATUS = a.STATUS,
-                               STANDARD_DISC_PER = a.STANDARD_DISC_PER,
-                               STANDART_DISC_DAYS = a.STANDART_DISC_DAYS
+        //                       BANK_ID = a.BANK_ID,
+        //                       BACS_REF = a.BACS_REF,
+        //                       ACCOUNT_NAME = a.ACCOUNT_NAME,
+        //                       BANK_NAME = a.BANK_NAME,
+        //                       STREET1 = a.STREET1,
+        //                       STREET2 = a.STREET2,
+        //                       TOWN = a.TOWN,
+        //                       COUNTRY = a.COUNTRY,
+        //                       POST_CODE = a.POST_CODE,
+        //                       SHORT_CODE = a.SHORT_CODE,
+        //                       ACCOUNT_NUMBER = a.ACCOUNT_NUMBER,
+        //                       PAYMENT_REF = a.PAYMENT_REF,
+        //                       BIC_SWIFT = a.BIC_SWIFT,
+        //                       IBAN = a.IBAN,
+        //                       ROLL_NO = a.ROLL_NO,
+        //                       PAYMENT_METHOD = a.PAYMENT_METHOD,
+        //                       ONLINE_RECEIPT = a.ONLINE_RECEIPT,
+        //                       NOTES = a.NOTES,
+        //                       CUSTOMER_CODE = a.CUSTOMER_CODE,
+        //                       IS_DELETE = a.IS_DELETE,
+        //                       STATUS = a.STATUS,
+        //                       STANDARD_DISC_PER = a.STANDARD_DISC_PER,
+        //                       STANDART_DISC_DAYS = a.STANDART_DISC_DAYS
 
-                           }).FirstOrDefault();
-                return Request.CreateResponse(HttpStatusCode.OK, str);
-            }
-            catch
-            {
-                throw;
-            }
-        }
+        //                   }).FirstOrDefault();
+        //        return Request.CreateResponse(HttpStatusCode.OK, str);
+        //    }
+        //    catch
+        //    {
+        //        throw;
+        //    }
+        //}
 
     }
 }
