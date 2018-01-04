@@ -179,6 +179,7 @@
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\ConfigurationModel.cs" />
     <Compile Include="Models\CreditControlModel.cs" />
+    <Compile Include="Models\CustomerBankDetailsModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DefaultModel.cs" />
     <Compile Include="Models\DeliveryAddressModel.cs" />

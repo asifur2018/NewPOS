@@ -64,8 +64,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private string _ORDER_DATE;
-        public string ORDER_DATE
+        private DateTime? _ORDER_DATE;
+        public DateTime? ORDER_DATE
         {
             get { return _ORDER_DATE; }
             set

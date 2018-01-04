@@ -37,7 +37,12 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             MarketCodeReadOnly = true;
             ProjectCodeReadOnly = true;
             ProductGridReadOnly = true;
-            SelectedSalesOrder = new SalesOrderModel();
+            if (SelectedSalesOrder == null)
+            {
+                SelectedSalesOrder = new SalesOrderModel();
+                SelectedSalesOrder.ORDER_NO = DateTime.Now.ToString("yyMMddHHmmssff");
+            }
+
             SelectedSalesOrderCustomerDeliveryTo = new SalesOrderCustomerDeliveryToModel();
             SelectedSalesOrderCustomerInvoiceTo = new SalesOrderCustomerInvoiceToModel();
             SelectedSalesOrderCustomerOtherDetails = new SalesOrderCustomerOtherDetailsModel();
@@ -51,7 +56,6 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             SelectedSalesOrderContactsInformation = new SalesOrderContactsInformationModel();
             GridColor = "#f9f9f9";
             ItemLineEditability = true;
-            SelectedSalesOrder.ORDER_NO = DateTime.Now.ToString("yyMMddHHmmssff");
             prepareItemLine(0);
             prepareVatLine();
         }
@@ -85,6 +89,85 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                 OnPropertyChanged("SalesOrderList");
             }
         }
+
+        public async Task<SalesOrderCustomerDeliveryToModel> GetSalesOrderCustomerDeliveryTo(string orderNo)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/SalesOrderAPI/GetSalesOrderCustomerDeliveryTo?OrderNo=" + orderNo ).Result;
+                SalesOrderCustomerDeliveryToModel data;
+
+                if (response.IsSuccessStatusCode)
+                {
+                     data = JsonConvert.DeserializeObject<SalesOrderCustomerDeliveryToModel>(await response.Content.ReadAsStringAsync());
+                     SelectedSalesOrderCustomerDeliveryTo = data;
+                     return data;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<SalesOrderCustomerInvoiceToModel> GetSalesOrderCustomerInvoiceTo(string orderNo)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/SalesOrderAPI/GetSalesOrderCustomerInvoiceTo?OrderNo=" + orderNo + "").Result;
+                SalesOrderCustomerInvoiceToModel data;
+
+                if (response.IsSuccessStatusCode)
+                {
+                     data = JsonConvert.DeserializeObject<SalesOrderCustomerInvoiceToModel>(await response.Content.ReadAsStringAsync());
+                     SelectedSalesOrderCustomerInvoiceTo = data;
+                     return data;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<SalesOrderCustomerOtherDetailsModel> GetSalesOrderCustomerOtherDetails(string orderNo)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/SalesOrderAPI/GetSalesOrderCustomerOtherDetails?OrderNo=" + orderNo + "").Result;
+                SalesOrderCustomerOtherDetailsModel data;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    data = JsonConvert.DeserializeObject<SalesOrderCustomerOtherDetailsModel>(await response.Content.ReadAsStringAsync());
+                    SelectedSalesOrderCustomerOtherDetails = data;
+                    return data;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
 
         public async Task<ObservableCollection<SalesOrderModel>> GetSalesOrderList()
         {
@@ -140,6 +223,61 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             }
         }
 
+        public async Task<ObservableCollection<SalesOrderLineItemModel>> GetSalesOrderItemLineList(string orderNo)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/SalesOrderAPI/GetSalesOrderLineItem?OrderNo=" + orderNo + "").Result;
+
+                ObservableCollection<SalesOrderLineItemModel> _ListGrid_Temp = new ObservableCollection<SalesOrderLineItemModel>();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    SalesOrderLineItemModel[] data = JsonConvert.DeserializeObject<SalesOrderLineItemModel[]>(await response.Content.ReadAsStringAsync());
+
+
+                    for (int i = 0; i < data.Length; i++)
+                    {
+                        _ListGrid_Temp.Add(new SalesOrderLineItemModel
+                        {
+
+                            LINE_ITEM_ID = data[i].LINE_ITEM_ID,
+                            ORDER_NO = data[i].ORDER_NO,
+                            PRODUCT_CODE = data[i].PRODUCT_CODE,
+                            DESCRIPTION = data[i].DESCRIPTION,
+                            ORDER_QTY = data[i].ORDER_QTY,
+                            UNIT_PRICE = data[i].UNIT_PRICE,
+                            DISCOUNT = data[i].DISCOUNT,
+                            LINE_AMOUNT = data[i].LINE_AMOUNT,
+                            VAT = data[i].VAT
+                        });
+                    }
+
+                    if (data.Length < 20)
+                    {
+                        for (int i = data.Length; i < 20; i++)
+                        {
+                            _ListGrid_Temp.Add(new SalesOrderLineItemModel
+                            {
+                                LINE_ITEM_ID = i + 1,
+                                ORDER_NO = SelectedSalesOrder.ORDER_NO
+                            });
+                        }
+                    }
+                }
+
+                ListGrid = _ListGrid_Temp;
+                return new ObservableCollection<SalesOrderLineItemModel>(_ListGrid_Temp);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
 
         private void prepareItemLine(int n)
@@ -164,6 +302,50 @@ namespace Accounts_Pos.ViewModel.SalesOrder
 
 
             ListGrid = _ListGrid_Temp;
+        }
+
+        public async Task<ObservableCollection<SalesOrderVATLineModel>> GetSalesOrderVATLineList(string orderNo)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/SalesOrderAPI/GetSalesOrderVATLine?OrderNo=" + orderNo + "").Result;
+
+                ObservableCollection<SalesOrderVATLineModel> _ListGrid_Temp = new ObservableCollection<SalesOrderVATLineModel>();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    SalesOrderVATLineModel[] data = JsonConvert.DeserializeObject<SalesOrderVATLineModel[]>(await response.Content.ReadAsStringAsync());
+
+
+                    for (int i = 0; i < data.Length; i++)
+                    {
+                        _ListGrid_Temp.Add(new SalesOrderVATLineModel
+                        {
+
+                            VAT_LINE_ID = data[i].VAT_LINE_ID,
+                            ORDER_NO = data[i].ORDER_NO,
+                            VAT_RATE = data[i].VAT_RATE,
+                            DESCRIPTION = data[i].DESCRIPTION,
+                            NET_AMOUNT = data[i].NET_AMOUNT,
+                            VAT_AMOUNT = data[i].VAT_AMOUNT,
+                            TOTAL = data[i].TOTAL
+                        });
+                    }
+
+                    
+                }
+
+                VatListGrid = _ListGrid_Temp;
+                return new ObservableCollection<SalesOrderVATLineModel>(_ListGrid_Temp);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         #endregion
@@ -695,13 +877,86 @@ namespace Accounts_Pos.ViewModel.SalesOrder
 
         public void Edit_Click()
         {
-            if (SelectedSalesOrderForEdit == null) 
+            if (SelectedSalesOrder == null) 
             {
                 MessageBox.Show("Please select a row to edit");
             }
             else
             {
                 Accounts_Pos.View.SalesOrder.SalesOrder _SO = new Accounts_Pos.View.SalesOrder.SalesOrder();
+                
+                GetSalesOrderCustomerDeliveryTo(SelectedSalesOrder.ORDER_NO);
+                GetSalesOrderCustomerInvoiceTo(SelectedSalesOrder.ORDER_NO);
+                GetSalesOrderCustomerOtherDetails(SelectedSalesOrder.ORDER_NO);
+                GetSalesOrderItemLineList(SelectedSalesOrder.ORDER_NO);
+                GetSalesOrderVATLineList(SelectedSalesOrder.ORDER_NO);
+                GetCustomerForSalesOrder(SelectedSalesOrder.INVOICE_TO);
+                GetCustomerBankDetailsForSalesOrder(SelectedSalesOrder.INVOICE_TO);
+                this.OrderTypeReadOnly = true;
+                this.OrderType = "Sales Order";
+                this.ItemLineEditability = false;
+                this.DateReadOnly = true;
+                //from lostfocus
+
+
+                DeliveryToReadOnly = false;
+                OrderTypeReadOnly = true;
+                RefReadOnly = false;
+                OrderTypeNameReadOnly = false;
+                OverAllDiscReadOnly = false;
+                OrderSalesPersonReadOnly = false;
+                MarketCodeReadOnly = false;
+                ProjectCodeReadOnly = false;
+
+                SelectedSalesOrderContactsInformation.TYPE = SelectedCustomer.CONTACT_TYPE;
+                SelectedSalesOrderContactsInformation.NAME = SelectedCustomer.CONTACT_NAME;
+                SelectedSalesOrderContactsInformation.SALUT = SelectedCustomer.CONTACT_SALUTATION;
+                SelectedSalesOrderContactsInformation.TEL_NO = SelectedCustomer.CONTACT_PHONE_NO;
+                SelectedSalesOrderContactsInformation.FAX = SelectedCustomer.CONTACT_FAX;
+                SelectedSalesOrderContactsInformation.EXTENSION = SelectedCustomer.CONTACT_EXTN_NO;
+                SelectedSalesOrderContactsInformation.MOBILE = SelectedCustomer.CONTACT_MOBILE_NO;
+                SelectedSalesOrderContactsInformation.EMAIL = SelectedCustomer.EMAIL;
+                NotifyPropertyChanged("SelectedSalesOrderContactsInformation");
+
+                SelectedSalesOrderCreditInformation.CREDIT_LIMIT = SelectedCustomer.CREDIT_LIMIT;
+                SelectedSalesOrderCreditInformation.OS_BALANCE = SelectedCustomer.OS_BALANCE;
+                SelectedSalesOrderCreditInformation.OS_ORDERS = SelectedCustomer.OS_ORDERS;
+                SelectedSalesOrderCreditInformation.CREDIT = SelectedCustomer.CR_REMAIN;
+                if (SelectedCustomer.ON_CREDIT_STOP == true)
+                {
+                    SelectedSalesOrderCreditInformation.CREDIT_STOP = "Yes";
+                }
+                else
+                {
+                    SelectedSalesOrderCreditInformation.CREDIT_STOP = "No";
+                }
+                SelectedSalesOrderCreditInformation.STOPPED_BY = SelectedCustomer.PUT_ON_STOP_BY;
+                SelectedSalesOrderCreditInformation.STOP_DATE = SelectedCustomer.STOPPED_ON.ToString();
+                NotifyPropertyChanged("SelectedSalesOrderCreditInformation");
+
+                if (SelectedCustomer.DATES_STARTED != null)
+                {
+                    SelectedSalesOrderCustomer.DATE_STARTED = ((DateTime)SelectedCustomer.DATES_STARTED).ToString("d");
+                }
+                if (SelectedCustomer.OLDEST_INV_DATE != null)
+                {
+                    SelectedSalesOrderCustomer.OLD_INV_DATE = ((DateTime)SelectedCustomer.OLDEST_INV_DATE).ToString("d");
+                }
+                if (SelectedCustomer.LAST_SALE != null)
+                {
+                    SelectedSalesOrderCustomer.LAST_SALE = ((DateTime)SelectedCustomer.LAST_SALE).ToString("d");
+                }
+                if (SelectedCustomer.LAST_PAYMENT != null)
+                {
+                    SelectedSalesOrderCustomer.LAST_PMT = ((DateTime)SelectedCustomer.LAST_PAYMENT).ToString("d");
+                }
+                SelectedSalesOrderCustomer.AVG_PMT_DAYS = SelectedCustomer.AVG_PMT_DAYS;
+                NotifyPropertyChanged("SelectedSalesOrderCustomer");
+
+
+                
+                //////////////
+
                 _SO.DataContext = this;
                 _SO.ShowDialog();
             }
@@ -1012,6 +1267,50 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             }
 
         }
+
+        public async void GetCustomerForSalesOrder(string CODE)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/CustomerAPI/GetCustomer/?_CustomerCode=" + CODE).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    SelectedCustomer = JsonConvert.DeserializeObject<CustomerModel>(await response.Content.ReadAsStringAsync(), new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        public async void GetCustomerBankDetailsForSalesOrder(string CODE)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("api/CustomerAPI/GetCustomerBankDetails/?_CustomerCode=" + CODE).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    SelectedCustomerBankDetails = JsonConvert.DeserializeObject<CustomerBankDetailsModel>(await response.Content.ReadAsStringAsync(), new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                }
+            }
+            catch
+            {
+            }
+        }
+
+
         public async void InvoiceLostFocusCommandMethod()
         {
             if (!String.IsNullOrEmpty(SelectedSalesOrder.INVOICE_TO))
@@ -1052,7 +1351,8 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                              SalesPersonDescription = "Default SalesPerson";
 
                              Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
-                             SelectedSalesOrder.ORDER_DATE = DateTime.Now.ToString("d");
+                             //SelectedSalesOrder.ORDER_DATE = DateTime.Now;
+                             SelectedSalesOrder.ORDER_DATE = DateTime.Now.Date;
                              SelectedSalesOrder.ORDER_VALUE = 0;
                              SelectedSalesOrder.COST = "*N/A*";
                              SelectedSalesOrder.MARGIN = "*N/A*";
@@ -1182,17 +1482,19 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             {
                 if (String.IsNullOrEmpty(SelectedSalesOrder.INVOICE_TO)
                 || String.IsNullOrEmpty(OrderType)
-                || String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE)
+                //|| String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE)
+                || (SelectedSalesOrder.ORDER_DATE == null)
                 || String.IsNullOrEmpty(SelectedSalesOrder.SALES_PERSON)
-                || String.IsNullOrEmpty(SelectedSalesOrder.MARKET_CODE)
-                || (SelectedSalesOrder.ORDER_DATE=="__/__/____" ))
+                || String.IsNullOrEmpty(SelectedSalesOrder.MARKET_CODE))
+                //|| (SelectedSalesOrder.ORDER_DATE=="__/__/____" ))
                 {
                     string str = "Before entering the line details for this order you must supply the following details - ";
                     if (String.IsNullOrEmpty(SelectedSalesOrder.INVOICE_TO))
                         str = str + "\n valid Customer Code";
                     if (String.IsNullOrEmpty(OrderType))
                         str = str + " \n valid Order type";
-                    if (String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE) || (SelectedSalesOrder.ORDER_DATE == "__/__/____"))
+                    //if (String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE) || (SelectedSalesOrder.ORDER_DATE == "__/__/____"))
+                    if(SelectedSalesOrder.ORDER_DATE == null)
                         str = str + " \n valid Order date";
                     if (String.IsNullOrEmpty(SelectedSalesOrder.SALES_PERSON))
                         str = str + " \n valid Sales Person";
@@ -1225,17 +1527,19 @@ namespace Accounts_Pos.ViewModel.SalesOrder
         {
             if (String.IsNullOrEmpty(SelectedSalesOrder.INVOICE_TO)
                 || String.IsNullOrEmpty(OrderType)
-                || String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE)
+                //|| String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE)
+                ||(SelectedSalesOrder.ORDER_DATE==null)
                 || String.IsNullOrEmpty(SelectedSalesOrder.SALES_PERSON)
-                || String.IsNullOrEmpty(SelectedSalesOrder.MARKET_CODE)
-                || (SelectedSalesOrder.ORDER_DATE == "__/__/____"))
+                || String.IsNullOrEmpty(SelectedSalesOrder.MARKET_CODE))
+                //|| (SelectedSalesOrder.ORDER_DATE == "__/__/____"))
             {
                 string str = "Before saving this order you must supply the following details - ";
                 if (String.IsNullOrEmpty(SelectedSalesOrder.INVOICE_TO))
                     str = str + "\n valid Customer Code";
                 if (String.IsNullOrEmpty(OrderType))
                     str = str + " \n valid Order type";
-                if (String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE) || (SelectedSalesOrder.ORDER_DATE == "__/__/____"))
+               // if (String.IsNullOrEmpty(SelectedSalesOrder.ORDER_DATE) || (SelectedSalesOrder.ORDER_DATE == "__/__/____"))
+                if(SelectedSalesOrder.ORDER_DATE==null)
                     str = str + " \n valid Order date";
                 if (String.IsNullOrEmpty(SelectedSalesOrder.SALES_PERSON))
                     str = str + " \n valid Sales Person";
@@ -1304,13 +1608,18 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         }
 
                         MessageBox.Show("SalesOrder Saved successfully");
-                        foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+                        //refresh grid
+                        GetSalesOrderList();
+                        NotifyPropertyChanged("SalesOrderList");
+                        Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow");
+                        if (win != null)
                         {
-
-                            if (window.DataContext == this)
-                            {
-                                window.Close();
-                            }
+                            win.Close();
+                        }
+                        Window winv = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "ViewSalesOrderWindow");
+                        if (winv != null)
+                        {
+                            winv.DataContext = this;
                         }
                     }
                 }

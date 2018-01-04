@@ -30,7 +30,7 @@
                             <TextBlock HorizontalAlignment="Left" Width="Auto" Margin="520,73,0,0" TextWrapping="Wrap" Text="Project Code :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}"/>
                             <TextBlock HorizontalAlignment="Left"  Margin="220,73,0,0" TextWrapping="Wrap" Text="Ref :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}"/>
                             <TextBlock HorizontalAlignment="Left"  Margin="360,73,0,0" TextWrapping="Wrap" Text="Date :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}"/>
-                            <TextBox IsReadOnly="True" HorizontalAlignment="Left"  Margin="92,73,0,0" TextWrapping="Wrap" Text="{Binding SelectedSalesOrder.ORDER_NO}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="120">
+                            <TextBox IsReadOnly="True" HorizontalAlignment="Left"  Margin="92,73,0,0" TextWrapping="Wrap" Text="{Binding SelectedSalesOrder.ORDER_NO,Mode=TwoWay}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="120">
                                 <TextBox.InputBindings>
                                     <MouseBinding Command="{Binding OrderClick}" MouseAction="LeftClick" />
                                 </TextBox.InputBindings>
@@ -50,8 +50,8 @@
                                     Style="{StaticResource textbox}" 
                                     Width="100"
                                     ValueDataType="{x:Type s:DateTime}"
-                                    Text="{Binding SelectedSalesOrder.ORDER_DATE,StringFormat='Short Date',ConverterCulture=en-GB}"
-                                   
+                                    Text="{Binding SelectedSalesOrder.ORDER_DATE,StringFormat='Short Date',ConverterCulture=en-GB,Mode=TwoWay}"
+                                    Value="{Binding SelectedSalesOrder.ORDER_DATE, StringFormat='Short Date',ConverterCulture=en-GB,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 >
                                 
                             </xctk:MaskedTextBox>
@@ -86,7 +86,7 @@
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
                             </TextBox>
-                            <TextBox HorizontalAlignment="Left" IsReadOnly="True" Margin="250,11,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.CUSTOMER_NAME}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="250"/>
+                            <TextBox HorizontalAlignment="Left" IsReadOnly="True" Margin="250,11,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.CUSTOMER_NAME,Mode=TwoWay}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="250"/>
                             <TextBox IsReadOnly="True" HorizontalAlignment="Left"  Margin="600,11,0,0" TextWrapping="Wrap" Text="{Binding SelectedSalesOrder.SALES_PERSON, Mode=TwoWay}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="50"/>
                             <TextBox HorizontalAlignment="Left" IsReadOnly="True" Margin="720,11,0,0" TextWrapping="Wrap" Text="{Binding SalesPersonDescription}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="220"/>
                         </Grid>

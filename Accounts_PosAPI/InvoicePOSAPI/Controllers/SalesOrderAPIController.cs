@@ -27,7 +27,7 @@ namespace InvoicePOSAPI.Controllers
                 so.DELIVERY_TO = _SalesOrderModel.DELIVERY_TO;
                 so.ORDER_NO = _SalesOrderModel.ORDER_NO;
                 so.ORDER_REF = _SalesOrderModel.ORDER_REF;
-                so.ORDER_DATE = _SalesOrderModel.ORDER_DATE;
+                so.ORDER_DATE = Convert.ToDateTime(_SalesOrderModel.ORDER_DATE);
                 so.SALES_PERSON = _SalesOrderModel.SALES_PERSON;
                 so.MARKET_CODE = _SalesOrderModel.MARKET_CODE;
                 so.OVERALL_DISC_PER = _SalesOrderModel.OVERALL_DISC_PER;
@@ -74,7 +74,7 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage GetSalesOrderLineItem(string OrderNo)
         {
             var str = (from a in db.SALES_ORDER_LINE_ITEM
@@ -152,7 +152,7 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage GetSalesOrderVATLine(string OrderNo)
         {
             var str = (from a in db.SALES_VAT_LINE
@@ -210,7 +210,7 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage GetSalesOrderCustomerOtherDetails(string OrderNo)
         {
             var str = (from a in db.SALESORDER_CUSTOMER_OTHER_DETAILS
@@ -221,9 +221,12 @@ namespace InvoicePOSAPI.Controllers
                            NO_OF_COPIES = (int)a.NO_OF_COPIES,
                            DEL = a.DEL,
                            MODE = a.MODE,
-                           EXPECTED_SHIP = Convert.ToString(a.EXPECTED_SHIP),
-                           EXPECTED_PAYMENT = Convert.ToString(a.EXPECTED_PAYMENT),
-                           LAST_CHANGE_SYSTEM_DATE = Convert.ToString(a.LAST_CHANGE_SYSTEM_DATE),
+                           EXPECTED_SHIP = SqlFunctions.DateName("day",a.EXPECTED_SHIP) + "/" 
+                           + SqlFunctions.DateName("month",a.EXPECTED_SHIP) + "/" + SqlFunctions.DateName("year", a.EXPECTED_SHIP),
+                           EXPECTED_PAYMENT = SqlFunctions.DateName("day", a.EXPECTED_PAYMENT) + "/"
+                           + SqlFunctions.DateName("month", a.EXPECTED_PAYMENT) + "/" + SqlFunctions.DateName("year", a.EXPECTED_PAYMENT),
+                           LAST_CHANGE_SYSTEM_DATE = SqlFunctions.DateName("day", a.LAST_CHANGE_SYSTEM_DATE) + "/"
+                           + SqlFunctions.DateName("month", a.LAST_CHANGE_SYSTEM_DATE) + "/" + SqlFunctions.DateName("year", a.LAST_CHANGE_SYSTEM_DATE),
                            ORDER_NO = a.ORDER_NO
                            
                        }).FirstOrDefault();
@@ -261,7 +264,7 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage GetSalesOrderCustomerInvoiceTo(string OrderNo)
         {
             var str = (from a in db.SALESORDER_CUSTOMER_INVOICE_TO
@@ -313,7 +316,7 @@ namespace InvoicePOSAPI.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage GetSalesOrderCustomerDeliveryTo(string OrderNo)
         {
             var str = (from a in db.SALESORDER_CUSTOMER_DELIVERY_TO

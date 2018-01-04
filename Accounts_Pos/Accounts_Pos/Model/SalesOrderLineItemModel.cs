@@ -97,6 +97,11 @@ namespace Accounts_Pos.Model
                 _LINE_AMOUNT = ORDER_QTY * UNIT_PRICE - DISCOUNT * ORDER_QTY * UNIT_PRICE / 100;
                 return _LINE_AMOUNT; 
             }
+            set
+            {
+                _LINE_AMOUNT = value;
+                NotifyPropertyChanged("LINE_AMOUNT");
+            }
             
         }
 

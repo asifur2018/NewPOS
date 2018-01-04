@@ -12,7 +12,7 @@ namespace InvoicePOSAPI.Models
         public string       DELIVERY_TO { get; set; }
         public string       ORDER_NO { get; set; }
         public string       ORDER_REF { get; set; }
-        public DateTime?    ORDER_DATE { get; set; }
+        public DateTime?       ORDER_DATE { get; set; }
         public string       SALES_PERSON { get; set; }
         public string       MARKET_CODE { get; set; }
         public decimal?     OVERALL_DISC_PER { get; set; }

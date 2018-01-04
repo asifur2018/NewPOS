@@ -1,4 +1,5 @@
 ﻿<Window x:Class="Accounts_Pos.View.SalesOrder.SalesOrderView"
+        x:Name="ViewSalesOrderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SalesOrderView" Height="500" Width="800">
@@ -8,7 +9,7 @@
         <Button Content="Delete" Command="{Binding Delete}" HorizontalAlignment="Left" Height="30" Margin="691,24,0,0" VerticalAlignment="Top" Style="{StaticResource DeleteBtn}"/>
         <GroupBox Header="View SalesOrder" HorizontalAlignment="Left" Height="378" Margin="10,63,0,0" VerticalAlignment="Top" Width="761" Style="{StaticResource ViewHeadingGroup}">
             <Grid>
-                <DataGrid   ItemsSource="{Binding Path=SalesOrderList,AsyncState=true,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedItem="{Binding Path=SelectedSalesOrderForEdit}" AutoGenerateColumns="False"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"  Margin="0,0,0,0" VerticalAlignment="Stretch"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="#f9f9f9"  FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#f9f9f9" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center"  EnableRowVirtualization="false" EnableColumnVirtualization="false" CanUserAddRows="False" CanUserReorderColumns="False" >
+                <DataGrid   ItemsSource="{Binding Path=SalesOrderList,AsyncState=true,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" SelectedItem="{Binding Path=SelectedSalesOrder}" AutoGenerateColumns="False"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"  Margin="0,0,0,0" VerticalAlignment="Stretch"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="#f9f9f9"  FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#f9f9f9" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center"  EnableRowVirtualization="false" EnableColumnVirtualization="false" CanUserAddRows="False" CanUserReorderColumns="False" >
                     <DataGrid.Style>
                         <Style TargetType="DataGrid">
                             <Setter Property="AlternatingRowBackground" Value="#ffffff"/>

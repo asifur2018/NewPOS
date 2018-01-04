@@ -8,6 +8,7 @@ namespace InvoicePOSAPI.Models
     public class ProductModel
     {
 
+        public int? COMPANY_ID { get; set; }
         public string DESCRIPTION { get; set; }
         public string PRODUCT_CODE { get; set; }
         public string DESCR { get; set; }
@@ -44,7 +45,7 @@ namespace InvoicePOSAPI.Models
         public decimal? SELL_MARGIN2 { get; set; }
         public decimal? SELL_MARGIN3 { get; set; }
         public decimal? SELL_MARGIN4 { get; set; }
-        public bool IS_DELETE { get; set; }
+        public bool? IS_DELETE { get; set; }
         public int SLNO { get; set; }
         public int PRODUCT_ID { get; set; }
 
@@ -82,6 +83,8 @@ namespace InvoicePOSAPI.Models
                 
         public int PICTURE_ID { get; set; }
         public string PICTURE_NAME { get; set; }
+
+        public string STATUS { get; set; }
 
     }
 }

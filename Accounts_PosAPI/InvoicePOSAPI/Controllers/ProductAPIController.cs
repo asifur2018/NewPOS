@@ -409,6 +409,66 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
+        [HttpGet]
+        public HttpResponseMessage GetProduct(string _ProductCode)
+        {
+
+            try
+            {
+
+                var str = (from a in db.PRODUCTs
+                           where ((a.PRODUCT_CODE.Equals(_ProductCode)) && (a.IS_DELETE == false))
+                           select new ProductModel
+                           {
+                               PRODUCT_ID = a.PRODUCT_ID,
+                               COMPANY_ID = a.COMPANY_ID,
+                               PRODUCT_CODE = a.PRODUCT_CODE,
+                               DESCRIPTION = a.DESCRIPTION,
+                               BIN = a.BIN,
+                               PRODUCT_TYPE1 = a.PRODUCT_TYPE1,
+                               PRODUCT_TYPE2 = a.PRODUCT_TYPE2,
+                               VAT_RATE = a.VAT_RATE,
+                               GROUP = a.GROUP,
+                               DISCONTINUED = a.DISCONTINUED,
+                               COMMISSION = a.COMMISSION,
+                               BAR_CODE = a.BAR_CODE,
+                               UNIT_DESC = a.UNIT_DESC,
+                               ALTERNATIVE = a.ALTERNATIVE,
+                               WEIGHT = a.WEIGHT,
+                               QUANTITY = a.QUANTITY,
+                               COST_PRICE = a.COST_PRICE,
+                               LAST_SALE = a.LAST_SALE,
+                               RETAIL_PRICE = a.RETAIL_PRICE,
+                               RETAIL_STANDARD = a.RETAIL_STANDARD,
+                               TRADE = a.TRADE,
+                               WHOLESALE = a.WHOLESALE,
+                               TRADE_DISC = a.TRADE_DISC,
+                               WHOLESALE_DISC = a.WHOLESALE_DISC,
+                               RETAIL_MARGIN = a.RETAIL_MARGIN,
+                               TRADE_MARGIN = a.TRADE_MARGIN,
+                               WHOLESALE_MARGIN = a.WHOLESALE_MARGIN,
+                               SELL_PRICE1 = a.SELL_PRICE1,
+                               SELL_PRICE2 = a.SELL_PRICE2,
+                               SELL_PRICE3 = a.SELL_PRICE3,
+                               SELL_PRICE4 = a.SELL_PRICE4,
+                               SELL_QTY2 = a.SELL_QTY2,
+                               SELL_QTY3 = a.SELL_QTY3,
+                               SELL_QTY4 = a.SELL_QTY4,
+                               SELL_MARGIN2 = a.SELL_MARGIN2,
+                               SELL_MARGIN3 = a.SELL_MARGIN3,
+                               SELL_MARGIN4 = a.SELL_MARGIN4,
+                               IS_DELETE = a.IS_DELETE,
+                               STATUS = a.STATUS
+
+
+                           }).FirstOrDefault();
+                return Request.CreateResponse(HttpStatusCode.OK, str);
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
     }
 }
