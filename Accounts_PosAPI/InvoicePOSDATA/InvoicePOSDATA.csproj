@@ -183,6 +183,9 @@
     <Compile Include="SALESORDER_CUSTOMER_RECURRING_SALES_LINES.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SALES_JOURNAL_DEBIT.cs">
+      <DependentUpon>POSDATA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SALES_ORDER.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
@@ -190,6 +193,9 @@
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
     <Compile Include="SALES_ORDER_LINE_ITEM.cs">
+      <DependentUpon>POSDATA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALES_QUICK_JOURNAL.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
     <Compile Include="SALES_VAT_LINE.cs">

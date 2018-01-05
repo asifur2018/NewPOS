@@ -1,0 +1,71 @@
+﻿<Window x:Class="Accounts_Pos.View.Sales.recurringsales"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Accounts_Pos.View.Sales"
+        mc:Ignorable="d"
+        Title="Recurring Sales" Height="700" Width="1080" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="Transction Filter" Height="100" Margin="10,50,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="1043">
+            <Grid>
+                <ComboBox HorizontalAlignment="Left" Height="24" Margin="10,33,0,0" VerticalAlignment="Top" Width="236" Style="{StaticResource combobox}">
+
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left"  Margin="11,13,0,0" TextWrapping="Wrap" Text="Ledger :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}" Height="16"/>
+                <TextBox HorizontalAlignment="Left"  Margin="781,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="235"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="267,13,0,0" TextWrapping="Wrap" Text="Transaction Type :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}" Height="16" Width="179"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="529,13,0,0" TextWrapping="Wrap" Text="Show :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}" Height="16"/>
+                <TextBlock HorizontalAlignment="Left"  Margin="782,13,0,0" TextWrapping="Wrap" Text="Cut-off Date :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleft}" Height="16" Width="179"/>
+                <ComboBox HorizontalAlignment="Left" Height="24" Margin="266,33,0,0" VerticalAlignment="Top" Width="236" Style="{StaticResource combobox}">
+                    <ComboBoxItem Content="All Transaction"/>
+                    <ComboBoxItem Content="Journals"/>
+                    <ComboBoxItem Content="Invoices"/>
+                    <ComboBoxItem Content="Payments"/>
+                    <ComboBoxItem Content="Receipts"/>
+                    <ComboBoxItem Content="Transfers"/>
+                </ComboBox>
+                <ComboBox HorizontalAlignment="Left" Height="24" Margin="526,33,0,0" VerticalAlignment="Top" Width="236" Style="{StaticResource combobox}">
+
+                    <ComboBoxItem Content="All Frequencies"/>
+                    <ComboBoxItem Content="Only Once"/>
+                    <ComboBoxItem Content="Daily"/>
+                    <ComboBoxItem Content="Week Days"/>
+                    <ComboBoxItem Content="Weekly"/>
+                    <ComboBoxItem Content="Every Two weeks"/>
+                    <ComboBoxItem Content="Every Four Weeks"/>
+                    <ComboBoxItem Content="Monthly"/>
+                    <ComboBoxItem Content="Every Two Months"/>
+                    <ComboBoxItem Content="Quarterly"/>
+                    <ComboBoxItem Content="Twice Year"/>
+                    <ComboBoxItem Content="Yearly"/>
+                    <ComboBoxItem Content="Every 2 Years"/>
+                    <ComboBoxItem Content="Custom Schedule"/>
+                </ComboBox>
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox x:Name="groupBox" Header="Transction List" HorizontalAlignment="Left" Height="402" Margin="11,164,0,0" VerticalAlignment="Top" Width="1042" Style="{StaticResource headinggroup}"/>
+        <Button  Command="{Binding AddCustomerClick}" HorizontalAlignment="Left"  Margin="17,577,0,0" VerticalAlignment="Top"  Style="{StaticResource Imagebtn}">
+            <DockPanel>
+                <Image Source="../../Images/New.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="New" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center" />
+            </DockPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left"  Margin="76,578,0,0" VerticalAlignment="Top" Style="{StaticResource Imagebtn}">
+            <DockPanel>
+                <Image Source="../../Images/edit.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Edit" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center"/>
+            </DockPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left"  Margin="132,577,0,0" VerticalAlignment="Top"  Style="{StaticResource Imagebtn}" Width="62">
+            <DockPanel>
+                <Image Source="../../Images/Delete.png" Stretch="Uniform" DockPanel.Dock="Top" Width="45" Height="30"/>
+                <Label Content="Delete" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" HorizontalAlignment="Center"/>
+            </DockPanel>
+
+        </Button>
+        <Button Content="Close" Command="{Binding Cancel}"  HorizontalAlignment="Left" Height="35" Margin="911,590,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
+    </Grid>
+</Window>
