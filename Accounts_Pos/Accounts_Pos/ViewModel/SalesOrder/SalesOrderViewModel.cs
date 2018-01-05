@@ -326,7 +326,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         _ListGrid_Temp.Add(new SalesOrderVATLineModel
                         {
 
-                            VAT_LINE_ID = data[i].VAT_LINE_ID,
+                            NO = i+1,
                             ORDER_NO = data[i].ORDER_NO,
                             VAT_RATE = data[i].VAT_RATE,
                             DESCRIPTION = data[i].DESCRIPTION,
@@ -1978,7 +1978,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                 _ListGrid_Temp.Add(new SalesOrderVATLineModel
                 {
                     ORDER_NO = SelectedSalesOrder.ORDER_NO,
-                    VAT_LINE_ID = i+1,
+                    NO = i+1,
                     VAT_RATE = vatRate[i],
                     DESCRIPTION = description[i],
                     NET_AMOUNT = netAmount[i],

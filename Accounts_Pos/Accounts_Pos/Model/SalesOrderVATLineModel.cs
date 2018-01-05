@@ -15,5 +15,6 @@ namespace Accounts_Pos.Model
         public decimal? NET_AMOUNT { get; set; }
         public decimal? VAT_AMOUNT { get; set; }
         public decimal? TOTAL { get; set; }
+        public int NO { get; set; }
     }
 }

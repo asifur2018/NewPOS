@@ -245,7 +245,7 @@
                                         </Style>
                                     </DataGrid.CellStyle>
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn    Width="30"  Header="No"   Binding="{Binding VAT_LINE_ID}"/>
+                                        <DataGridTextColumn    Width="30"  Header="No"   Binding="{Binding NO}"/>
                                     <DataGridTextColumn    Width="80"  Header="Rate" Binding="{Binding VAT_RATE}" />
                                     <DataGridTextColumn    Width="140"  Header="Description"  Binding="{Binding DESCRIPTION}"  />
                                     <DataGridTextColumn    Width="90"  Header="Net Amt"  Binding="{Binding NET_AMOUNT}"  />
