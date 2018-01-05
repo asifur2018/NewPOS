@@ -119,7 +119,7 @@
                                       CanUserReorderColumns="False"  
                                       IsReadOnly="{Binding ItemLineEditability}"
                                       SelectedItem="{Binding SelectedSalesOrderLineItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                      SelectedIndex="{Binding SelectedProductIndex}">
+                                      SelectedIndex="{Binding SelectedProductIndex}"  >
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="CellEditEnding">
                                         <b:InvokeCommandAction Command="{Binding ProductAmountTextChangedCommand}"/>
@@ -147,7 +147,7 @@
                                     </Style>
                                 </DataGrid.RowStyle>                     
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn    Width="30"   Header="No"   Binding="{Binding LINE_ITEM_ID}"/>
+                                    <DataGridTextColumn    Width="30"   Header="No"   Binding="{Binding NO}"/>
                                     <DataGridTextColumn    Width="200"  Header="Product Code" Binding="{Binding PRODUCT_CODE,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" >
                                         <DataGridTextColumn.CellStyle>
                                             <Style TargetType="DataGridCell">

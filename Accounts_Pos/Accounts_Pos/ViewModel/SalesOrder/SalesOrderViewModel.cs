@@ -245,7 +245,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         _ListGrid_Temp.Add(new SalesOrderLineItemModel
                         {
 
-                            LINE_ITEM_ID = data[i].LINE_ITEM_ID,
+                            NO = i+1,
                             ORDER_NO = data[i].ORDER_NO,
                             PRODUCT_CODE = data[i].PRODUCT_CODE,
                             DESCRIPTION = data[i].DESCRIPTION,
@@ -263,7 +263,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         {
                             _ListGrid_Temp.Add(new SalesOrderLineItemModel
                             {
-                                LINE_ITEM_ID = i + 1,
+                                NO = i + 1,
                                 ORDER_NO = SelectedSalesOrder.ORDER_NO
                             });
                         }
@@ -295,7 +295,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             {
                 _ListGrid_Temp.Add(new SalesOrderLineItemModel
                     {
-                        LINE_ITEM_ID = i + 1,
+                        NO = i + 1,
                         ORDER_NO = SelectedSalesOrder.ORDER_NO
                     });
             }
@@ -1004,9 +1004,9 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                 ItemLineEditability = false;
             }
 
-            if ((ListGrid.Count == SelectedSalesOrderLineItem.LINE_ITEM_ID) && ((SelectedSalesOrderLineItem.LINE_ITEM_ID % 20) == 0))
+            if ((ListGrid.Count == SelectedSalesOrderLineItem.NO) && ((SelectedSalesOrderLineItem.NO % 20) == 0))
             {
-                prepareItemLine(SelectedSalesOrderLineItem.LINE_ITEM_ID);
+                prepareItemLine(SelectedSalesOrderLineItem.NO);
             }
             
         }

@@ -9,6 +9,17 @@ namespace Accounts_Pos.Model
 {
     class SalesOrderLineItemModel : INotifyPropertyChanged
     {
+        private int _NO;
+        public int NO
+        {
+            get { return _NO; }
+            set
+            {
+                _NO = value;
+                NotifyPropertyChanged("NO");
+            }
+        }
+
         private int _LINE_ITEM_ID;
         public int LINE_ITEM_ID
         {
