@@ -504,8 +504,16 @@
 
                             </xctk:MaskedTextBox>
                             <TextBlock HorizontalAlignment="Left" Height="22" Margin="145,132,0,0" TextWrapping="Wrap" Text="Last Chg :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
-                            <TextBox IsReadOnly="True" HorizontalAlignment="Left"  Margin="200,132,0,0" TextWrapping="Wrap" Width="100" Text="{Binding SelectedSalesOrderCustomerOtherDetails.LAST_CHANGE_SYSTEM_DATE}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}" Grid.ColumnSpan="2"/>
-                            <!--<xctk:MaskedTextBox 
+                            <!--<TextBox IsReadOnly="True" 
+                                     HorizontalAlignment="Left"  
+                                     Margin="200,132,0,0" 
+                                     TextWrapping="Wrap" Width="100" 
+                                     Text="{Binding SelectedSalesOrderCustomerOtherDetails.LAST_CHANGE_SYSTEM_DATE,StringFormat='Short Date',ConverterCulture=en-GB}" 
+                                     Value="{Binding SelectedSalesOrder.ORDER_DATE, StringFormat='Short Date',ConverterCulture=en-GB,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     VerticalAlignment="Top" 
+                                     Style="{StaticResource ResourceKey=textbox}" 
+                                     Grid.ColumnSpan="2"/>-->
+                            <xctk:MaskedTextBox 
                                     IsReadOnly="True"
                                     HorizontalAlignment="Left" 
                                     Mask="00/00/0000" 
@@ -514,13 +522,15 @@
                                     TextWrapping="Wrap"                           
                                     VerticalAlignment="Top" 
                                     Style="{StaticResource textbox}" 
-                                    Width="70"
+                                    Width="95"
                                     ValueDataType="{x:Type s:DateTime}"
                                     Text="{Binding SelectedSalesOrderCustomerOtherDetails.LAST_CHANGE_SYSTEM_DATE,StringFormat='Short Date',ConverterCulture=en-GB}"
+                                    Value="{Binding SelectedSalesOrderCustomerOtherDetails.LAST_CHANGE_SYSTEM_DATE, StringFormat='Short Date',ConverterCulture=en-GB,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+
                                    Grid.ColumnSpan="2"
                                 >
 
-                            </xctk:MaskedTextBox>-->
+                            </xctk:MaskedTextBox>
                             <TextBox IsReadOnly="True" HorizontalAlignment="Left"  Margin="250,162,0,0" TextWrapping="Wrap" Width="50" Text="SPV" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}" Grid.ColumnSpan="2"/>
                             <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,162,0,0" TextWrapping="Wrap" Text="Exp Pmt :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}"/>
                             <!--<TextBox HorizontalAlignment="Left"  Margin="72,162,0,0" TextWrapping="Wrap" Width="70" Text="{Binding SelectedSalesOrderCustomerOtherDetails.EXPECTED_PAYMENT}" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbox}"/>-->
@@ -641,7 +651,7 @@
         </TabControl>
         <Grid  Margin="20,600,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="1000">
             <Button Content="Save" Command="{Binding SaveCommand}" Style="{StaticResource AddBtnLook}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Button Content="Delete"  Style="{StaticResource CancelBtnLook}" Margin="150,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Button Content="Delete" Command="{Binding Delete}" Style="{StaticResource CancelBtnLook}" Margin="150,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Button Content="Cancel" Command="{Binding Cancel}" Style="{StaticResource CancelBtnLook}" Margin="150,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         </Grid>
         <StatusBar Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" >

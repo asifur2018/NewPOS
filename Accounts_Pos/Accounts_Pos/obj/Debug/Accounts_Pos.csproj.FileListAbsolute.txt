@@ -1858,4 +1858,3 @@ D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\SalesOrder.bam
 D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\Accounts_Pos.g.resources
 D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\Accounts_Pos.Properties.Resources.resources
 D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\Accounts_Pos.csproj.GenerateResource.Cache
-D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\Accounts_Pos.csprojResolveAssemblyReference.cache

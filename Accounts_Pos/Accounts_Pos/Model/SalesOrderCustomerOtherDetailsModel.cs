@@ -12,9 +12,9 @@ namespace Accounts_Pos.Model
         public int NO_OF_COPIES { get; set; }
         public string DEL { get; set; }
         public string MODE { get; set; }
-        public string EXPECTED_SHIP { get; set; }
-        public string EXPECTED_PAYMENT { get; set; }
-        public string LAST_CHANGE_SYSTEM_DATE { get; set; }
+        public DateTime? EXPECTED_SHIP { get; set; }
+        public DateTime? EXPECTED_PAYMENT { get; set; }
+        public DateTime? LAST_CHANGE_SYSTEM_DATE { get; set; }
         public decimal? STANDARD_DISC_PER { get; set; }
         public int? STANDART_DISC_DAYS { get; set; }
         public string ORDER_NO { get; set; }

@@ -125,6 +125,28 @@ namespace InvoicePOSAPI.Controllers
         }
 
         [HttpPost]
+        public HttpResponseMessage DeleteSalesOrderLineItems(SalesOrderModel pSalesOrder)
+        {
+
+            try
+            {
+                IEnumerable<SALES_ORDER_LINE_ITEM> salesOrderLineItemList = db.SALES_ORDER_LINE_ITEM.Where(a => a.ORDER_NO.Equals(pSalesOrder.ORDER_NO));
+
+                foreach (SALES_ORDER_LINE_ITEM salesOrderLineItem in salesOrderLineItemList)
+                {
+                    db.SALES_ORDER_LINE_ITEM.Remove(salesOrderLineItem);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
+        [HttpPost]
         public HttpResponseMessage CreateSalesOrderVATLine(SalesVatLineModel _SalesVatLineModel)
         {
 
@@ -143,6 +165,28 @@ namespace InvoicePOSAPI.Controllers
                 db.SALES_VAT_LINE.Add(svl);
                 db.SaveChanges();
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
+        [HttpPost]
+        public HttpResponseMessage DeleteSalesOrderVATLineItems(SalesOrderModel pSalesOrder)
+        {
+
+            try
+            {
+                IEnumerable<SALES_VAT_LINE> salesOrderVATLineItemList = db.SALES_VAT_LINE.Where(a => a.ORDER_NO.Equals(pSalesOrder.ORDER_NO));
+
+                foreach (SALES_VAT_LINE salesOrderVATLineItem in salesOrderVATLineItemList)
+                {
+                    db.SALES_VAT_LINE.Remove(salesOrderVATLineItem);
+                }
+                db.SaveChanges();
             }
             catch (Exception)
             {
@@ -185,17 +229,20 @@ namespace InvoicePOSAPI.Controllers
                 socod.MODE = _SalesOrderCustomerOtherDetailsModel.MODE;
                 if (_SalesOrderCustomerOtherDetailsModel.EXPECTED_SHIP != null)
                 {
-                    socod.EXPECTED_SHIP = DateTime.ParseExact(_SalesOrderCustomerOtherDetailsModel.EXPECTED_SHIP, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //socod.EXPECTED_SHIP = DateTime.ParseExact(_SalesOrderCustomerOtherDetailsModel.EXPECTED_SHIP, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 }
 
                 if (_SalesOrderCustomerOtherDetailsModel.EXPECTED_PAYMENT != null)
                 {
-                    socod.EXPECTED_PAYMENT = DateTime.ParseExact(_SalesOrderCustomerOtherDetailsModel.EXPECTED_PAYMENT, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //socod.EXPECTED_PAYMENT = DateTime.ParseExact(_SalesOrderCustomerOtherDetailsModel.EXPECTED_PAYMENT, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 }
                 if (_SalesOrderCustomerOtherDetailsModel.LAST_CHANGE_SYSTEM_DATE != null)
                 {
-                    socod.LAST_CHANGE_SYSTEM_DATE = DateTime.ParseExact(_SalesOrderCustomerOtherDetailsModel.LAST_CHANGE_SYSTEM_DATE, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //socod.LAST_CHANGE_SYSTEM_DATE = DateTime.ParseExact(_SalesOrderCustomerOtherDetailsModel.LAST_CHANGE_SYSTEM_DATE, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 }
+                socod.EXPECTED_SHIP = _SalesOrderCustomerOtherDetailsModel.EXPECTED_SHIP;
+                socod.EXPECTED_PAYMENT = _SalesOrderCustomerOtherDetailsModel.EXPECTED_PAYMENT;
+                socod.LAST_CHANGE_SYSTEM_DATE = _SalesOrderCustomerOtherDetailsModel.LAST_CHANGE_SYSTEM_DATE;
                 socod.ORDER_NO = _SalesOrderCustomerOtherDetailsModel.ORDER_NO;
 
                 db.SALESORDER_CUSTOMER_OTHER_DETAILS.Add(socod);
@@ -221,17 +268,42 @@ namespace InvoicePOSAPI.Controllers
                            NO_OF_COPIES = (int)a.NO_OF_COPIES,
                            DEL = a.DEL,
                            MODE = a.MODE,
-                           EXPECTED_SHIP = SqlFunctions.DateName("day",a.EXPECTED_SHIP) + "/" 
-                           + SqlFunctions.DateName("month",a.EXPECTED_SHIP) + "/" + SqlFunctions.DateName("year", a.EXPECTED_SHIP),
-                           EXPECTED_PAYMENT = SqlFunctions.DateName("day", a.EXPECTED_PAYMENT) + "/"
-                           + SqlFunctions.DateName("month", a.EXPECTED_PAYMENT) + "/" + SqlFunctions.DateName("year", a.EXPECTED_PAYMENT),
-                           LAST_CHANGE_SYSTEM_DATE = SqlFunctions.DateName("day", a.LAST_CHANGE_SYSTEM_DATE) + "/"
-                           + SqlFunctions.DateName("month", a.LAST_CHANGE_SYSTEM_DATE) + "/" + SqlFunctions.DateName("year", a.LAST_CHANGE_SYSTEM_DATE),
+                          // EXPECTED_SHIP = SqlFunctions.DateName("day",a.EXPECTED_SHIP) + "/" 
+                          // + SqlFunctions.DateName("month",a.EXPECTED_SHIP) + "/" + SqlFunctions.DateName("year", a.EXPECTED_SHIP),
+                          // EXPECTED_PAYMENT = SqlFunctions.DateName("day", a.EXPECTED_PAYMENT) + "/"
+                          // + SqlFunctions.DateName("month", a.EXPECTED_PAYMENT) + "/" + SqlFunctions.DateName("year", a.EXPECTED_PAYMENT),
+                           //LAST_CHANGE_SYSTEM_DATE = SqlFunctions.DateName("day", a.LAST_CHANGE_SYSTEM_DATE) + "/"
+                           //+ SqlFunctions.DateName("month", a.LAST_CHANGE_SYSTEM_DATE) + "/" + SqlFunctions.DateName("year", a.LAST_CHANGE_SYSTEM_DATE),
+                           EXPECTED_SHIP = a.EXPECTED_SHIP,
+                           EXPECTED_PAYMENT = a.EXPECTED_PAYMENT,
+                           LAST_CHANGE_SYSTEM_DATE = a.LAST_CHANGE_SYSTEM_DATE,
                            ORDER_NO = a.ORDER_NO
                            
                        }).FirstOrDefault();
             return Request.CreateResponse(HttpStatusCode.OK, str);
 
+        }
+
+        [HttpPost]
+        public HttpResponseMessage DeleteSalesOrderCustomerOtherDetails(SalesOrderModel pSalesOrder)
+        {
+
+            try
+            {
+                IEnumerable<SALESORDER_CUSTOMER_OTHER_DETAILS> salesOrderCustomerOtherDetailsList = db.SALESORDER_CUSTOMER_OTHER_DETAILS.Where(a => a.ORDER_NO.Equals(pSalesOrder.ORDER_NO));
+
+                foreach (SALESORDER_CUSTOMER_OTHER_DETAILS salesOrderCustomerOtherDetails in salesOrderCustomerOtherDetailsList)
+                {
+                    db.SALESORDER_CUSTOMER_OTHER_DETAILS.Remove(salesOrderCustomerOtherDetails);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
         [HttpPost]
@@ -287,6 +359,30 @@ namespace InvoicePOSAPI.Controllers
 
         }
 
+
+        [HttpPost]
+        public HttpResponseMessage DeleteSalesOrderCustomerInvoiceTo(SalesOrderModel pSalesOrder)
+        {
+
+            try
+            {
+                IEnumerable<SALESORDER_CUSTOMER_INVOICE_TO> salesOrderCustomerInvoiceToList = db.SALESORDER_CUSTOMER_INVOICE_TO.Where(a => a.ORDER_NO.Equals(pSalesOrder.ORDER_NO));
+
+                foreach (SALESORDER_CUSTOMER_INVOICE_TO salesOrderCustomerInvoiceTo in salesOrderCustomerInvoiceToList)
+                {
+                    db.SALESORDER_CUSTOMER_INVOICE_TO.Remove(salesOrderCustomerInvoiceTo);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
+
         [HttpPost]
         public HttpResponseMessage CreateSalesOrderCustomerDeliveryTo(SalesOrderCustomerDeliveryToModel _SalesOrderCustomerDeliveryToModel)
         {
@@ -338,6 +434,28 @@ namespace InvoicePOSAPI.Controllers
 
         }
 
+        [HttpPost]
+        public HttpResponseMessage DeleteSalesOrderCustomerDeliveryTo(SalesOrderModel pSalesOrder)
+        {
+
+            try
+            {
+                IEnumerable<SALESORDER_CUSTOMER_DELIVERY_TO> salesOrderCustomerDeliveryToList = db.SALESORDER_CUSTOMER_DELIVERY_TO.Where(a => a.ORDER_NO.Equals(pSalesOrder.ORDER_NO));
+
+                foreach (SALESORDER_CUSTOMER_DELIVERY_TO salesOrderCustomerDeliveryTo in salesOrderCustomerDeliveryToList)
+                {
+                    db.SALESORDER_CUSTOMER_DELIVERY_TO.Remove(salesOrderCustomerDeliveryTo);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
         [HttpGet]
         public HttpResponseMessage GetSalesOrderList()
         {
@@ -374,6 +492,28 @@ namespace InvoicePOSAPI.Controllers
             {
                 throw;
             }
+        }
+
+        [HttpPost]
+        public HttpResponseMessage DeleteSalesOrder(SalesOrderModel pSalesOrder)
+        {
+
+            try
+            {
+                IEnumerable<SALES_ORDER> salesOrderList = db.SALES_ORDER.Where(a => a.ORDER_NO.Equals(pSalesOrder.ORDER_NO));
+
+                foreach (SALES_ORDER salesOrder in salesOrderList)
+                {
+                    db.SALES_ORDER.Remove(salesOrder);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
     }

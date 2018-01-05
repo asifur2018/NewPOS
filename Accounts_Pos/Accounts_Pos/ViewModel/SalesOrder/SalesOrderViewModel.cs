@@ -1276,7 +1276,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                 client.BaseAddress = new Uri(GlobalData.gblApiAdress);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                var response = client.GetAsync("api/CustomerAPI/GetCustomer/?_CustomerCode=" + CODE).Result;
+                var response = client.GetAsync("api/CustomerAPI/GetCustomer?_CustomerCode=" + CODE).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -1441,7 +1441,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                              SelectedSalesOrderCustomerOtherDetails.NO_OF_COPIES = 1;
                              SelectedSalesOrderCustomerOtherDetails.STANDARD_DISC_PER = SelectedCustomerBankDetails.STANDARD_DISC_PER;
                              SelectedSalesOrderCustomerOtherDetails.STANDART_DISC_DAYS = SelectedCustomerBankDetails.STANDART_DISC_DAYS;
-                             SelectedSalesOrderCustomerOtherDetails.LAST_CHANGE_SYSTEM_DATE = DateTime.Now.ToString("d");
+                             SelectedSalesOrderCustomerOtherDetails.LAST_CHANGE_SYSTEM_DATE = DateTime.Now.Date;
                              SelectedSalesOrderCustomerOtherDetails.DEL = "N/A - Not Applicable";
                              SelectedSalesOrderCustomerOtherDetails.MODE = "0-Not Applicable";
                              SelectedSalesOrderCustomerOtherDetails.ORDER_NO = SelectedSalesOrder.ORDER_NO;
@@ -1510,6 +1510,50 @@ namespace Accounts_Pos.ViewModel.SalesOrder
            
         }
 
+        private ICommand _Delete { get; set; }
+        public ICommand Delete
+        {
+            get
+            {
+                if (_Delete == null)
+                {
+                    _Delete = new DelegateCommand(DeleteButton_Click);
+                }
+                return _Delete;
+            }
+
+        }
+        public async void DeleteButton_Click()
+        {
+            if (SelectedSalesOrder == null)
+            {
+                MessageBox.Show("Please select a row to delete");
+            }
+            else
+            {
+                Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow");
+                if (win != null)
+                {
+                    win.IsEnabled = false;
+                }
+                await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
+                MessageBox.Show("SalesOrder deleted succssfully");
+                //refresh grid
+                GetSalesOrderList();
+                NotifyPropertyChanged("SalesOrderList");
+                if (win != null)
+                {
+                    win.Close();
+                }
+                Window winv = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "ViewSalesOrderWindow");
+                if (winv != null)
+                {
+                    winv.DataContext = this;
+                }
+            }
+
+        }
+
         private ICommand _SaveCommand { get; set; }
         public ICommand SaveCommand
         {
@@ -1554,8 +1598,14 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             }
             else
             {
+                Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow");
+                if (win != null)
+                {
+                    win.IsEnabled = false;
+                }
                 try
                 {
+                    await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Accept.Add(
                         new MediaTypeWithQualityHeaderValue("application/json"));
@@ -1571,6 +1621,11 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                                 if (resp.StatusCode.ToString() != "OK")
                                 {
                                     MessageBox.Show("Failed to add line item");
+                                    await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
+                                    if (win != null)
+                                    {
+                                        win.IsEnabled = true;
+                                    }
                                     return;
                                 }
                             }
@@ -1582,6 +1637,11 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                             if (resp.StatusCode.ToString() != "OK")
                             {
                                 MessageBox.Show("Failed to add vatline");
+                                await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
+                                if (win != null)
+                                {
+                                    win.IsEnabled = true;
+                                }
                                 return;
                             }
                         }
@@ -1590,6 +1650,11 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         if (resp1.StatusCode.ToString() != "OK")
                         {
                             MessageBox.Show("Failed to add Customer Other Details");
+                            await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
+                            if (win != null)
+                            {
+                                win.IsEnabled = true;
+                            }
                             return;
                         }
 
@@ -1597,6 +1662,11 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         if (resp2.StatusCode.ToString() != "OK")
                         {
                             MessageBox.Show("Failed to add CustomerInvoiceTo");
+                            await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
+                            if (win != null)
+                            {
+                                win.IsEnabled = true;
+                            }
                             return;
                         }
 
@@ -1604,14 +1674,18 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                         if (resp3.StatusCode.ToString() != "OK")
                         {
                             MessageBox.Show("Failed to add CustomerDeliveryTo");
+                            await DeleteSalesOrder(SelectedSalesOrder.ORDER_NO);
+                            if (win != null)
+                            {
+                                win.IsEnabled = true;
+                            }
                             return;
                         }
 
                         MessageBox.Show("SalesOrder Saved successfully");
                         //refresh grid
-                        GetSalesOrderList();
+                        await GetSalesOrderList();
                         NotifyPropertyChanged("SalesOrderList");
-                        Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow");
                         if (win != null)
                         {
                             win.Close();
@@ -1627,6 +1701,33 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                 {
                 }
             }
+        }
+
+
+        public async Task<bool> DeleteSalesOrder(string OrderNo)
+        {
+            if (!String.IsNullOrEmpty(OrderNo))
+            {
+                try
+                {
+                    SalesOrderModel so = new SalesOrderModel();
+                    so.ORDER_NO = OrderNo;
+                    HttpClient client = new HttpClient();
+                    client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+                    var response = await client.PostAsJsonAsync("api/SalesOrderAPI/DeleteSalesOrderLineItems/", so);
+                    var response1 = await client.PostAsJsonAsync("api/SalesOrderAPI/DeleteSalesOrderVATLineItems/" , so);
+                    var response2 = await client.PostAsJsonAsync("api/SalesOrderAPI/DeleteSalesOrderCustomerOtherDetails/" , so);
+                    var response3 = await client.PostAsJsonAsync("api/SalesOrderAPI/DeleteSalesOrderCustomerInvoiceTo/" , so);
+                    var response4 = await client.PostAsJsonAsync("api/SalesOrderAPI/DeleteSalesOrderCustomerDeliveryTo/" , so);
+                    var response5 = await client.PostAsJsonAsync("api/SalesOrderAPI/DeleteSalesOrder/" , so);
+                }
+                catch
+                {
+                }
+            }
+            return true;
         }
 
 
