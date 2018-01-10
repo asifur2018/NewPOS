@@ -1,0 +1,32 @@
+﻿<Window x:Class="Accounts_Pos.View.Product.MaintainProductGroups"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MaintainProductGroups" Height="600" Width="1000"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="Product Code and Description" HorizontalAlignment="Left" Height="66" Margin="10,10,0,0" VerticalAlignment="Top" Width="962" Style="{StaticResource headinggroup}">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource Instrcuttextitalicprod}" Width="51"/>
+                <TextBox HorizontalAlignment="Left"  Margin="71,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="215"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="323,11,0,0" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="86"/>
+                <TextBox HorizontalAlignment="Left"  Margin="407,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="215"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="655,11,0,0" TextWrapping="Wrap" Text="Products :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="63"/>
+                <TextBox HorizontalAlignment="Left"  Margin="727,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="215"/>
+            </Grid>
+        </GroupBox>
+        <TabControl HorizontalAlignment="Left" Height="350" Margin="10,105,0,0" VerticalAlignment="Top" Width="962">
+            <TabItem Header="Sales" Margin="-2,-2,-94,-1">
+                <Grid Background="#ffffff">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sales/Cost Info" Margin="123,-2,-212,-1">
+                <Grid Background="#ffffff">
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Qty Sold/Cost Info" Margin="240,-2,-329,-1">
+                <Grid Background="#ffffff">
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

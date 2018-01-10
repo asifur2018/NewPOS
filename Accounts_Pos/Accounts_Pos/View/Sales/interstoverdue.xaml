@@ -1,0 +1,38 @@
+﻿<Window x:Class="Accounts_Pos.View.Sales.interstoverdue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Accounts_Pos.View.Sales"
+        mc:Ignorable="d"
+        Title="interst on overdue Accounts" Height="450" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="Calculation Date" Height="207" Margin="12,10,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="370">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Height="20" Margin="11,12,0,0" TextWrapping="Wrap" Text="Calculation Date :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+                <!--<TextBox Height="22" Margin="145,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left" Width="203"/>-->
+                <DatePicker HorizontalAlignment="Left" Margin="145,10,0,0" SelectedDate="{Binding selectSales.CAL_DATE}" VerticalAlignment="Top"  Width="203"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,40,0,0" TextWrapping="Wrap" Text="Journal Reference :" VerticalAlignment="Top" Style="{StaticResource ResourceKey=textbolockleftbig}" Width="113"/>
+                <TextBox Text="{Binding selectCustomer.JOURNAL_REF, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" Height="22" Margin="145,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Style="{StaticResource textboxsmall}"  HorizontalAlignment="Left" Width="203"/>
+                <CheckBox IsChecked="{Binding IS_AUTOINCREMENT,UpdateSourceTrigger=PropertyChanged}" x:Name="checkBox" Content="Auto Increment Reference" HorizontalAlignment="Left" Height="24" Margin="12,70,0,0" VerticalAlignment="Top" Width="334"/>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="86" Margin="12,97,0,0" TextWrapping="Wrap" Text="Note : The calculation date is the date that Invoices are aged from. Changing the calculation date will affect which tranctions are included in the Interest charges selection screen that follows, The Journal Reference above is alphanumeric, however it can be incremented automatically only if the entry is numeric" VerticalAlignment="Top" Width="334" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="Default Setting" Height="113" Margin="12,222,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="370">
+            <Grid>
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="76" Margin="12,17,0,0" TextWrapping="Wrap" Text="Charge interest to all customers with overdue balances.
+Charge interest to customer accounts where the overdue balance is greater than 1.00.
+The default terms for customers that do not have their own terms set up is 30 days from invoice date" VerticalAlignment="Top" Width="334" Style="{StaticResource ResourceKey=textbolockleftbig}"/>
+
+
+            </Grid>
+
+        </GroupBox>
+
+        <Button Content="Next" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="31" Margin="277,347,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}" Width="105"/>
+        <Button Content="Cancel" Command="{Binding Path=Cancel, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="31" Margin="164,347,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}" Width="105"/>
+    </Grid>
+</Window>
