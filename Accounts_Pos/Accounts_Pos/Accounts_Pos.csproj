@@ -202,6 +202,7 @@
     <Compile Include="ViewModel\Product\Product_MiscellaneousViewModel.cs" />
     <Compile Include="ViewModel\SalesOrder\SalesOrderViewModel.cs" />
     <Compile Include="ViewModel\Sales\CustomerJournalDebitViewMode.cs" />
+    <Compile Include="ViewModel\Sales\InterstoverdueViewModel.cs" />
     <Compile Include="ViewModel\Sales\QuickJournalEntryViewModel.cs" />
     <Compile Include="ViewModel\Sales\RecurringSalesViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SettlementDiscViewModel.cs" />
@@ -362,6 +363,12 @@
     <Compile Include="View\Product\AssemblyBreakdown.xaml.cs">
       <DependentUpon>AssemblyBreakdown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Product\EnterFreeFormat.xaml.cs">
+      <DependentUpon>EnterFreeFormat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\MaintainProductGroups.xaml.cs">
+      <DependentUpon>MaintainProductGroups.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Product\ProductDocument.xaml.cs">
       <DependentUpon>ProductDocument.xaml</DependentUpon>
     </Compile>
@@ -395,14 +402,17 @@
     <Compile Include="View\Restore\SuccessRestore.xaml.cs">
       <DependentUpon>SuccessRestore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SalesOrder\SalesOrder.xaml.cs">
-      <DependentUpon>SalesOrder.xaml</DependentUpon>
+    <Compile Include="View\SalesOrder\AddSalesOrder.xaml.cs">
+      <DependentUpon>AddSalesOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SalesOrder\SalesOrderView.xaml.cs">
       <DependentUpon>SalesOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Sales\CustomerJournalDebit.xaml.cs">
       <DependentUpon>CustomerJournalDebit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\interstoverdue.xaml.cs">
+      <DependentUpon>interstoverdue.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Sales\QuickJournalEntry.xaml.cs">
       <DependentUpon>QuickJournalEntry.xaml</DependentUpon>
@@ -648,6 +658,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Product\EnterFreeFormat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Product\MaintainProductGroups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Product\ProductDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -692,7 +710,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SalesOrder\SalesOrder.xaml">
+    <Page Include="View\SalesOrder\AddSalesOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -701,6 +719,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Sales\CustomerJournalDebit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\interstoverdue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

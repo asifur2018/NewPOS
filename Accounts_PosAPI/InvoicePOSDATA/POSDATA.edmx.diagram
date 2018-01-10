@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ef0ed1970b3f456f97a4a9fd19b966b6" Name="Diagram1" ZoomLevel="43">
+      <Diagram DiagramId="9fbae2c623c843f584303b270995d0de" Name="Diagram1" ZoomLevel="43">
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.ACCOUNT_ANALYSIS_LOOKUP" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.ACCOUNT_TYPE_LOOKUP" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.COMPANY" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -26,11 +26,12 @@
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.NATURE_OF_PRODUCT_LOOKUP" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.NOMINAL_ACCOUNT_DETAILS_LOOKUP" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_DOCUMENT" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_GROUP_LOOKUP" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_MISCELLANEOUS" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_PICTURE" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_TYPE_LOOKUP" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_DOCUMENT" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_GROUP_LOOKUP" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_MISCELLANEOUS" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_PICTURE" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.PRODUCT_TYPE_LOOKUP" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALES_JOURNAL_DEBIT" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALES_ORDER" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALES_ORDER_DELIVERY" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
@@ -39,10 +40,10 @@
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALES_VAT_LINE" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_DELIVERY_TO" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_INVOICE_TO" Width="1.5" PointX="16.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_OTHER_DETAILS" Width="1.5" PointX="6.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_RECURRING_SALES_INVOICE" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_RECURRING_SALES_LINES" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SUPPLIER" Width="1.5" PointX="16.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_OTHER_DETAILS" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_RECURRING_SALES_INVOICE" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SALESORDER_CUSTOMER_RECURRING_SALES_LINES" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACCOUNTS_POSModel.SUPPLIER" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SUPPLIER_DOCUMENT" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SUPPLIER_SETTLEMENT" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ACCOUNTS_POSModel.SUPPLIER_SUBCONTRACTOR" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />

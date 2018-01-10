@@ -830,7 +830,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
 
         public void Add_Click()
         {
-            Accounts_Pos.View.SalesOrder.SalesOrder salesOrderView = new Accounts_Pos.View.SalesOrder.SalesOrder();
+            Accounts_Pos.View.SalesOrder.AddSalesOrder salesOrderView = new Accounts_Pos.View.SalesOrder.AddSalesOrder();
             salesOrderView.Show();
         }
 
@@ -883,7 +883,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             }
             else
             {
-                Accounts_Pos.View.SalesOrder.SalesOrder _SO = new Accounts_Pos.View.SalesOrder.SalesOrder();
+                Accounts_Pos.View.SalesOrder.AddSalesOrder _SO = new Accounts_Pos.View.SalesOrder.AddSalesOrder();
                 
                 GetSalesOrderCustomerDeliveryTo(SelectedSalesOrder.ORDER_NO);
                 GetSalesOrderCustomerInvoiceTo(SelectedSalesOrder.ORDER_NO);

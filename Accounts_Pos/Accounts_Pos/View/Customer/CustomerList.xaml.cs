@@ -17,6 +17,7 @@ using Accounts_Pos.Model;
 using Accounts_Pos.View.Company;
 using Accounts_Pos.View.Product;
 using Accounts_Pos.View.Sales;
+using Accounts_Pos.View.SalesOrder;
 using Accounts_Pos.View.Supplier;
 using Accounts_Pos.ViewModel;
 using Accounts_Pos.ViewModel.Customer;
@@ -89,6 +90,22 @@ namespace Accounts_Pos.View.Customer
             cancel.Cancel_Customer();
             CustomerJournalDebit _JD = new CustomerJournalDebit();
             _JD.ShowDialog();
+        }
+
+        private void SalesOrderListing_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerViewModel cancel = new CustomerViewModel();
+            cancel.Cancel_Customer();
+            SalesOrderView _SOV = new SalesOrderView();
+            _SOV.ShowDialog();
+        }
+
+        private void AddSalesOrder_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerViewModel cancel = new CustomerViewModel();
+            cancel.Cancel_Customer();
+            AddSalesOrder _SO = new AddSalesOrder();
+            _SO.ShowDialog();
         }
 
 

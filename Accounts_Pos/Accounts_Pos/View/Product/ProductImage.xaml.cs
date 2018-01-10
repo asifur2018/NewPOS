@@ -20,11 +20,12 @@ namespace Accounts_Pos.View.Product
     /// </summary>
     public partial class ProductImage : Window
     {
+        ProductPictureViewModel _PPVM;
         public ProductImage()
         {
             InitializeComponent();
 
-            ProductPictureViewModel _PPVM = new ProductPictureViewModel();
+             _PPVM = new ProductPictureViewModel();
             this.DataContext = _PPVM;
         }
     }

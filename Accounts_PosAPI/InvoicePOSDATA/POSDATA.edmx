@@ -27,6 +27,7 @@
           <EntitySet Name="NATURE_OF_PRODUCT_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.NATURE_OF_PRODUCT_LOOKUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NOMINAL_ACCOUNT_DETAILS_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.NOMINAL_ACCOUNT_DETAILS_LOOKUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT" EntityType="ACCOUNTS_POSModel.Store.PRODUCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PRODUCT_ASSEMBLED_ITEMS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_ASSEMBLED_ITEMS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_DOCUMENT" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_DOCUMENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_GROUP_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_GROUP_LOOKUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_MISCELLANEOUS" store:Type="Tables" Schema="dbo" />
@@ -388,6 +389,20 @@
           <Property Name="SELL_MARGIN4" Type="decimal" />
           <Property Name="IS_DELETE" Type="bit" />
           <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PRODUCT_ASSEMBLED_ITEMS">
+          <Key>
+            <PropertyRef Name="PA_ID" />
+          </Key>
+          <Property Name="PA_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PA_ITEM_ID" Type="int" />
+          <Property Name="PRODUCT_CODE" Type="nchar" MaxLength="10" />
+          <Property Name="DESCRIPTION" Type="nchar" MaxLength="10" />
+          <Property Name="BIN" Type="nchar" MaxLength="10" />
+          <Property Name="PRODUCT_TYPE1" Type="nchar" MaxLength="10" />
+          <Property Name="QUANTITY" Type="decimal" />
+          <Property Name="COST_PRICE" Type="decimal" />
+          <Property Name="IS_DELETE" Type="bit" />
         </EntityType>
         <EntityType Name="PRODUCT_DOCUMENT">
           <Key>
@@ -825,6 +840,7 @@
           <EntitySet Name="NATURE_OF_PRODUCT_LOOKUP" EntityType="ACCOUNTS_POSModel.NATURE_OF_PRODUCT_LOOKUP" />
           <EntitySet Name="NOMINAL_ACCOUNT_DETAILS_LOOKUP" EntityType="ACCOUNTS_POSModel.NOMINAL_ACCOUNT_DETAILS_LOOKUP" />
           <EntitySet Name="PRODUCTs" EntityType="ACCOUNTS_POSModel.PRODUCT" />
+          <EntitySet Name="PRODUCT_ASSEMBLED_ITEMS" EntityType="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS" />
           <EntitySet Name="PRODUCT_DOCUMENT" EntityType="ACCOUNTS_POSModel.PRODUCT_DOCUMENT" />
           <EntitySet Name="PRODUCT_GROUP_LOOKUP" EntityType="ACCOUNTS_POSModel.PRODUCT_GROUP_LOOKUP" />
           <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.PRODUCT_MISCELLANEOUS" />
@@ -1186,6 +1202,20 @@
           <Property Name="SELL_MARGIN4" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IS_DELETE" Type="Boolean" />
           <Property Name="STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT_ASSEMBLED_ITEMS">
+          <Key>
+            <PropertyRef Name="PA_ID" />
+          </Key>
+          <Property Name="PA_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PA_ITEM_ID" Type="Int32" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="BIN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="PRODUCT_TYPE1" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="QUANTITY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="COST_PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IS_DELETE" Type="Boolean" />
         </EntityType>
         <EntityType Name="PRODUCT_DOCUMENT">
           <Key>
@@ -1932,6 +1962,21 @@
                 <ScalarProperty Name="SELL_MARGIN4" ColumnName="SELL_MARGIN4" />
                 <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
                 <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_ASSEMBLED_ITEMS">
+            <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS">
+              <MappingFragment StoreEntitySet="PRODUCT_ASSEMBLED_ITEMS">
+                <ScalarProperty Name="PA_ID" ColumnName="PA_ID" />
+                <ScalarProperty Name="PA_ITEM_ID" ColumnName="PA_ITEM_ID" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="PRODUCT_TYPE1" ColumnName="PRODUCT_TYPE1" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="COST_PRICE" ColumnName="COST_PRICE" />
+                <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

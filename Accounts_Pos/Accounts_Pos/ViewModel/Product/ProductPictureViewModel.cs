@@ -33,6 +33,7 @@ namespace Accounts_Pos.ViewModel.Product
             PRODUCT_CODE = App.Current.Properties["Product_Code"].ToString();
             DESCR = App.Current.Properties["Description"].ToString();
             BIN = App.Current.Properties["Bin"].ToString();
+            int comp = Convert.ToInt32(App.Current.Properties["Company_Id"].ToString());
         }
 
 
@@ -220,7 +221,7 @@ namespace Accounts_Pos.ViewModel.Product
                         var response = await client.PostAsJsonAsync("api/ProductAPI/CreateProductPicture/", ppm);
                         if (response.StatusCode.ToString() == "OK")
                         {
-                            MessageBox.Show("Product Added Successfully");
+                            MessageBox.Show("Product Image Added Successfully...");
                             Cancel_Product();
                             ProductDocument _PDVM = new ProductDocument();
                             _PDVM.ShowDialog();

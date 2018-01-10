@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -48,6 +49,7 @@ namespace InvoicePOSAPI.Models
         public bool? IS_DELETE { get; set; }
         public int SLNO { get; set; }
         public int PRODUCT_ID { get; set; }
+        public ObservableCollection<ProductModel> SelectedItem { get; set; }
 
 
         public decimal SALES_AC1 { get; set; }
@@ -80,7 +82,7 @@ namespace InvoicePOSAPI.Models
         public string GROUP3 { get; set; }
         public string GROUP4 { get; set; }
         public string GROUP5 { get; set; }
-                
+
         public int PICTURE_ID { get; set; }
         public string PICTURE_NAME { get; set; }
 

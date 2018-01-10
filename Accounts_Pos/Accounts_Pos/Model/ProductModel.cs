@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,7 @@ namespace Accounts_Pos.Model
         public bool IS_DELETE { get; set; }
         public int SLNO { get; set; }
         public int PRODUCT_ID { get; set; }
+        public ObservableCollection<ProductModel> SelectedItem { get; set; }
 
         public decimal SALES_AC1 { get; set; }
         public decimal SALES_AC2 { get; set; }

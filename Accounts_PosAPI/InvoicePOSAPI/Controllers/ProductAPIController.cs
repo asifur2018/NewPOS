@@ -10,8 +10,8 @@ using InvoicePOSDATA;
 namespace InvoicePOSAPI.Controllers
 {
 
-        
-        
+
+
     public class ProductAPIController : ApiController
     {
         ACCOUNTS_POSEntities db = new ACCOUNTS_POSEntities();
@@ -22,53 +22,6 @@ namespace InvoicePOSAPI.Controllers
         {
             var str = (from a in db.PRODUCTs
                        where a.COMPANY_ID == id && a.IS_DELETE == false
-                       select new ProductModel
-                       {
-
-                           PRODUCT_CODE = a.PRODUCT_CODE,
-                           DESCRIPTION = a.DESCRIPTION,
-                           BIN = a.BIN,
-                           PRODUCT_TYPE1 = a.PRODUCT_TYPE1,
-                           DISCONTINUED = a.DISCONTINUED,
-                           PRODUCT_ID = a.PRODUCT_ID,
-                           RETAIL_STANDARD=0,
-                           WEIGHT=0,
-                           QUANTITY=0,
-                           COST_PRICE=0,
-                           LAST_SALE=0,
-                           RETAIL_PRICE=0,
-                           TRADE=0,
-                           WHOLESALE=0,
-                           TRADE_DISC=0,
-                           WHOLESALE_DISC=0,
-                           RETAIL_MARGIN=0,
-                           TRADE_MARGIN=0,
-                           WHOLESALE_MARGIN=0,
-                           SELL_PRICE1=0,
-                           SELL_PRICE2=0,
-                           SELL_PRICE3=0,
-                           SELL_PRICE4=0,
-                           SELL_QTY2=0,
-                           SELL_QTY3=0,
-                           SELL_QTY4=0,
-                           SELL_MARGIN2=0,
-                           SELL_MARGIN3=0,
-                           SELL_MARGIN4=0,
-
-                           
-                           //POSTCODE = a.POSTCODE,
-                           //PRODUCT_ID = a.PRODUCT_ID,
-                           //FAX = a.FAX,
-
-                       }).ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, str);
-        }
-
-        [HttpGet]
-        public HttpResponseMessage GetProductsAssembled(int id, int pid)
-        {
-            var str = (from a in db.PRODUCTs
-                       where a.COMPANY_ID == id && a.PRODUCT_ID==pid && a.IS_DELETE == false
                        select new ProductModel
                        {
 
@@ -101,7 +54,54 @@ namespace InvoicePOSAPI.Controllers
                            SELL_MARGIN2 = 0,
                            SELL_MARGIN3 = 0,
                            SELL_MARGIN4 = 0,
+                           IS_DELETE = false,
 
+                           //POSTCODE = a.POSTCODE,
+                           //PRODUCT_ID = a.PRODUCT_ID,
+                           //FAX = a.FAX,
+
+                       }).ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, str);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetProductsAssembled(int id, int pid)
+        {
+            var str = (from a in db.PRODUCTs
+                       where a.COMPANY_ID == id && a.PRODUCT_ID == pid && a.IS_DELETE == false
+                       select new ProductModel
+                       {
+
+                           PRODUCT_CODE = a.PRODUCT_CODE,
+                           DESCRIPTION = a.DESCRIPTION,
+                           BIN = a.BIN,
+                           PRODUCT_TYPE1 = a.PRODUCT_TYPE1,
+                           DISCONTINUED = a.DISCONTINUED,
+                           PRODUCT_ID = a.PRODUCT_ID,
+                           RETAIL_STANDARD = 0,
+                           WEIGHT = 0,
+                           QUANTITY = 0,
+                           COST_PRICE = 0,
+                           LAST_SALE = 0,
+                           RETAIL_PRICE = 0,
+                           TRADE = 0,
+                           WHOLESALE = 0,
+                           TRADE_DISC = 0,
+                           WHOLESALE_DISC = 0,
+                           RETAIL_MARGIN = 0,
+                           TRADE_MARGIN = 0,
+                           WHOLESALE_MARGIN = 0,
+                           SELL_PRICE1 = 0,
+                           SELL_PRICE2 = 0,
+                           SELL_PRICE3 = 0,
+                           SELL_PRICE4 = 0,
+                           SELL_QTY2 = 0,
+                           SELL_QTY3 = 0,
+                           SELL_QTY4 = 0,
+                           SELL_MARGIN2 = 0,
+                           SELL_MARGIN3 = 0,
+                           SELL_MARGIN4 = 0,
+                           IS_DELETE = false,
 
                            //POSTCODE = a.POSTCODE,
                            //PRODUCT_ID = a.PRODUCT_ID,
@@ -175,7 +175,7 @@ namespace InvoicePOSAPI.Controllers
                 pdt.PRODUCT_TYPE1 = _ProductModel.PRODUCT_TYPE1;
                 pdt.PRODUCT_TYPE2 = _ProductModel.PRODUCT_TYPE2;
                 pdt.VAT_RATE = _ProductModel.VAT_RATE;
-                pdt.GROUP= _ProductModel.GROUP;
+                pdt.GROUP = _ProductModel.GROUP;
                 pdt.DISCONTINUED = _ProductModel.DISCONTINUED;
                 pdt.COMMISSION = _ProductModel.COMMISSION;
                 pdt.BAR_CODE = _ProductModel.BAR_CODE;
@@ -218,6 +218,46 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
+        [HttpPost]
+        public HttpResponseMessage AssemblyBreak(ProductModel pm)
+        {
+            try
+            {
+
+                if (pm.SelectedItem.Count > 0)
+                {
+                    foreach (var item in pm.SelectedItem)
+                    {
+                        //if (item.QUANTITY != null || item.QUANTITY != 0)
+                        //{
+                        PRODUCT_ASSEMBLED_ITEMS PA_Item = new PRODUCT_ASSEMBLED_ITEMS();
+                        PA_Item.PA_ITEM_ID = item.PRODUCT_ID;
+                        //PA_Item.PRODUCT_CODE = Convert.ToInt32(poid);
+                        PA_Item.PRODUCT_CODE = item.PRODUCT_CODE;
+                        PA_Item.DESCRIPTION = item.DESCRIPTION;
+                        PA_Item.BIN = item.BIN;
+                        PA_Item.PRODUCT_TYPE1 = item.PRODUCT_TYPE1;
+                        PA_Item.QUANTITY = item.QUANTITY;
+                        PA_Item.COST_PRICE = item.COST_PRICE;
+                        //PA_Item.IS_DELETE = false;
+
+                        db.PRODUCT_ASSEMBLED_ITEMS.Add(PA_Item);
+                        db.SaveChanges();
+                        //}
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
         [HttpGet]
         public HttpResponseMessage EditProducts(int id)
         {
@@ -225,46 +265,46 @@ namespace InvoicePOSAPI.Controllers
                        where a.PRODUCT_ID == id && a.IS_DELETE == false
                        select new ProductModel
                        {
-                           
 
-                PRODUCT_CODE = a.PRODUCT_CODE,
-                //DESCRIPTION = a.DESCRIPTION,
-                DESCR = a.DESCRIPTION,
-                BIN = a.BIN,
-                PRODUCT_TYPE1 = a.PRODUCT_TYPE1,
-                PRODUCT_TYPE2 = a.PRODUCT_TYPE2,
-                VAT_RATE = a.VAT_RATE,
-                GROUP= a.GROUP,
-                DISCONTINUED = a.DISCONTINUED,
-                COMMISSION = a.COMMISSION,
-                BAR_CODE = a.BAR_CODE,
-                UNIT_DESC = a.UNIT_DESC,
-                ALTERNATIVE = a.ALTERNATIVE,
-                WEIGHT = a.WEIGHT,
-                QUANTITY = a.QUANTITY,
-                COST_PRICE = a.COST_PRICE,
-                LAST_SALE = a.LAST_SALE,
-                RETAIL_PRICE = a.RETAIL_PRICE,
-                RETAIL_STANDARD = a.RETAIL_STANDARD,
-                TRADE = a.TRADE,
-                WHOLESALE = a.WHOLESALE,
-                TRADE_DISC = a.TRADE_DISC,
-                WHOLESALE_DISC = a.WHOLESALE_DISC,
-                RETAIL_MARGIN = a.RETAIL_MARGIN,
-                TRADE_MARGIN = a.TRADE_MARGIN,
-                WHOLESALE_MARGIN = a.WHOLESALE_MARGIN,
-                SELL_PRICE1 = a.SELL_PRICE1,
-                SELL_PRICE2 = a.SELL_PRICE2,
-                SELL_PRICE3 = a.SELL_PRICE3,
-                SELL_PRICE4 = a.SELL_PRICE4,
-                SELL_QTY2 = a.SELL_QTY2,
-                SELL_QTY3 = a.SELL_QTY3,
-                SELL_QTY4 = a.SELL_QTY4,
-                SELL_MARGIN2 = a.SELL_MARGIN2,
-                SELL_MARGIN3 = a.SELL_MARGIN3,
-                SELL_MARGIN4 = a.SELL_MARGIN4,
 
-                                   }).ToList();
+                           PRODUCT_CODE = a.PRODUCT_CODE,
+                           //DESCRIPTION = a.DESCRIPTION,
+                           DESCR = a.DESCRIPTION,
+                           BIN = a.BIN,
+                           PRODUCT_TYPE1 = a.PRODUCT_TYPE1,
+                           PRODUCT_TYPE2 = a.PRODUCT_TYPE2,
+                           VAT_RATE = a.VAT_RATE,
+                           GROUP = a.GROUP,
+                           DISCONTINUED = a.DISCONTINUED,
+                           COMMISSION = a.COMMISSION,
+                           BAR_CODE = a.BAR_CODE,
+                           UNIT_DESC = a.UNIT_DESC,
+                           ALTERNATIVE = a.ALTERNATIVE,
+                           WEIGHT = a.WEIGHT,
+                           QUANTITY = a.QUANTITY,
+                           COST_PRICE = a.COST_PRICE,
+                           LAST_SALE = a.LAST_SALE,
+                           RETAIL_PRICE = a.RETAIL_PRICE,
+                           RETAIL_STANDARD = a.RETAIL_STANDARD,
+                           TRADE = a.TRADE,
+                           WHOLESALE = a.WHOLESALE,
+                           TRADE_DISC = a.TRADE_DISC,
+                           WHOLESALE_DISC = a.WHOLESALE_DISC,
+                           RETAIL_MARGIN = a.RETAIL_MARGIN,
+                           TRADE_MARGIN = a.TRADE_MARGIN,
+                           WHOLESALE_MARGIN = a.WHOLESALE_MARGIN,
+                           SELL_PRICE1 = a.SELL_PRICE1,
+                           SELL_PRICE2 = a.SELL_PRICE2,
+                           SELL_PRICE3 = a.SELL_PRICE3,
+                           SELL_PRICE4 = a.SELL_PRICE4,
+                           SELL_QTY2 = a.SELL_QTY2,
+                           SELL_QTY3 = a.SELL_QTY3,
+                           SELL_QTY4 = a.SELL_QTY4,
+                           SELL_MARGIN2 = a.SELL_MARGIN2,
+                           SELL_MARGIN3 = a.SELL_MARGIN3,
+                           SELL_MARGIN4 = a.SELL_MARGIN4,
+
+                       }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, str);
         }
 
@@ -359,8 +399,8 @@ namespace InvoicePOSAPI.Controllers
                 pd.MIN_ORDER = _ProductModel.MIN_ORDER;
                 pd.DESC = _ProductModel.DESC;
 
-                    
-                
+
+
                 pd.STATUS = "Un-Saved";
                 db.PRODUCT_MISCELLANEOUS.Add(pd);
                 db.SaveChanges();
@@ -382,9 +422,9 @@ namespace InvoicePOSAPI.Controllers
             try
             {
                 PRODUCT_PICTURE pp = new PRODUCT_PICTURE();
-               // pp.PICTURE_ID = _ProductPictureModel.PICTURE_ID;
-                pm.PICTURE_NAME = _ProductModel.PICTURE_NAME;
-                pm.PRODUCT_CODE = _ProductModel.PRODUCT_CODE;
+                // pp.PICTURE_ID = _ProductPictureModel.PICTURE_ID;
+                pp.PICTURE_NAME = _ProductModel.PICTURE_NAME;
+                pp.PRODUCT_CODE = _ProductModel.PRODUCT_CODE;
 
                 db.PRODUCT_PICTURE.Add(pp);
                 db.SaveChanges();

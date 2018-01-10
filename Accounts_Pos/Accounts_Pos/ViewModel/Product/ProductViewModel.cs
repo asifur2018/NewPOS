@@ -27,15 +27,15 @@ namespace Accounts_Pos.ViewModel.Product
         //int comp = 46;
         public ProductViewModel()
         {
-            if (App.Current.Properties["Action"].ToString() == "Edit")
-            {
-                CreatVisible = "Collapsed";
-                UpdVisible = "Visible";
-                selectProduct = App.Current.Properties["ProductEdit"] as ProductModel;
-                App.Current.Properties["Action"] = "";
+            //if (App.Current.Properties["Action"].ToString() == "Edit")
+            //{
+            //    CreatVisible = "Collapsed";
+            //    UpdVisible = "Visible";
+            //    selectProduct = App.Current.Properties["ProductEdit"] as ProductModel;
+            //    App.Current.Properties["Action"] = "";
 
-            }
-            else
+            //}
+            //else
             {
                 CreatVisible = "Visible";
                 UpdVisible = "Collapsed";
@@ -839,7 +839,15 @@ namespace Accounts_Pos.ViewModel.Product
                     if (response.StatusCode.ToString() == "OK")
                     {
                         MessageBox.Show("Product Added Successfully");
-                        Cancel_Product();
+                        //foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+
+                        //    if (window.DataContext == this)
+                        //    {
+                        //        window.Close();
+                        //    }
+
+                        //Cancel_Product();
+
                         Product_Miscellaneous _PMS = new Product_Miscellaneous();
                         _PMS.ShowDialog();
 
@@ -1091,12 +1099,12 @@ namespace Accounts_Pos.ViewModel.Product
         public void Cancel_Product()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-
+            {
                 if (window.DataContext == this)
                 {
                     window.Close();
                 }
-
+            }
         }
 
         public ICommand _SelectOk { get; set; }
@@ -1118,7 +1126,7 @@ namespace Accounts_Pos.ViewModel.Product
             {
 
                 App.Current.Properties["AssembledPro"] = "2";
-                //App.Current.Properties["AssembledProId"] = selectProduct.PRODUCT_ID;
+                App.Current.Properties["AssembledProId"] = selectProduct.PRODUCT_ID;
                 AssemblyBreakdownViewModel abm = new AssemblyBreakdownViewModel();
 
                 //var comp = 1;

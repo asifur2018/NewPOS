@@ -79,6 +79,11 @@ namespace Accounts_Pos.ViewModel.Product
         public ProductDocumentViewModel()
         {
             selectDocument = new DocumentModel();
+            selectProduct = new ProductModel();
+            int comp = Convert.ToInt32(App.Current.Properties["Company_Id"].ToString());
+            selectProduct.PRODUCT_CODE = App.Current.Properties["Product_Code"].ToString();
+            selectProduct.DESCR = App.Current.Properties["Description"].ToString();
+            selectProduct.BIN = App.Current.Properties["Bin"].ToString();
             string ProductCode = App.Current.Properties["Product_Code"].ToString();
             GetDocuments(ProductCode);
         }
@@ -315,6 +320,68 @@ namespace Accounts_Pos.ViewModel.Product
                 }
             }
         }
+
+        private ProductModel _selectProduct;
+        public ProductModel selectProduct
+        {
+            get { return _selectProduct; }
+            set
+            {
+                if (_selectProduct != value)
+                {
+                    _selectProduct = value;
+                    OnPropertyChanged("selectProduct");
+                }
+            }
+        }
+
+        private string _PRODUCT_CODE;
+        public string PRODUCT_CODE
+        {
+            get
+            {
+                return selectProduct.PRODUCT_CODE;
+            }
+            set
+            {
+                selectProduct.PRODUCT_CODE = value;
+                OnPropertyChanged("PRODUCT_CODE");
+
+            }
+        }
+
+
+        private string _DESCR;
+        public string DESCR
+        {
+            get
+            {
+                return selectProduct.DESCR;
+            }
+            set
+            {
+                selectProduct.DESCR = value;
+                OnPropertyChanged("DESCR");
+
+            }
+        }
+
+        private string _BIN;
+        public string BIN
+        {
+            get
+            {
+                return selectProduct.BIN;
+            }
+            set
+            {
+                selectProduct.BIN = value;
+                OnPropertyChanged("BIN");
+
+            }
+        }
+
+               
 
         private string _FILE_NAME;
         public string FILE_NAME

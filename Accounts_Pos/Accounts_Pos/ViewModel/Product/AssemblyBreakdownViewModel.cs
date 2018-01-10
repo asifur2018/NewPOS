@@ -25,20 +25,25 @@ namespace Accounts_Pos.ViewModel.Product
         ProductModel[] data = null;
         ProductModel[] data1 = null;
         ObservableCollection<ProductModel> _ListGrid_Temp = new ObservableCollection<ProductModel>();
+        ObservableCollection<ProductModel> _ListGrid_Temp1 = new ObservableCollection<ProductModel>();
         int comp = Convert.ToInt32(App.Current.Properties["Company_Id"].ToString());
         //int comp = 46;
         public AssemblyBreakdownViewModel()
         {
             selectProduct = new ProductModel();
+            //if (App.Current.Properties["DataGridLPO"] != null)
+            //{
+            //    _ListGrid_Temp1 = App.Current.Properties["DataGridLPO"] as ObservableCollection<ProductModel>;
+            //}
 
-            //PRODUCT_CODE=App.Current.Properties["Product_Code"].ToString();
-            //DESCR=App.Current.Properties["Description"].ToString();
-            //BIN=App.Current.Properties["Bin"].ToString();
+            PRODUCT_CODE = App.Current.Properties["Product_Code"].ToString();
+            DESCR = App.Current.Properties["Description"].ToString();
+            BIN = App.Current.Properties["Bin"].ToString();
 
             //var comp = 1;
             ListGrid = _ListGrid_Temp;
 
-            GetAssembledProducts();
+            //GetAssembledProducts();
         }
 
 
@@ -52,6 +57,20 @@ namespace Accounts_Pos.ViewModel.Product
                 {
                     _selectProduct = value;
                     OnPropertyChanged("selectProduct");
+                }
+            }
+        }
+
+        private ProductModel _selectedItem;
+        public ProductModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                if (_selectedItem != value)
+                {
+                    _selectedItem = value;
+                    OnPropertyChanged("SelectedItem");
                 }
             }
         }
@@ -118,15 +137,15 @@ namespace Accounts_Pos.ViewModel.Product
                 OnPropertyChanged("ListGrid");
             }
         }
-        // public async Task<ObservableCollection<ProductModel>> GetAssembledProducts()
+        public async Task<ObservableCollection<ProductModel>> GetAssembledProducts()
 
-        public async void GetAssembledProducts()
+        //public async void GetAssembledProducts()
         {
             try
             {
-                ObservableCollection<ProductModel> _ListGrid_Temp1 = new ObservableCollection<ProductModel>();
-                //selectProduct.PRODUCT_ID = Convert.ToInt32(App.Current.Properties["AssembledProId"]);
-                selectProduct.PRODUCT_ID = 6;
+                //ObservableCollection<ProductModel> _ListGrid_Temp1 = new ObservableCollection<ProductModel>();
+                selectProduct.PRODUCT_ID = Convert.ToInt32(App.Current.Properties["AssembledProId"]);
+                //selectProduct.PRODUCT_ID = 6;
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(GlobalData.gblApiAdress);
                 client.DefaultRequestHeaders.Accept.Add(
@@ -135,38 +154,58 @@ namespace Accounts_Pos.ViewModel.Product
                 response = client.GetAsync("api/ProductAPI/GetProductsAssembled?id=" + comp + "&pid=" + selectProduct.PRODUCT_ID + "").Result;
                 //HttpResponseMessage response = client.GetAsync("api/CompanyAPI/CompanyLogin?id=" + USER_NAME + "&password=" + PASSWORD + "&comp=" + selectCompany.COMPANY_ID + "").Result;
                 //_ListGrid_Temp.Clear();
+                // int x = 0;
+                if (App.Current.Properties["DataGridPA"] != null)
+                {
+                    _ListGrid_Temp1 = App.Current.Properties["DataGridPA"] as ObservableCollection<ProductModel>;
+                    //var   _ListGrid_Temp1 = App.Current.Properties["DataGridPO"];
+                    // x = x + 1;
+                }
+
+                var REMOVEI = (from a in _ListGrid_Temp1 where a.SLNO == 0 select a).FirstOrDefault();
+
+
                 if (response.IsSuccessStatusCode)
                 {
                     data1 = JsonConvert.DeserializeObject<ProductModel[]>(await response.Content.ReadAsStringAsync());
                     // EmployeeData = new List<EmployeeModel>();
-                    int x = 0;
 
+
+                    int x = 0;
                     for (int i = 0; i < data1.Length; i++)
                     {
                         x++;
+                        _ListGrid_Temp1.Remove(REMOVEI);
                         _ListGrid_Temp1.Add(new ProductModel
                         {
                             SLNO = x,
-
+                            //SLNO=i+1,
                             PRODUCT_CODE = data1[i].PRODUCT_CODE,
-                            //DESCRIPTION = data1[i].DESCRIPTION,
-                            //BIN = data1[i].BIN,
-                            //PRODUCT_TYPE1 = data1[i].PRODUCT_TYPE1,
-                            //QUANTITY = data1[i].QUANTITY,
-                            //COST_PRICE = data1[i].COST_PRICE,
-                            //PRODUCT_ID = data1[i].PRODUCT_ID,
+                            DESCRIPTION = data1[i].DESCRIPTION,
+                            BIN = data1[i].BIN,
+                            PRODUCT_TYPE1 = data1[i].PRODUCT_TYPE1,
+                            QUANTITY = data1[i].QUANTITY,
+                            COST_PRICE = data1[i].COST_PRICE,
+                            PRODUCT_ID = data1[i].PRODUCT_ID,
 
 
                         });
                     }
 
+
                 }
                 // ListGrid.Clear();
 
-                ListGrid = _ListGrid_Temp1;
+                //ListGrid = _ListGrid_Temp1;
 
-                //AssemblyBreakdown.ListGridRef.ItemsSource = ListGrid.ToString();
-                //return new ObservableCollection<ProductModel>(_ListGrid_Temp);
+                //else
+                {
+                    App.Current.Properties["DataGridPA"] = _ListGrid_Temp1;
+                }
+                //App.Current.Properties["DataGridPA"] = null;
+                //_ListGrid_Temp1 = _ListGrid_Temp;
+                AssemblyBreakdown.ListGridRef.ItemsSource = _ListGrid_Temp1;
+                return new ObservableCollection<ProductModel>(_ListGrid_Temp1);
             }
             catch (Exception ex)
             {
@@ -246,37 +285,43 @@ namespace Accounts_Pos.ViewModel.Product
             {
 
 
-                if (PRODUCT_CODE == "" || PRODUCT_CODE == null)
+                var datagrid = App.Current.Properties["DataGridPA"] as ObservableCollection<ProductModel>;
+
+                selectProduct.SelectedItem = datagrid;
+
+
+
+                //if (PRODUCT_CODE == "" || PRODUCT_CODE == null)
+                //{
+                //    MessageBox.Show("PRODUCT CODE Should not be blank..");
+                //}
+
+                //else if (selectProduct.DESCR == "" || selectProduct.DESCR == null)
+                //{
+                //    MessageBox.Show("DESCRIPTION Should not be blank..");
+                //}
+
+                //else if (selectProduct.BIN == "" || selectProduct.BIN == null)
+                //{
+                //    MessageBox.Show("BIN Should not be blank..");
+                //}
+
+                //else
                 {
-                    MessageBox.Show("PRODUCT CODE Should not be blank..");
-                }
-
-                else if (selectProduct.DESCR == "" || selectProduct.DESCR == null)
-                {
-                    MessageBox.Show("DESCRIPTION Should not be blank..");
-                }
-
-                else if (selectProduct.BIN == "" || selectProduct.BIN == null)
-                {
-                    MessageBox.Show("BIN Should not be blank..");
-                }
-
-                else
-                {
-                    //HttpClient client = new HttpClient();
-                    //client.DefaultRequestHeaders.Accept.Add(
-                    //    new MediaTypeWithQualityHeaderValue("application/json"));
-                    //client.BaseAddress = new Uri(GlobalData.gblApiAdress);
-                    //var response = await client.PostAsJsonAsync("api/ProductAPI/AssemblyBreak/", selectProduct);
-                    //if (response.StatusCode.ToString() == "OK")
-                    //{
-                    MessageBox.Show("Product Assembled Successfully");
-                    Cancel_Product();
-                    ProductImage _PIMG = new ProductImage();
-                    _PIMG.ShowDialog();
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.BaseAddress = new Uri(GlobalData.gblApiAdress);
+                    var response = await client.PostAsJsonAsync("api/ProductAPI/AssemblyBreak/", selectProduct);
+                    if (response.StatusCode.ToString() == "OK")
+                    {
+                        MessageBox.Show("Product Assembled Successfully");
+                        //Cancel_Product();
+                        ProductImage _PIMG = new ProductImage();
+                        _PIMG.ShowDialog();
 
 
-                    //}
+                    }
                 }
             }
 
@@ -308,11 +353,12 @@ namespace Accounts_Pos.ViewModel.Product
         public void Cancel_Product()
         {
             foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-
+            {
                 if (window.DataContext == this)
                 {
                     window.Close();
                 }
+            }
 
         }
 

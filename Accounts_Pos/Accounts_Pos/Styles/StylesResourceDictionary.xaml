@@ -177,7 +177,7 @@
         <Setter Property="Background" Value="#f5f5f5"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="FontSize" Value="14"/>
-        
+
     </Style>
     <Style x:Key="leftmenu" TargetType="{x:Type TreeView}">
         <Setter Property="Background" Value="#f5f5f5"/>
@@ -190,7 +190,7 @@
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontFamily" Value="Verdana"></Setter>
         <Setter Property="Padding" Value="0 4 4 4"></Setter>
-        
+
 
     </Style>
     <Style x:Key="treemenu" TargetType="{x:Type TreeViewItem}">
@@ -237,7 +237,7 @@
     </Style>
     <Style x:Key="tabcontrolglobal" TargetType="{x:Type TabControl}">
         <Setter Property="BorderBrush" Value="#cccccc"></Setter>
-       
+
     </Style>
     <Style x:Key="tabitemhor" TargetType="{x:Type TabItem}">
         <Setter Property="BorderBrush" Value="#cccccc"></Setter>
@@ -249,10 +249,10 @@
                 <Setter Property="Foreground" Value="#ffffff"></Setter>
             </Trigger>
         </Style.Triggers>-->
-        
+
     </Style>
     <Style x:Key="SaveBtn" TargetType="{x:Type Button}">
-        
+
         <Setter Property="Background" Value="#2677a5"></Setter>
         <Setter Property="BorderThickness" Value="1"></Setter>
         <Setter Property="Foreground" Value="#ffffff"></Setter>
@@ -287,10 +287,10 @@
         <Setter Property="BorderBrush" Value="#35aa47"></Setter>
         <Setter Property="Width" Value="77"></Setter>
         <Style.Triggers>
-        <Trigger Property="IsMouseOver" Value="True">
-            <Setter Property="Background" Value="#000000" />
-            <Setter Property="Foreground" Value="#000000"></Setter>
-        </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
         </Style.Triggers>
     </Style>
     <Style x:Key="EditBtn" TargetType="{x:Type Button}">
@@ -343,15 +343,15 @@
     <Style x:Key="PageHeadBg" TargetType="{x:Type Rectangle}">
         <Setter Property="StrokeThickness" Value="0"/>
         <Setter Property="Stroke" Value="#000"></Setter>
-       
-        
+
+
     </Style>
     <Style x:Key="circle" TargetType="Ellipse">
         <Setter Property="Stroke" Value="#dddddd"></Setter>
     </Style>
     <Style x:Key="textblockrow" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold"></Setter>
-        <Setter Property="Width" Value="30"> </Setter>
+        <Setter Property="Width" Value="30"></Setter>
         <Setter Property="TextAlignment" Value="Center"></Setter>
     </Style>
     <Style x:Key="textblockrowname" TargetType="TextBlock">
@@ -411,7 +411,7 @@
     <Style x:Key="filterbtn" TargetType="Button">
         <Setter Property="Background" Value="#f5f5f5"></Setter>
     </Style>
-    
+
     <Style x:Key="Instrcuttext" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Verdana"></Setter>
         <Setter Property="FontSize" Value="11"></Setter>
@@ -452,7 +452,7 @@
         <Setter Property="BorderBrush" Value="#e5e5e5"></Setter>
         <Setter Property="Width" Value="100"></Setter>
         <Setter Property="FontWeight" Value="Bold"></Setter>
-        
+
     </Style>
     <Style x:Key="SaveBtnCom" TargetType="{x:Type Button}">
 
@@ -550,7 +550,7 @@
     </Style>
     <Style x:Key="gridbgimg" TargetType="Grid">
         <Setter Property="Background" Value="#907b76"></Setter>
-       
+
     </Style>
 
     <!--<Style x:Key="MyImage" TargetType="Window">
@@ -581,12 +581,12 @@
         <Setter Property="Foreground" Value="#ffffff"></Setter>
         <Setter Property="Opacity" Value="1"></Setter>
         <Setter Property="BorderBrush" Value="#dddddd"></Setter>
-          
+
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#2677a5" />
                 <Setter Property="Foreground" Value="#000000"></Setter>
-               
+
             </Trigger>
         </Style.Triggers>
     </Style>

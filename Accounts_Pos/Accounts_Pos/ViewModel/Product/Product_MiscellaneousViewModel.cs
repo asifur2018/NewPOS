@@ -24,6 +24,7 @@ namespace Accounts_Pos.ViewModel.Product
             selectProduct.PRODUCT_CODE = App.Current.Properties["Product_Code"].ToString();
             selectProduct.DESCRIPTION = App.Current.Properties["Description"].ToString();
             selectProduct.BIN = App.Current.Properties["Bin"].ToString();
+            int comp = Convert.ToInt32(App.Current.Properties["Company_Id"].ToString());
 
         }
 

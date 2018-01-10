@@ -25,7 +25,7 @@ namespace InvoicePOSAPI.Controllers
                 sl.LEDGER = _SalesModel.LEDGER;
                 sl.TRX_TYPE = _SalesModel.TRX_TYPE;
                 sl.POSTING_NO = _SalesModel.POSTING_NO;
-                // sl.POSTING_TYPE = _SalesModel.POSTING_TYPE;
+                 sl.POSTING_TYPE = _SalesModel.POSTING_TYPE;
                 sl.DEF_DIST = _SalesModel.DEF_DIST;
                 sl.GENERAL_CODE = _SalesModel.GENERAL_CODE;
                 sl.GENERAL_NAME = _SalesModel.GENERAL_NAME;

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Accounts_Pos.View.Product.Miscellaneous"
+﻿<Window x:Class="Accounts_Pos.View.Product.Product_Miscellaneous"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Add Product" Height="700" Width="1180"  ScrollViewer.HorizontalScrollBarVisibility="Auto" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
@@ -6,11 +6,11 @@
         <GroupBox Header="Product Code and Description" HorizontalAlignment="Left" Height="66" Margin="10,10,0,0" VerticalAlignment="Top" Width="1144" Style="{StaticResource headinggroup}">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Height="22" Margin="11,12,0,0" TextWrapping="Wrap" Text="Code :" VerticalAlignment="Top" Style="{StaticResource Instrcuttextitalicprod}" Width="51"/>
-                <TextBox HorizontalAlignment="Left"  Margin="71,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="260"/>
+                <TextBox HorizontalAlignment="Left"  Margin="71,9,0,0" TextWrapping="Wrap" Text="{Binding selectProduct.PRODUCT_CODE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="260"/>
                 <TextBlock HorizontalAlignment="Left" Height="22" Margin="400,11,0,0" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="86"/>
-                <TextBox HorizontalAlignment="Left"  Margin="488,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="260"/>
+                <TextBox HorizontalAlignment="Left"  Margin="488,8,0,0" TextWrapping="Wrap" Text="{Binding selectProduct.DESCRIPTION, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="260"/>
                 <TextBlock HorizontalAlignment="Left" Height="22" Margin="800,11,0,0" TextWrapping="Wrap" Text="Bin :" VerticalAlignment="Top" Style="{StaticResource Instrcuttextitalicprod}" Width="52"/>
-                <TextBox HorizontalAlignment="Left"  Margin="852,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="260"/>
+                <TextBox HorizontalAlignment="Left"  Margin="852,8,0,0" TextWrapping="Wrap" Text="{Binding selectProduct.BIN, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="260"/>
             </Grid>
         </GroupBox>
         <!--left panel start here-->
@@ -28,92 +28,92 @@
         <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,268,0,0" TextWrapping="Wrap" Text="Image" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,321,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
         <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,328,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
-        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,328,0,0" TextWrapping="Wrap" Text="Sales/Cost" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
-        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,384,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>
-        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,391,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,328,0,0" TextWrapping="Wrap" Text="Documents" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
+        <!--<Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30" Margin="10,384,0,0"  VerticalAlignment="Top" Width="30" Style="{StaticResource circle}"/>-->
+        <!--<TextBlock HorizontalAlignment="Left" Height="18" Margin="10,391,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
         <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,391,0,0" TextWrapping="Wrap" Text="Qty Sold / Used" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
-        <Rectangle  HorizontalAlignment="Left"  Margin="24,121,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,121,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>-->
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,178,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,237,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,296,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,358,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <!--<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,358,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>-->
         <!--Right side start here-->
         <Rectangle Fill="#FFF4F4F5" Height="34" Margin="222,92,10,0" Stroke="Black" VerticalAlignment="Top" Style="{StaticResource PageHeadBg}"/>
         <TextBlock HorizontalAlignment="Left" Margin="233,97,0,0" TextWrapping="Wrap" Text="Miscellaneous" VerticalAlignment="Top" Width="437" Style="{StaticResource PageHead}"/>
         <GroupBox Header="Nomial Ledger Distribution" Height="211" Margin="223,140,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="933">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,18,0,0" TextWrapping="Wrap" Text="Sales A/C 1 :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
-                <TextBox HorizontalAlignment="Left"  Margin="112,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
-                <TextBox HorizontalAlignment="Left"  Margin="193,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,12,0,0" TextWrapping="Wrap" Text="{Binding SALES_AC1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="193,12,0,0" TextWrapping="Wrap" Text="{Binding PERCENT1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="15" Margin="174,18,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="13"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="267,18,0,0" TextWrapping="Wrap" Text="Perc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="313,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="313,12,0,0" TextWrapping="Wrap" Text="{Binding PERCENT1_CAL1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="380,18,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="21"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="430,18,0,0" TextWrapping="Wrap" Text="Desc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="471,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
+                <TextBox HorizontalAlignment="Left"  Margin="471,12,0,0" TextWrapping="Wrap" Text="{Binding DESCRIPTION1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="721,18,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="762,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
+                <TextBox HorizontalAlignment="Left"  Margin="762,12,0,0" TextWrapping="Wrap" Text="{Binding GROUP1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,54,0,0" TextWrapping="Wrap" Text="Sales A/C 2 :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
-                <TextBox HorizontalAlignment="Left"  Margin="112,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
-                <TextBox HorizontalAlignment="Left"  Margin="193,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,48,0,0" TextWrapping="Wrap" Text="{Binding SALES_AC2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="193,48,0,0" TextWrapping="Wrap" Text="{Binding PERCENT2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="15" Margin="174,54,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="13"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="267,54,0,0" TextWrapping="Wrap" Text="Perc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="313,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="313,48,0,0" TextWrapping="Wrap" Text="{Binding PERCENT1_CAL2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="380,54,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="21"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="430,54,0,0" TextWrapping="Wrap" Text="Desc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="471,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
+                <TextBox HorizontalAlignment="Left"  Margin="471,48,0,0" TextWrapping="Wrap" Text="{Binding DESCRIPTION2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="721,54,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="762,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
+                <TextBox HorizontalAlignment="Left"  Margin="762,48,0,0" TextWrapping="Wrap" Text="{Binding GROUP2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,88,0,0" TextWrapping="Wrap" Text="Sales A/C 3 :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
-                <TextBox HorizontalAlignment="Left"  Margin="112,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
-                <TextBox HorizontalAlignment="Left"  Margin="193,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,82,0,0" TextWrapping="Wrap" Text="{Binding SALES_AC3, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="193,82,0,0" TextWrapping="Wrap" Text="{Binding PERCENT3, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="15" Margin="174,88,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="13"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="267,88,0,0" TextWrapping="Wrap" Text="Perc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="313,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="313,82,0,0" TextWrapping="Wrap" Text="{Binding PERCENT1_CAL3, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="380,88,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="21"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="430,88,0,0" TextWrapping="Wrap" Text="Desc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="471,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
+                <TextBox HorizontalAlignment="Left"  Margin="471,82,0,0" TextWrapping="Wrap" Text="{Binding DESCRIPTION3, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="721,88,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="762,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
+                <TextBox HorizontalAlignment="Left"  Margin="762,82,0,0" TextWrapping="Wrap" Text="{Binding GROUP3, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,121,0,0" TextWrapping="Wrap" Text="Sales A/C 4 :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
-                <TextBox HorizontalAlignment="Left"  Margin="112,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
-                <TextBox HorizontalAlignment="Left"  Margin="193,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,115,0,0" TextWrapping="Wrap" Text="{Binding SALES_AC4, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="193,115,0,0" TextWrapping="Wrap" Text="{Binding PERCENT4, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="15" Margin="174,121,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="13"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="430,121,0,0" TextWrapping="Wrap" Text="Desc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="471,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
+                <TextBox HorizontalAlignment="Left"  Margin="471,115,0,0" TextWrapping="Wrap" Text="{Binding DESCRIPTION4, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="721,121,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="762,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
+                <TextBox HorizontalAlignment="Left"  Margin="762,115,0,0" TextWrapping="Wrap" Text="{Binding GROUP4, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,157,0,0" TextWrapping="Wrap" Text="Sales A/C 5 :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
-                <TextBox HorizontalAlignment="Left"  Margin="112,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
-                <TextBox HorizontalAlignment="Left"  Margin="193,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="112,151,0,0" TextWrapping="Wrap" Text="{Binding SALES_AC5, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
+                <TextBox HorizontalAlignment="Left"  Margin="193,151,0,0" TextWrapping="Wrap" Text="{Binding PERCENT5, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="57"/>
                 <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="15" Margin="174,157,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="13"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="430,157,0,0" TextWrapping="Wrap" Text="Desc :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="471,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
+                <TextBox HorizontalAlignment="Left"  Margin="471,151,0,0" TextWrapping="Wrap" Text="{Binding DESCRIPTION5, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="234"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="721,157,0,0" TextWrapping="Wrap" Text="Group :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="39"/>
-                <TextBox HorizontalAlignment="Left"  Margin="762,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
+                <TextBox HorizontalAlignment="Left"  Margin="762,151,0,0" TextWrapping="Wrap" Text="{Binding GROUP5, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="149"/>
 
 
 
             </Grid>
 
         </GroupBox>
-        <Button Content="Save and Next" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged }" HorizontalAlignment="Left" Height="35" Margin="1016,602,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}"/>
-        <Button Content="Cancel" Command="{Binding Cancel}"  HorizontalAlignment="Left" Height="35" Margin="223,602,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
+        <Button Content="Save and Next" Command="{Binding Path=InsertData,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="35" Margin="1016,602,0,0" VerticalAlignment="Top"  Style="{StaticResource SaveBtn}"/>
+        <Button Content="Cancel" Command="{Binding Cancel,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="35" Margin="223,602,0,0" VerticalAlignment="Top"  Style="{StaticResource CancelBtn}"/>
         <GroupBox Header="Miscellaneous/Supplier Details" Height="181" Margin="223,361,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="933">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,18,0,0" TextWrapping="Wrap" Text="Re-Order Level :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="113"/>
-                <TextBox HorizontalAlignment="Left"  Margin="130,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
+                <TextBox HorizontalAlignment="Left"  Margin="130,12,0,0" TextWrapping="Wrap" Text="{Binding REORDER, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="400,18,0,0" TextWrapping="Wrap" Text="Quantity :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="92"/>
-                <TextBox HorizontalAlignment="Left"  Margin="508,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
+                <TextBox HorizontalAlignment="Left"  Margin="508,12,0,0" TextWrapping="Wrap" Text="{Binding MS_QUANTITY, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,52,0,0" TextWrapping="Wrap" Text="Supplier Code :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="113"/>
-                <TextBox HorizontalAlignment="Left"  Margin="130,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
-                <TextBox HorizontalAlignment="Left"  Margin="372,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="359"/>
+                <TextBox HorizontalAlignment="Left"  Margin="130,46,0,0" TextWrapping="Wrap" Text="{Binding SUPPLIER_CODE1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
+                <TextBox HorizontalAlignment="Left"  Margin="372,46,0,0" TextWrapping="Wrap" Text="{Binding SUPPLIER_CODE2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="359"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,87,0,0" TextWrapping="Wrap" Text="Code :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="113"/>
-                <TextBox HorizontalAlignment="Left"  Margin="130,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
+                <TextBox HorizontalAlignment="Left"  Margin="130,81,0,0" TextWrapping="Wrap" Text="{Binding CODE, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="379,87,0,0" TextWrapping="Wrap" Text="Min. Order Quantity :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="119"/>
-                <TextBox HorizontalAlignment="Left"  Margin="508,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
+                <TextBox HorizontalAlignment="Left"  Margin="508,81,0,0" TextWrapping="Wrap" Text="{Binding MIN_ORDER, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="223"/>
                 <TextBlock HorizontalAlignment="Left" Height="15" Margin="11,122,0,0" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Top" Style="{StaticResource textbolockleft}" Width="113"/>
-                <TextBox HorizontalAlignment="Left"  Margin="130,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="601"/>
+                <TextBox HorizontalAlignment="Left"  Margin="130,116,0,0" TextWrapping="Wrap" Text="{Binding DESC, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource textbox}" Width="601"/>
 
 
 

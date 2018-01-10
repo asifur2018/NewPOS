@@ -120,10 +120,18 @@
 
             </TreeViewItem>
             <TreeViewItem Header="Sales Orders" Style="{StaticResource treemenu}">
-                <TreeViewItem Header="Demo 1" Style="{StaticResource treemenu}"></TreeViewItem>
+                <!--<TreeViewItem Header="Demo 1" Style="{StaticResource treemenu}"></TreeViewItem>
                 <TreeViewItem Header="Demo 2" Style="{StaticResource treemenu}"></TreeViewItem>
                 <TreeViewItem Header="Demo 3" Style="{StaticResource treemenu}"></TreeViewItem>
-                <TreeViewItem Header="Demo 4" Style="{StaticResource treemenu}"></TreeViewItem>
+                <TreeViewItem Header="Demo 4" Style="{StaticResource treemenu}"></TreeViewItem>-->
+                <Hyperlink Click="SalesOrderListing_Click">
+                    SalesOrderListing
+                </Hyperlink>
+
+                <Hyperlink Click="AddSalesOrder_Click">
+                    Add SalesOrder
+                </Hyperlink>
+
             </TreeViewItem>
         </TreeView>
         <!--left menu end here-->

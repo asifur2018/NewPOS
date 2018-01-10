@@ -151,6 +151,9 @@
     <Compile Include="PRODUCT.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>
+    <Compile Include="PRODUCT_ASSEMBLED_ITEMS.cs">
+      <DependentUpon>POSDATA.tt</DependentUpon>
+    </Compile>
     <Compile Include="PRODUCT_DOCUMENT.cs">
       <DependentUpon>POSDATA.tt</DependentUpon>
     </Compile>

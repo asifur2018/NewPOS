@@ -33,7 +33,8 @@
         <!--<TextBlock HorizontalAlignment="Left" Height="18" Margin="10,391,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top"  Style="{StaticResource textblockrow}"/>
         <TextBlock HorizontalAlignment="Left" Height="21" Margin="53,391,0,0" TextWrapping="Wrap" Text="Qty Sold / Used" VerticalAlignment="Top"  Style="{StaticResource textblockrowname}"/>
         <Rectangle  HorizontalAlignment="Left"  Margin="24,121,0,0"  VerticalAlignment="Top"  Style="{StaticResource LineStepSelected}"/>-->
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,178,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,121,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
+        <Rectangle  HorizontalAlignment="Left"  Margin="24,178,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStepSelected}"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,237,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,296,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>
         <!--<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left"  Margin="24,358,0,0"  VerticalAlignment="Top"  Style="{StaticResource ResourceKey=LineStep}"/>-->
@@ -42,7 +43,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="233,97,0,0" TextWrapping="Wrap" Text="Assembly Breakdown" VerticalAlignment="Top" Width="437" Style="{StaticResource PageHead}"/>
         <!--<GroupBox Header="Assembly Breakdown" Height="443" Margin="223,140,0,0" VerticalAlignment="Top" Style="{StaticResource headinggroup}" HorizontalAlignment="Left" Width="933">-->
         <!--<Grid Height="442"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="897">-->
-        <DataGrid SelectionMode="Single"  ItemsSource="{Binding Path=ListGrid,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=selectProduct}" AutoGenerateColumns="False"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"     Name="dataGrid1" Margin="223,140,0,0" VerticalAlignment="Stretch"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="#f9f9f9"  FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#f9f9f9" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center"  EnableRowVirtualization="False" EnableColumnVirtualization="False" CanUserAddRows="True" CanUserReorderColumns="False"   RowEditEnding="dataGrid1_RowEditEnding_1">
+        <DataGrid  ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged,Path=ListGrid,AsyncState=true}" SelectedItem="{Binding Path=SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"  RowHeight="28"   Cursor="Hand"  BorderBrush="#dddddd" BorderThickness="1"     Name="dataGrid1" Margin="223,140,0,0" VerticalAlignment="Stretch"  AlternationCount="2" ColumnHeaderHeight="40" FontFamily="Verdana" Background="#f9f9f9"  FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="12" HorizontalGridLinesBrush="#f9f9f9" VerticalGridLinesBrush="#dddddd" TextBlock.TextAlignment="Center"  EnableRowVirtualization="False" EnableColumnVirtualization="False" CanUserAddRows="True" CanUserReorderColumns="False"   RowEditEnding="dataGrid1_RowEditEnding_1">
             <DataGrid.Style>
                 <Style TargetType="DataGrid">
                     <Setter Property="AlternatingRowBackground" Value="#ffffff"/>
@@ -68,14 +69,14 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn   TextBlock.Foreground="Red"  Width="50" MaxWidth="50" Header="Sl.No" Binding="{Binding SLNO}"  />
+                <!--<DataGridTextColumn   TextBlock.Foreground="Red"  Width="50" MaxWidth="50" Header="Sl.No" Binding="{Binding SLNO}"  />-->
                 <DataGridTextColumn    Width="150"  Header="Product Code" Binding="{Binding PRODUCT_CODE}"  />
                 <DataGridTextColumn    Width="250"  Header="Description" Binding="{Binding DESCRIPTION}"  />
                 <DataGridTextColumn   Width="100" Header="PRODUCT TYPE"  Binding="{Binding PRODUCT_TYPE1}"/>
                 <DataGridTextColumn   Width="100" Header="Bin"  Binding="{Binding BIN}"/>
                 <DataGridTextColumn   Width="100" Header="QUANTITY"  Binding="{Binding QUANTITY}"/>
                 <DataGridTextColumn   Width="100" Header="COST_PRICE"  Binding="{Binding COST_PRICE}"/>
-                <DataGridTextColumn Visibility="Collapsed"  Width="100" Header="PRODUCT ID"  Binding="{Binding PRODUCT_ID}"/>
+                <!--<DataGridTextColumn Visibility="Collapsed"  Width="100" Header="PRODUCT ID"  Binding="{Binding PRODUCT_ID}"/>-->
 
             </DataGrid.Columns>
         </DataGrid>

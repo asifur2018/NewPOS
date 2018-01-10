@@ -20,12 +20,12 @@ namespace Accounts_Pos.View.Product
     /// </summary>
     public partial class Product_Miscellaneous : Window
     {
-        //AddProductViewModel _PVM;
+        Product_MiscellaneousViewModel _PVM;
         public Product_Miscellaneous()
         {
-            //InitializeComponent();
-            //_PVM = new AddProductViewModel();
-            //this.DataContext = _PVM;
+            InitializeComponent();
+            _PVM = new Product_MiscellaneousViewModel();
+            this.DataContext = _PVM;
         }
     }
 }
