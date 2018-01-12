@@ -53,10 +53,30 @@
     <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\30-10-17 - Copy\Sandhya\Accounts_PosApi\Accounts_PosApi\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ReachFramework" />
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -88,6 +108,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
       <Private>True</Private>
@@ -176,6 +197,7 @@
     <Compile Include="ViewModel\Company\NewCompanyAssistantViewModel.cs" />
     <Compile Include="ViewModel\Company\ViewCompanyViewModel.cs" />
     <Compile Include="ViewModel\Customer\CreditControlViewModel.cs" />
+    <Compile Include="ViewModel\Customer\CustomerLookupViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\DefaultsViewModel.cs" />
     <Compile Include="ViewModel\Customer\DeliveryAddressViewModel.cs" />
@@ -200,6 +222,7 @@
     <Compile Include="ViewModel\Product\ProductPictureViewModel.cs" />
     <Compile Include="ViewModel\Product\ProductViewModel.cs" />
     <Compile Include="ViewModel\Product\Product_MiscellaneousViewModel.cs" />
+    <Compile Include="ViewModel\SalesOrder\SalesOrderEnquiryViewModel.cs" />
     <Compile Include="ViewModel\SalesOrder\SalesOrderViewModel.cs" />
     <Compile Include="ViewModel\Sales\CustomerJournalDebitViewMode.cs" />
     <Compile Include="ViewModel\Sales\InterstoverdueViewModel.cs" />
@@ -254,6 +277,9 @@
     </Compile>
     <Compile Include="View\Customer\CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\CustomerLookup.xaml.cs">
+      <DependentUpon>CustomerLookup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\Defaults.xaml.cs">
       <DependentUpon>Defaults.xaml</DependentUpon>
@@ -402,8 +428,22 @@
     <Compile Include="View\Restore\SuccessRestore.xaml.cs">
       <DependentUpon>SuccessRestore.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="View\SalesOrder\AddSalesOrder.xaml.cs">
       <DependentUpon>AddSalesOrder.xaml</DependentUpon>
+=======
+    <Compile Include="View\SalesOrder\SalesOrderEnquiry.xaml.cs">
+      <DependentUpon>SalesOrderEnquiry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesOrder\SalesOrder.xaml.cs">
+      <DependentUpon>SalesOrder.xaml</DependentUpon>
+>>>>>>> tanima
+    </Compile>
+    <Compile Include="View\SalesOrder\SalesOrderEnquiryForm.xaml.cs">
+      <DependentUpon>SalesOrderEnquiryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesOrder\SalesOrderLookup.xaml.cs">
+      <DependentUpon>SalesOrderLookup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SalesOrder\SalesOrderView.xaml.cs">
       <DependentUpon>SalesOrderView.xaml</DependentUpon>
@@ -511,6 +551,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Customer\CustomerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\CustomerLookup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -710,7 +754,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="View\SalesOrder\AddSalesOrder.xaml">
+=======
+    <Page Include="View\SalesOrder\SalesOrderEnquiry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesOrder\SalesOrder.xaml">
+>>>>>>> tanima
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesOrder\SalesOrderEnquiryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesOrder\SalesOrderLookup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -777,9 +837,189 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\SalesOrder\Report\SalesOrderDetailsEnquiryReport.rdlc" />
+    <EmbeddedResource Include="View\SalesOrder\Report\SalesOrderDetailsWithAddressReport.rdlc" />
+    <EmbeddedResource Include="View\SalesOrder\Report\SalesOrderEnquiryReport.rdlc" />
     <None Include="Packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.CheckDate.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.DateConverter.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.DelegateCommand.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.DropDownButton.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.GridWithSolidGridLines.CustomGrid+GridLinesVisibilityEnum.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.GridWithSolidGridLines.CustomGrid.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.IModalService.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Helpers.NotificationObject.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.AccountAnalysisLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.AccountTypeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.CompanyModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.ConfigurationModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.CreditControlModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.CustomerBankDetailsModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.CustomerModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.DefaultModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.DeliveryAddressModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.DeliveryModeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.DeliveryTypeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.DevelopmentCompanyModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.DocumentModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.GlobalData.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.GroupLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.GroupTypeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.InternationalSettingsModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.MarketCodeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.MiscellaneousModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.NatureOfProductLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.NominalAccountDetailsLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.ProductGroupLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.ProductModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.ProductPictureModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.ProductTypeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderContactsInformationModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCreditInformationModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCustomerDeliveryToModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCustomerInvoiceToModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCustomerModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCustomerOtherDetailsModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCustomerRecurringSalesInvoiceModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderCustomerRecurringSalesLinesModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderDeliveryModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderItemLineModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderLineItemModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SalesOrderVATLineModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SupplierModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.SystemDetailsModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.TaxibilityCISLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Model.VatTypeLookUpModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Backup.BackupSuccess.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Backup.ChooseFolder.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Backup.ReadyBackup.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Backup.SelectCompany.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.AddCompany.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.CompanyAssistant.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.CompanyList.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.Company_Login.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.LoginCredential.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.NewCompanyAssistant.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.SaveFile.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Company.ViewCompany.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.AddCustomer.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.Communications.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.CreditControl.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.CustomerList.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.CustomerLookup.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.Defaults.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.DeliveryAddress.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.Documents.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.Miscellaneous.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.NLDistribution.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.SalesSummery.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Customer.Window1.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.AccountAnalysis.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.AccountType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.DeliveryMode.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.DeliveryType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.Group.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.GroupType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.MarketCode.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.NatureProduct.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.NomialAccountDetails.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ProductGroup.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ProductType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.TaxabilityCIS.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.VatType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewAccountAnalysis.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewAccountType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewDeliveryMode.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewDeliveryType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewGroup.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewGroupType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewMarketCode.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewNatureProduct.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewNominalAccountDetails.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewProductGroup.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewProductType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewTaxabilityCIS.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Lookup.ViewVatType.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.AddProduct.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.AssemblyBreakdown.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.ProductDocument.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.ProductImage.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.Product_Listing.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.Product_Miscellaneous.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.QutySold.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Product.Sales.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Restore.ChooseFolder.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Restore.CompanyExist.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Restore.ReadyforRestore.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Restore.RestoreCompanyAssistant.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Restore.SuccessRestore.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Sales.CustomerJournalDebit.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Sales.QuickJournalEntry.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Sales.recurringsales.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.SalesOrder.Report.SalesOrderEnquiry.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.SalesOrder.SalesOrder.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.SalesOrder.SalesOrderEnquiryForm.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.SalesOrder.SalesOrderLookup.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.SalesOrder.SalesOrderView.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Supplier.AddSupplier.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Supplier.SettlementDisc.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Supplier.SubContractor.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Supplier.SupplierDocuments.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Supplier.SupplierListing.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.View.Supplier.SupplierNLDistribution.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.AddCompanyViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.CompanyAssistantViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.CompanyViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.Company_LoginViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.LoginCredentialsViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.NewCompanyAssistantViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Company.ViewCompanyViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.CreditControlViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.CustomerLookupViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.CustomerViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.DefaultsViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.DeliveryAddressViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.DocumentsViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.MiscellaneousViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Customer.SalesSummeryViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.AccountAnalysisViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.AccountTypeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.DeliveryModeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.DeliveryTypeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.GroupTypeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.GroupViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.MarketCodeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.NatureOfProductViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.NominalAccountDetailsViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.ProductGroupViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.ProductTypeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.TaxibilityCISViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.LookUp.VatTypeViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Product.AssemblyBreakdownViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Product.ProductDocumentViewModel+SHELLEXECUTEINFO.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Product.ProductDocumentViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Product.ProductPictureViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Product.ProductViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Product.Product_MiscellaneousViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Sales.CustomerJournalDebitViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Sales.QuickJournalEntryViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Sales.RecurringSalesViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.SalesOrder.SalesOrderEnquiryViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.SalesOrder.SalesOrderViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Supplier.SettlementDiscViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Supplier.SubContractorViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Supplier.SupplierDocumentViewModel+SHELLEXECUTEINFO.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Supplier.SupplierDocumentViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Supplier.SupplierNLDistributionViewModel.datasource" />
+    <None Include="Properties\DataSources\Accounts_Pos.ViewModel.Supplier.SupplierViewModel.datasource" />
+    <None Include="Properties\DataSources\App.datasource" />
+    <None Include="Properties\DataSources\MainWindow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -840,7 +1080,9 @@
   <ItemGroup>
     <Resource Include="Images\sucess-icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

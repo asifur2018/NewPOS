@@ -64,8 +64,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private DateTime? _ORDER_DATE;
-        public DateTime? ORDER_DATE
+        private DateTime _ORDER_DATE;
+        public DateTime ORDER_DATE
         {
             get { return _ORDER_DATE; }
             set
@@ -97,8 +97,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _OVERALL_DISC_PER;
-        public decimal? OVERALL_DISC_PER
+        private decimal _OVERALL_DISC_PER;
+        public decimal OVERALL_DISC_PER
         {
             get { return _OVERALL_DISC_PER; }
             set
@@ -108,8 +108,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _ORDER_VALUE;
-        public decimal? ORDER_VALUE
+        private decimal _ORDER_VALUE;
+        public decimal ORDER_VALUE
         {
             get { return _ORDER_VALUE; }
             set
@@ -118,8 +118,8 @@ namespace Accounts_Pos.Model
                 NotifyPropertyChanged("ORDER_VALUE");
             }
         }
-        public decimal? _STANDARD_DISCOUNT { get; set; }
-        public decimal? STANDARD_DISCOUNT
+        private decimal _STANDARD_DISCOUNT;
+        public decimal STANDARD_DISCOUNT
         {
             get { return _STANDARD_DISCOUNT; }
             set
@@ -128,8 +128,8 @@ namespace Accounts_Pos.Model
                 NotifyPropertyChanged("STANDARD_DISCOUNT");
             }
         }
-        private decimal? _TOTAL_VAT { get; set; }
-        public decimal? TOTAL_VAT 
+        private decimal _TOTAL_VAT;
+        public decimal TOTAL_VAT 
         {
             get { return _TOTAL_VAT; }
             set
@@ -139,8 +139,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _TOTAL_ORDER_VALUE { get; set; }
-        public decimal? TOTAL_ORDER_VALUE
+        private decimal _TOTAL_ORDER_VALUE;
+        public decimal TOTAL_ORDER_VALUE
         {
             get { return _TOTAL_ORDER_VALUE; }
             set
@@ -184,8 +184,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        public decimal? _NET_VALUE { get; set; }
-        public decimal? NET_VALUE
+        private decimal _NET_VALUE;
+        public decimal NET_VALUE
         {
             get { return _NET_VALUE; }
             set

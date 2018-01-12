@@ -22,7 +22,10 @@
     <EntitySet Name="NATURE_OF_PRODUCT_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.NATURE_OF_PRODUCT_LOOKUP" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NOMINAL_ACCOUNT_DETAILS_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.NOMINAL_ACCOUNT_DETAILS_LOOKUP" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PRODUCT" EntityType="ACCOUNTS_POSModel.Store.PRODUCT" store:Type="Tables" Schema="dbo" />
+<<<<<<< HEAD
     <EntitySet Name="PRODUCT_ASSEMBLED_ITEMS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_ASSEMBLED_ITEMS" store:Type="Tables" Schema="dbo" />
+=======
+>>>>>>> tanima
     <EntitySet Name="PRODUCT_DOCUMENT" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_DOCUMENT" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PRODUCT_GROUP_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_GROUP_LOOKUP" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_MISCELLANEOUS" store:Type="Tables" Schema="dbo" />
@@ -385,6 +388,7 @@
     <Property Name="IS_DELETE" Type="bit" />
     <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
   </EntityType>
+<<<<<<< HEAD
   <EntityType Name="PRODUCT_ASSEMBLED_ITEMS">
     <Key>
       <PropertyRef Name="PA_ID" />
@@ -399,6 +403,8 @@
     <Property Name="COST_PRICE" Type="decimal" />
     <Property Name="IS_DELETE" Type="bit" />
   </EntityType>
+=======
+>>>>>>> tanima
   <EntityType Name="PRODUCT_DOCUMENT">
     <Key>
       <PropertyRef Name="DOCUMENT_ID" />

@@ -22,7 +22,10 @@
     <EntitySet Name="NATURE_OF_PRODUCT_LOOKUP" EntityType="ACCOUNTS_POSModel.NATURE_OF_PRODUCT_LOOKUP" />
     <EntitySet Name="NOMINAL_ACCOUNT_DETAILS_LOOKUP" EntityType="ACCOUNTS_POSModel.NOMINAL_ACCOUNT_DETAILS_LOOKUP" />
     <EntitySet Name="PRODUCTs" EntityType="ACCOUNTS_POSModel.PRODUCT" />
+<<<<<<< HEAD
     <EntitySet Name="PRODUCT_ASSEMBLED_ITEMS" EntityType="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS" />
+=======
+>>>>>>> tanima
     <EntitySet Name="PRODUCT_DOCUMENT" EntityType="ACCOUNTS_POSModel.PRODUCT_DOCUMENT" />
     <EntitySet Name="PRODUCT_GROUP_LOOKUP" EntityType="ACCOUNTS_POSModel.PRODUCT_GROUP_LOOKUP" />
     <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.PRODUCT_MISCELLANEOUS" />
@@ -385,6 +388,7 @@
     <Property Name="IS_DELETE" Type="Boolean" />
     <Property Name="STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
   </EntityType>
+<<<<<<< HEAD
   <EntityType Name="PRODUCT_ASSEMBLED_ITEMS">
     <Key>
       <PropertyRef Name="PA_ID" />
@@ -399,6 +403,8 @@
     <Property Name="COST_PRICE" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="IS_DELETE" Type="Boolean" />
   </EntityType>
+=======
+>>>>>>> tanima
   <EntityType Name="PRODUCT_DOCUMENT">
     <Key>
       <PropertyRef Name="DOCUMENT_ID" />

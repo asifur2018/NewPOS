@@ -361,6 +361,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <EntitySetMapping Name="PRODUCT_ASSEMBLED_ITEMS">
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS">
         <MappingFragment StoreEntitySet="PRODUCT_ASSEMBLED_ITEMS">
@@ -376,6 +377,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+=======
+>>>>>>> tanima
     <EntitySetMapping Name="PRODUCT_DOCUMENT">
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_DOCUMENT">
         <MappingFragment StoreEntitySet="PRODUCT_DOCUMENT">

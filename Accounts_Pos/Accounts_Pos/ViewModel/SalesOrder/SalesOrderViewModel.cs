@@ -814,6 +814,34 @@ namespace Accounts_Pos.ViewModel.SalesOrder
 
         #region CommandBinding
 
+        private ICommand _Select { get; set; }
+        public ICommand Select
+        {
+            get
+            {
+                if (_Select == null)
+                {
+                    _Select = new DelegateCommand(Select_Click);
+                }
+                return _Select;
+            }
+
+        }
+
+        public void Select_Click()
+        {
+            Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow" || w.Name == "SalesOrderLookupWindow");
+            if (win != null)
+            {
+                win.Close();
+            }
+            ((SalesOrderEnquiryForm)Application.Current.Windows[0]).SalesOrderTxt.Text = SelectedSalesOrder.ORDER_NO;
+            ((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder = SelectedSalesOrder;
+            ((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerCodeTxt.Text = SelectedSalesOrder.INVOICE_TO;
+            GetCustomerForSalesOrder(SelectedSalesOrder.INVOICE_TO);
+            ((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerNameTxt.Text = SelectedCustomer.CUSTOMER_NAME;
+        }
+
         private ICommand _Add { get; set; }
         public ICommand Add
         {
@@ -833,6 +861,8 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             Accounts_Pos.View.SalesOrder.AddSalesOrder salesOrderView = new Accounts_Pos.View.SalesOrder.AddSalesOrder();
             salesOrderView.Show();
         }
+
+
 
         private ICommand _Cancel { get; set; }
         public ICommand Cancel
@@ -854,7 +884,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             GetSalesOrderList();
             NotifyPropertyChanged("SalesOrderList");
             //close window
-            Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow");
+            Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.Name == "SalesOrderWindow" || w.Name == "SalesOrderLookupWindow");
             if (win != null)
             {
                 win.Close();
@@ -1955,10 +1985,10 @@ namespace Accounts_Pos.ViewModel.SalesOrder
         {
 
             ObservableCollection<SalesOrderVATLineModel> _ListGrid_Temp = new ObservableCollection<SalesOrderVATLineModel>();
-            List<decimal?> netAmount = new List<decimal?> { 0, 0, 0, 0, 0 };
-            List<decimal?> vatAmount = new List<decimal?> { 0, 0, 0, 0, 0 };
-            List<decimal?> totAmount = new List<decimal?> { 0, 0, 0, 0, 0 };
-            List<decimal?> vatRate = new List<decimal?> { 20, 8, 0, 0, 0 };
+            List<decimal> netAmount = new List<decimal> { 0, 0, 0, 0, 0 };
+            List<decimal> vatAmount = new List<decimal> { 0, 0, 0, 0, 0 };
+            List<decimal> totAmount = new List<decimal> { 0, 0, 0, 0, 0 };
+            List<decimal> vatRate = new List<decimal> { 20, 8, 0, 0, 0 };
             List<string> description = new List<string> { "VAT Standard Rate", "VAT Lower Rate", "VAT Zero Rate", "VAT Exempt", "VAT Exempt" };
             for (int i = 0; i < ListGrid.Count; i++)
             {
@@ -1991,7 +2021,7 @@ namespace Accounts_Pos.ViewModel.SalesOrder
             VatListGrid = _ListGrid_Temp;
             if (SelectedSalesOrder != null)
             {
-                decimal? netamt = 0;
+                decimal netamt = 0;
                 for (int i = 0; i < 5; i++)
                 {
                     netamt = netamt + netAmount[i];
@@ -2001,14 +2031,14 @@ namespace Accounts_Pos.ViewModel.SalesOrder
                 SelectedSalesOrder.MARGIN = "*N/A*";
                 SelectedSalesOrder.MARGIN_PERCENT = "*N/A*";
                 SelectedSalesOrder.NET_VALUE = netamt;
-                decimal? vatamt = 0;
+                decimal vatamt = 0;
                 for (int i = 0; i < 5; i++)
                 {
                     vatamt = vatamt + vatAmount[i];
                 }
                 SelectedSalesOrder.TOTAL_VAT = vatamt;
                 //SelectedSalesOrder.STANDARD_DISCOUNT =
-                decimal? totamt = 0;
+                decimal totamt = 0;
                 for (int i = 0; i < 5; i++)
                 {
                     totamt = totamt + totAmount[i];
