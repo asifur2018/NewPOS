@@ -134,6 +134,70 @@ namespace InvoicePOSAPI.Controllers
         }
 
 
+        [HttpGet]
+        public HttpResponseMessage GetCustomers()
+        {
+
+            try
+            {
+
+                var str = (from a in db.CUSTOMERs
+                           where (a.IS_DELETE == false)
+                           select new CustomerModel
+                           {
+
+                               CUSTOMER_NAME = a.CUSTOMER_NAME,
+                               CUSTOMER_CODE = a.CUSTOMER_CODE,
+                               ADDRESS = a.ADDRESS,
+                               POSTCODE = a.POSTCODE,
+                               COUNTRY = a.COUNTRY,
+                               WEBSITE = a.WEBSITE,
+                               DATES_STARTED = a.DATES_STARTED,
+                               STATEMENT = a.STATEMENT,
+                               SEND_MAIL = a.SEND_MAIL,
+                               VAT_TYPE = a.VAT_TYPE,
+                               VAT_NUMBER = a.VAT_NUMBER,
+                               DUNS_NO = a.DUNS_NO,
+                               DYNAMIC_DISC = a.DYNAMIC_DISC,
+                               REGISTERED = a.REGISTERED,
+                               OLDEST_INV_DATE = a.OLDEST_INV_DATE,
+                               LAST_SALE = a.LAST_SALE,
+                               LAST_PAYMENT = a.LAST_PAYMENT,
+                               AVG_PMT_DAYS = a.AVG_PMT_DAYS,
+                               CREDIT_LIMIT = a.CREDIT_LIMIT,
+                               OS_BALANCE = a.OS_BALANCE,
+                               OS_ORDERS = a.OS_ORDERS,
+                               CR_REMAIN = a.CR_REMAIN,
+                               ON_CREDIT_STOP = a.ON_CREDIT_STOP,
+                               STOPPED_ON = a.STOPPED_ON,
+                               ON_STOP_AFTER = a.ON_STOP_AFTER,
+                               PUT_ON_STOP_BY = a.PUT_ON_STOP_BY,
+                               CONTACT_TYPE = a.CONTACT_TYPE,
+                               CONTACT_NAME = a.CONTACT_NAME,
+                               CONTACT_SALUTATION = a.CONTACT_SALUTATION,
+                               CONTACT_PHONE_NO = a.CONTACT_PHONE_NO,
+                               CONTACT_EXTN_NO = a.CONTACT_EXTN_NO,
+                               CONTACT_MOBILE_NO = a.CONTACT_MOBILE_NO,
+                               CONTACT_FAX = a.CONTACT_FAX,
+                               EMAIL = a.EMAIL,
+                               SKYPE = a.SKYPE,
+                               PRICE_TYPE = a.PRICE_TYPE,
+                               COMPANY_ID = a.COMPANY_ID,
+                               CUSTOMER_MAIL = a.CUSTOMER_MAIL,
+                               IS_DELETE = a.IS_DELETE,
+                               CUSTOMER_INACTIVE = a.CUSTOMER_STATUS,
+                               STATUS = a.STATUS,
+                               IS_SUPPLIER = a.IS_SUPPLIER
+
+                           }).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, str);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         //[HttpGet]
         //public HttpResponseMessage GetCustomerBankDetails(string _CustomerCode)
         //{

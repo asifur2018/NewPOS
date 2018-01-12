@@ -11,10 +11,10 @@ namespace InvoicePOSAPI.Models
         public string   ORDER_NO { get; set; }
         public string   PRODUCT_CODE { get; set; }
         public string   DESCRIPTION { get; set; }
-        public decimal? ORDER_QTY { get; set; }
-        public decimal? UNIT_PRICE { get; set; }
-        public decimal? DISCOUNT { get; set; }
-        public decimal? LINE_AMOUNT { get; set; }
+        public decimal ORDER_QTY { get; set; }
+        public decimal UNIT_PRICE { get; set; }
+        public decimal DISCOUNT { get; set; }
+        public decimal LINE_AMOUNT { get; set; }
         public int?      VAT { get; set; }
     }
 }

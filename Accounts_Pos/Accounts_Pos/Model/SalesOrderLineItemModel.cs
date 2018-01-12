@@ -64,8 +64,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _ORDER_QTY;
-        public decimal? ORDER_QTY
+        private decimal _ORDER_QTY;
+        public decimal ORDER_QTY
         {
             get { return _ORDER_QTY; }
             set
@@ -76,8 +76,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _UNIT_PRICE;
-        public decimal? UNIT_PRICE
+        private decimal _UNIT_PRICE;
+        public decimal UNIT_PRICE
         {
             get { return _UNIT_PRICE; }
             set
@@ -88,8 +88,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _DISCOUNT;
-        public decimal? DISCOUNT
+        private decimal _DISCOUNT;
+        public decimal DISCOUNT
         {
             get { return _DISCOUNT; }
             set
@@ -100,8 +100,8 @@ namespace Accounts_Pos.Model
             }
         }
 
-        private decimal? _LINE_AMOUNT;
-        public decimal? LINE_AMOUNT
+        private decimal _LINE_AMOUNT;
+        public decimal LINE_AMOUNT
         {
             get 
             {

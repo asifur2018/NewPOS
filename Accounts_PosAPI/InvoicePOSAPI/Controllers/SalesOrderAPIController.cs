@@ -85,10 +85,10 @@ namespace InvoicePOSAPI.Controllers
                            ORDER_NO = a.ORDER_NO,
                            PRODUCT_CODE = a.PRODUCT_CODE,
                            DESCRIPTION = a.DESCRIPTION,
-                           ORDER_QTY = a.ORDER_QTY,
-                           UNIT_PRICE = a.UNIT_PRICE,
-                           DISCOUNT = a.DISCOUNT,
-                           LINE_AMOUNT = a.LINE_AMOUNT,
+                           ORDER_QTY = a.ORDER_QTY??0,
+                           UNIT_PRICE = a.UNIT_PRICE ??0,
+                           DISCOUNT = a.DISCOUNT ??0,
+                           LINE_AMOUNT = a.LINE_AMOUNT??0,
                            VAT = a.VAT
                        }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, str);
@@ -471,18 +471,18 @@ namespace InvoicePOSAPI.Controllers
                                DELIVERY_TO = a.DELIVERY_TO,
                                ORDER_NO = a.ORDER_NO,
                                ORDER_REF = a.ORDER_REF,
-                               ORDER_DATE = a.ORDER_DATE,
+                               ORDER_DATE = a.ORDER_DATE??new DateTime(),
                                SALES_PERSON = a.SALES_PERSON,
                                MARKET_CODE = a.MARKET_CODE,
-                               OVERALL_DISC_PER = a.OVERALL_DISC_PER,
-                               ORDER_VALUE = a.ORDER_VALUE,
-                               STANDARD_DISCOUNT = a.STANDARD_DISCOUNT,
-                               TOTAL_VAT = a.TOTAL_VAT,
-                               TOTAL_ORDER_VALUE = a.TOTAL_ORDER_VALUE,
+                               OVERALL_DISC_PER = a.OVERALL_DISC_PER??0,
+                               ORDER_VALUE = a.ORDER_VALUE??0,
+                               STANDARD_DISCOUNT = a.STANDARD_DISCOUNT??0,
+                               TOTAL_VAT = a.TOTAL_VAT??0,
+                               TOTAL_ORDER_VALUE = a.TOTAL_ORDER_VALUE??0,
                                COST = SqlFunctions.StringConvert((double)a.COST),
                                MARGIN = SqlFunctions.StringConvert((double)a.MARGIN),
                                MARGIN_PERCENT = SqlFunctions.StringConvert((double)a.MARGIN_PERCENT),
-                               NET_VALUE = a.NET_VALUE
+                               NET_VALUE = a.NET_VALUE??0
                                
 
                            }).ToList();
@@ -493,6 +493,46 @@ namespace InvoicePOSAPI.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+        public HttpResponseMessage GetSalesOrderListForCustomer(string pCustCode)
+        {
+
+            try
+            {
+
+                var str = (from a in db.SALES_ORDER
+                           where (a.INVOICE_TO.Equals(pCustCode))
+                           select new SalesOrderModel
+                           {
+                               SALESORDER_ID = a.SALESORDER_ID,
+                               INVOICE_TO = a.INVOICE_TO,
+                               DELIVERY_TO = a.DELIVERY_TO,
+                               ORDER_NO = a.ORDER_NO,
+                               ORDER_REF = a.ORDER_REF,
+                               ORDER_DATE = a.ORDER_DATE ?? new DateTime(),
+                               SALES_PERSON = a.SALES_PERSON,
+                               MARKET_CODE = a.MARKET_CODE,
+                               OVERALL_DISC_PER = a.OVERALL_DISC_PER ?? 0,
+                               ORDER_VALUE = a.ORDER_VALUE ?? 0,
+                               STANDARD_DISCOUNT = a.STANDARD_DISCOUNT ?? 0,
+                               TOTAL_VAT = a.TOTAL_VAT ?? 0,
+                               TOTAL_ORDER_VALUE = a.TOTAL_ORDER_VALUE ?? 0,
+                               COST = SqlFunctions.StringConvert((double)a.COST),
+                               MARGIN = SqlFunctions.StringConvert((double)a.MARGIN),
+                               MARGIN_PERCENT = SqlFunctions.StringConvert((double)a.MARGIN_PERCENT),
+                               NET_VALUE = a.NET_VALUE ?? 0
+
+
+                           }).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, str);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
 
         [HttpPost]
         public HttpResponseMessage DeleteSalesOrder(SalesOrderModel pSalesOrder)
