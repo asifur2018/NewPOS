@@ -27,11 +27,14 @@
           <EntitySet Name="NATURE_OF_PRODUCT_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.NATURE_OF_PRODUCT_LOOKUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NOMINAL_ACCOUNT_DETAILS_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.NOMINAL_ACCOUNT_DETAILS_LOOKUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT" EntityType="ACCOUNTS_POSModel.Store.PRODUCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PRODUCT_ASSEMBLED_ITEMS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_ASSEMBLED_ITEMS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_DOCUMENT" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_DOCUMENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_GROUP_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_GROUP_LOOKUP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_MISCELLANEOUS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_PICTURE" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_PICTURE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRODUCT_TYPE_LOOKUP" EntityType="ACCOUNTS_POSModel.Store.PRODUCT_TYPE_LOOKUP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RECURRING_SALES_INVOICE" EntityType="ACCOUNTS_POSModel.Store.RECURRING_SALES_INVOICE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RECURRING_SALES_LINE" EntityType="ACCOUNTS_POSModel.Store.RECURRING_SALES_LINE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SALES_JOURNAL_DEBIT" EntityType="ACCOUNTS_POSModel.Store.SALES_JOURNAL_DEBIT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SALES_ORDER" EntityType="ACCOUNTS_POSModel.Store.SALES_ORDER" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SALES_ORDER_DELIVERY" EntityType="ACCOUNTS_POSModel.Store.SALES_ORDER_DELIVERY" store:Type="Tables" Schema="dbo" />
@@ -389,6 +392,20 @@
           <Property Name="IS_DELETE" Type="bit" />
           <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="PRODUCT_ASSEMBLED_ITEMS">
+          <Key>
+            <PropertyRef Name="PA_ID" />
+          </Key>
+          <Property Name="PA_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PA_ITEM_ID" Type="int" />
+          <Property Name="PRODUCT_CODE" Type="nchar" MaxLength="10" />
+          <Property Name="DESCRIPTION" Type="nchar" MaxLength="10" />
+          <Property Name="BIN" Type="nchar" MaxLength="10" />
+          <Property Name="PRODUCT_TYPE1" Type="nchar" MaxLength="10" />
+          <Property Name="QUANTITY" Type="decimal" />
+          <Property Name="COST_PRICE" Type="decimal" />
+          <Property Name="IS_DELETE" Type="bit" />
+        </EntityType>
         <EntityType Name="PRODUCT_DOCUMENT">
           <Key>
             <PropertyRef Name="DOCUMENT_ID" />
@@ -464,6 +481,37 @@
           <Property Name="PRODUCT_TYPE_NAME" Type="nvarchar" MaxLength="50" />
           <Property Name="PRODUCT_TYPE_DESCRIPTION" Type="nvarchar" MaxLength="500" />
           <Property Name="PRODUCT_TYPE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="RECURRING_SALES_INVOICE">
+          <Key>
+            <PropertyRef Name="RECURR_SALES_INVOICE_ID" />
+          </Key>
+          <Property Name="INVOICE_TO" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DELIVERY_TO" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ORDER_REF" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORDER_DESC" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALES_PERSON" Type="nvarchar" MaxLength="50" />
+          <Property Name="MARKET_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="FREQUENCY" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CURRENT_STATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="LAST_POSTED" Type="datetime" />
+          <Property Name="PROCESS_NEXT_OCCUR" Type="datetime" />
+          <Property Name="NUM_OF_TIME_TO_POST" Type="int" />
+          <Property Name="ORDER_NET_AMOUNT" Type="decimal" />
+          <Property Name="RECURR_SALES_INVOICE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="RECURRING_SALES_LINE">
+          <Key>
+            <PropertyRef Name="RECURRING_SALES_LINE_ID" />
+          </Key>
+          <Property Name="PRODUCT_CODE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORDER_QTY" Type="decimal" />
+          <Property Name="UNIT_PRICE" Type="decimal" />
+          <Property Name="DISCOUNT_PERCENT" Type="decimal" />
+          <Property Name="LINE_AMOUNT" Type="decimal" />
+          <Property Name="RECURRING_SALES_LINE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RECURRING_SALES_INVOICE_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SALES_JOURNAL_DEBIT">
           <Key>
@@ -825,11 +873,14 @@
           <EntitySet Name="NATURE_OF_PRODUCT_LOOKUP" EntityType="ACCOUNTS_POSModel.NATURE_OF_PRODUCT_LOOKUP" />
           <EntitySet Name="NOMINAL_ACCOUNT_DETAILS_LOOKUP" EntityType="ACCOUNTS_POSModel.NOMINAL_ACCOUNT_DETAILS_LOOKUP" />
           <EntitySet Name="PRODUCTs" EntityType="ACCOUNTS_POSModel.PRODUCT" />
+          <EntitySet Name="PRODUCT_ASSEMBLED_ITEMS" EntityType="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS" />
           <EntitySet Name="PRODUCT_DOCUMENT" EntityType="ACCOUNTS_POSModel.PRODUCT_DOCUMENT" />
           <EntitySet Name="PRODUCT_GROUP_LOOKUP" EntityType="ACCOUNTS_POSModel.PRODUCT_GROUP_LOOKUP" />
           <EntitySet Name="PRODUCT_MISCELLANEOUS" EntityType="ACCOUNTS_POSModel.PRODUCT_MISCELLANEOUS" />
           <EntitySet Name="PRODUCT_PICTURE" EntityType="ACCOUNTS_POSModel.PRODUCT_PICTURE" />
           <EntitySet Name="PRODUCT_TYPE_LOOKUP" EntityType="ACCOUNTS_POSModel.PRODUCT_TYPE_LOOKUP" />
+          <EntitySet Name="RECURRING_SALES_INVOICE" EntityType="ACCOUNTS_POSModel.RECURRING_SALES_INVOICE" />
+          <EntitySet Name="RECURRING_SALES_LINE" EntityType="ACCOUNTS_POSModel.RECURRING_SALES_LINE" />
           <EntitySet Name="SALES_JOURNAL_DEBIT" EntityType="ACCOUNTS_POSModel.SALES_JOURNAL_DEBIT" />
           <EntitySet Name="SALES_ORDER" EntityType="ACCOUNTS_POSModel.SALES_ORDER" />
           <EntitySet Name="SALES_ORDER_DELIVERY" EntityType="ACCOUNTS_POSModel.SALES_ORDER_DELIVERY" />
@@ -1187,6 +1238,20 @@
           <Property Name="IS_DELETE" Type="Boolean" />
           <Property Name="STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
+        <EntityType Name="PRODUCT_ASSEMBLED_ITEMS">
+          <Key>
+            <PropertyRef Name="PA_ID" />
+          </Key>
+          <Property Name="PA_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PA_ITEM_ID" Type="Int32" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="BIN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="PRODUCT_TYPE1" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="QUANTITY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="COST_PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IS_DELETE" Type="Boolean" />
+        </EntityType>
         <EntityType Name="PRODUCT_DOCUMENT">
           <Key>
             <PropertyRef Name="DOCUMENT_ID" />
@@ -1262,6 +1327,37 @@
           <Property Name="PRODUCT_TYPE_NAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="PRODUCT_TYPE_DESCRIPTION" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="PRODUCT_TYPE_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="RECURRING_SALES_INVOICE">
+          <Key>
+            <PropertyRef Name="RECURR_SALES_INVOICE_ID" />
+          </Key>
+          <Property Name="INVOICE_TO" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DELIVERY_TO" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ORDER_REF" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ORDER_DESC" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SALES_PERSON" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MARKET_CODE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FREQUENCY" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CURRENT_STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LAST_POSTED" Type="DateTime" Precision="3" />
+          <Property Name="PROCESS_NEXT_OCCUR" Type="DateTime" Precision="3" />
+          <Property Name="NUM_OF_TIME_TO_POST" Type="Int32" />
+          <Property Name="ORDER_NET_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RECURR_SALES_INVOICE_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="RECURRING_SALES_LINE">
+          <Key>
+            <PropertyRef Name="RECURRING_SALES_LINE_ID" />
+          </Key>
+          <Property Name="PRODUCT_CODE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ORDER_QTY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UNIT_PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DISCOUNT_PERCENT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LINE_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RECURRING_SALES_LINE_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RECURRING_SALES_INVOICE_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="SALES_JOURNAL_DEBIT">
           <Key>
@@ -1935,6 +2031,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_ASSEMBLED_ITEMS">
+            <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS">
+              <MappingFragment StoreEntitySet="PRODUCT_ASSEMBLED_ITEMS">
+                <ScalarProperty Name="PA_ID" ColumnName="PA_ID" />
+                <ScalarProperty Name="PA_ITEM_ID" ColumnName="PA_ITEM_ID" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="PRODUCT_TYPE1" ColumnName="PRODUCT_TYPE1" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="COST_PRICE" ColumnName="COST_PRICE" />
+                <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PRODUCT_DOCUMENT">
             <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_DOCUMENT">
               <MappingFragment StoreEntitySet="PRODUCT_DOCUMENT">
@@ -2013,6 +2124,39 @@
                 <ScalarProperty Name="PRODUCT_TYPE_NAME" ColumnName="PRODUCT_TYPE_NAME" />
                 <ScalarProperty Name="PRODUCT_TYPE_DESCRIPTION" ColumnName="PRODUCT_TYPE_DESCRIPTION" />
                 <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECURRING_SALES_INVOICE">
+            <EntityTypeMapping TypeName="ACCOUNTS_POSModel.RECURRING_SALES_INVOICE">
+              <MappingFragment StoreEntitySet="RECURRING_SALES_INVOICE">
+                <ScalarProperty Name="INVOICE_TO" ColumnName="INVOICE_TO" />
+                <ScalarProperty Name="DELIVERY_TO" ColumnName="DELIVERY_TO" />
+                <ScalarProperty Name="ORDER_REF" ColumnName="ORDER_REF" />
+                <ScalarProperty Name="ORDER_DESC" ColumnName="ORDER_DESC" />
+                <ScalarProperty Name="SALES_PERSON" ColumnName="SALES_PERSON" />
+                <ScalarProperty Name="MARKET_CODE" ColumnName="MARKET_CODE" />
+                <ScalarProperty Name="FREQUENCY" ColumnName="FREQUENCY" />
+                <ScalarProperty Name="CURRENT_STATUS" ColumnName="CURRENT_STATUS" />
+                <ScalarProperty Name="LAST_POSTED" ColumnName="LAST_POSTED" />
+                <ScalarProperty Name="PROCESS_NEXT_OCCUR" ColumnName="PROCESS_NEXT_OCCUR" />
+                <ScalarProperty Name="NUM_OF_TIME_TO_POST" ColumnName="NUM_OF_TIME_TO_POST" />
+                <ScalarProperty Name="ORDER_NET_AMOUNT" ColumnName="ORDER_NET_AMOUNT" />
+                <ScalarProperty Name="RECURR_SALES_INVOICE_ID" ColumnName="RECURR_SALES_INVOICE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECURRING_SALES_LINE">
+            <EntityTypeMapping TypeName="ACCOUNTS_POSModel.RECURRING_SALES_LINE">
+              <MappingFragment StoreEntitySet="RECURRING_SALES_LINE">
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ORDER_QTY" ColumnName="ORDER_QTY" />
+                <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+                <ScalarProperty Name="DISCOUNT_PERCENT" ColumnName="DISCOUNT_PERCENT" />
+                <ScalarProperty Name="LINE_AMOUNT" ColumnName="LINE_AMOUNT" />
+                <ScalarProperty Name="RECURRING_SALES_LINE_ID" ColumnName="RECURRING_SALES_LINE_ID" />
+                <ScalarProperty Name="RECURRING_SALES_INVOICE_ID" ColumnName="RECURRING_SALES_INVOICE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

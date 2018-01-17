@@ -33,7 +33,7 @@ namespace Accounts_Pos.View.SalesOrder.Report
         {
             if (!_isReportViewerLoaded)
             {
-                
+                //_reportViewer.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
                 SalesOrderEnquiryViewModel _SOEVM = (SalesOrderEnquiryViewModel)this.DataContext;
 
                 if (_SOEVM.isCustomerReport)

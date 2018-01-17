@@ -171,6 +171,8 @@
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ProductPictureModel.cs" />
     <Compile Include="Model\ProductTypeLookUpModel.cs" />
+    <Compile Include="Model\RecurringSalesInvoiceModel.cs" />
+    <Compile Include="Model\RecurringSalesLineModel.cs" />
     <Compile Include="Model\SalesModel.cs" />
     <Compile Include="Model\SalesOrderContactsInformationModel.cs" />
     <Compile Include="Model\SalesOrderCreditInformationModel.cs" />
@@ -222,6 +224,7 @@
     <Compile Include="ViewModel\Product\ProductPictureViewModel.cs" />
     <Compile Include="ViewModel\Product\ProductViewModel.cs" />
     <Compile Include="ViewModel\Product\Product_MiscellaneousViewModel.cs" />
+    <Compile Include="ViewModel\SalesOrder\RecurringSalesInvoiceViewModel.cs" />
     <Compile Include="ViewModel\SalesOrder\SalesOrderEnquiryViewModel.cs" />
     <Compile Include="ViewModel\SalesOrder\SalesOrderViewModel.cs" />
     <Compile Include="ViewModel\Sales\CustomerJournalDebitViewMode.cs" />
@@ -420,6 +423,12 @@
     </Compile>
     <Compile Include="View\Restore\SuccessRestore.xaml.cs">
       <DependentUpon>SuccessRestore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesOrder\RecurringSalesInvoice.xaml.cs">
+      <DependentUpon>RecurringSalesInvoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesOrder\RecurringSalesInvoiceView.xaml.cs">
+      <DependentUpon>RecurringSalesInvoiceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SalesOrder\SalesOrderEnquiry.xaml.cs">
       <DependentUpon>SalesOrderEnquiry.xaml</DependentUpon>
@@ -728,6 +737,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Restore\SuccessRestore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesOrder\RecurringSalesInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesOrder\RecurringSalesInvoiceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

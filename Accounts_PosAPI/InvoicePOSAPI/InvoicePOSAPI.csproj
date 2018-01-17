@@ -197,6 +197,8 @@
     <Compile Include="Models\ProductGroupLookUpModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductTypeLookUpModel.cs" />
+    <Compile Include="Models\RecurringSalesInvoiceModel.cs" />
+    <Compile Include="Models\RecurringSalesLineModel.cs" />
     <Compile Include="Models\SalesModel.cs" />
     <Compile Include="Models\SalesOrderCreditInformationModel.cs" />
     <Compile Include="Models\SalesOrderCustomerDeliveryTo Model.cs" />

@@ -74,6 +74,121 @@ namespace InvoicePOSAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "success");
         }
 
+        [HttpPost]
+        public HttpResponseMessage CreateRecurringSalesInvoice(RecurringSalesInvoiceModel _RecurringSalesInvoiceModel)
+        {
+
+            try
+            {
+
+                RECURRING_SALES_INVOICE rsi = new RECURRING_SALES_INVOICE();
+                rsi.INVOICE_TO = _RecurringSalesInvoiceModel.INVOICE_TO;
+                rsi.DELIVERY_TO = _RecurringSalesInvoiceModel.DELIVERY_TO;
+                rsi.FREQUENCY = _RecurringSalesInvoiceModel.FREQUENCY;
+                rsi.LAST_POSTED = _RecurringSalesInvoiceModel.LAST_POSTED;
+                rsi.MARKET_CODE = _RecurringSalesInvoiceModel.MARKET_CODE;
+                rsi.NUM_OF_TIME_TO_POST = _RecurringSalesInvoiceModel.NUM_OF_TIME_TO_POST;
+                rsi.ORDER_DESC = _RecurringSalesInvoiceModel.ORDER_DES;
+                rsi.ORDER_NET_AMOUNT = _RecurringSalesInvoiceModel.ORDER_NET_AMOUNT;
+                rsi.ORDER_REF = _RecurringSalesInvoiceModel.ORDER_REF;
+                rsi.PROCESS_NEXT_OCCUR = _RecurringSalesInvoiceModel.PROCESS_NEXT_OCCUR;
+                rsi.SALES_PERSON = _RecurringSalesInvoiceModel.SALES_PERSON;
+
+                db.RECURRING_SALES_INVOICE.Add(rsi);
+                db.SaveChanges();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
+
+        [HttpGet]
+        public HttpResponseMessage GetRecurringSalesInvoiceList()
+        {
+
+            try
+            {
+
+                var str = (from a in db.RECURRING_SALES_INVOICE
+                           select new RecurringSalesInvoiceModel
+                           {
+                               RECURR_SALES_INVOICE_ID = a.RECURR_SALES_INVOICE_ID,
+                               INVOICE_TO = a.INVOICE_TO,
+                               DELIVERY_TO = a.DELIVERY_TO,
+                               ORDER_DES = a.ORDER_DESC,
+                               ORDER_REF = a.ORDER_REF,
+                               SALES_PERSON = a.SALES_PERSON,
+                               MARKET_CODE = a.MARKET_CODE,
+                               FREQUENCY = a.FREQUENCY,
+                               CURRENT_STATUS = a.CURRENT_STATUS,
+                               LAST_POSTED = a.LAST_POSTED ?? new DateTime(),
+                               PROCESS_NEXT_OCCUR = a.PROCESS_NEXT_OCCUR ?? new DateTime(),
+                               NUM_OF_TIME_TO_POST = a.NUM_OF_TIME_TO_POST ?? 0,
+                               ORDER_NET_AMOUNT = a.ORDER_NET_AMOUNT?? 0
+
+                           }).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, str);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public HttpResponseMessage CreateRecurringSalesLine(RecurringSalesLineModel _RecurringSalesLineModel)
+        {
+
+            try
+            {
+
+                RECURRING_SALES_LINE rsl = new RECURRING_SALES_LINE();
+                rsl.PRODUCT_CODE = _RecurringSalesLineModel.PRODUCT_CODE;
+                rsl.DESCRIPTION = _RecurringSalesLineModel.DESCRIPTION;
+                rsl.ORDER_QTY = _RecurringSalesLineModel.ORDER_QTY;
+                rsl.UNIT_PRICE = _RecurringSalesLineModel.UNIT_PRICE;
+                rsl.DISCOUNT_PERCENT = _RecurringSalesLineModel.DISCOUNT_PERCENT;
+                rsl.LINE_AMOUNT = _RecurringSalesLineModel.LINE_AMOUNT;
+                rsl.RECURRING_SALES_INVOICE_ID = _RecurringSalesLineModel.RECURRING_SALES_INVOICE_ID;
+
+                db.RECURRING_SALES_LINE.Add(rsl);
+                db.SaveChanges();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "success");
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetRecurringSalesLineForInvoice(int _RecurringSalesInvoiceId)
+        {
+            var str = (from a in db.RECURRING_SALES_LINE
+                       where (a.RECURRING_SALES_INVOICE_ID.Equals(_RecurringSalesInvoiceId))
+                       select new RecurringSalesLineModel
+                       {
+                           RECURRING_SALES_LINE_ID = a.RECURRING_SALES_LINE_ID,
+                           PRODUCT_CODE = a.PRODUCT_CODE,
+                           DESCRIPTION = a.DESCRIPTION,
+                           ORDER_QTY = a.ORDER_QTY?? 0,
+                           UNIT_PRICE = a.UNIT_PRICE?? 0,
+                           DISCOUNT_PERCENT = a.DISCOUNT_PERCENT?? 0,
+                           LINE_AMOUNT = a.LINE_AMOUNT?? 0,
+                           RECURRING_SALES_INVOICE_ID = a.RECURRING_SALES_INVOICE_ID
+                       }).ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, str);
+
+        }
+
+
         [HttpGet]
         public HttpResponseMessage GetSalesOrderLineItem(string OrderNo)
         {

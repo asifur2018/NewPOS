@@ -46,11 +46,14 @@ namespace InvoicePOSDATA
         public DbSet<NATURE_OF_PRODUCT_LOOKUP> NATURE_OF_PRODUCT_LOOKUP { get; set; }
         public DbSet<NOMINAL_ACCOUNT_DETAILS_LOOKUP> NOMINAL_ACCOUNT_DETAILS_LOOKUP { get; set; }
         public DbSet<PRODUCT> PRODUCTs { get; set; }
+        public DbSet<PRODUCT_ASSEMBLED_ITEMS> PRODUCT_ASSEMBLED_ITEMS { get; set; }
         public DbSet<PRODUCT_DOCUMENT> PRODUCT_DOCUMENT { get; set; }
         public DbSet<PRODUCT_GROUP_LOOKUP> PRODUCT_GROUP_LOOKUP { get; set; }
         public DbSet<PRODUCT_MISCELLANEOUS> PRODUCT_MISCELLANEOUS { get; set; }
         public DbSet<PRODUCT_PICTURE> PRODUCT_PICTURE { get; set; }
         public DbSet<PRODUCT_TYPE_LOOKUP> PRODUCT_TYPE_LOOKUP { get; set; }
+        public DbSet<RECURRING_SALES_INVOICE> RECURRING_SALES_INVOICE { get; set; }
+        public DbSet<RECURRING_SALES_LINE> RECURRING_SALES_LINE { get; set; }
         public DbSet<SALES_JOURNAL_DEBIT> SALES_JOURNAL_DEBIT { get; set; }
         public DbSet<SALES_ORDER> SALES_ORDER { get; set; }
         public DbSet<SALES_ORDER_DELIVERY> SALES_ORDER_DELIVERY { get; set; }

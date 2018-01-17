@@ -203,3 +203,7 @@ D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\Customer\CustomerLookup.b
 D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\Customer\CustomerLookup.g.cs
 D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\SalesOrderEnquiry.baml
 D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\SalesOrderEnquiry.g.cs
+D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\RecurringSalesInvoiceView.baml
+D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\RecurringSalesInvoiceView.g.cs
+D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\RecurringSalesInvoice.g.cs
+D:\Git\NewPOS\Accounts_Pos\Accounts_Pos\obj\Debug\View\SalesOrder\RecurringSalesInvoice.baml

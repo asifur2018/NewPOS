@@ -156,12 +156,21 @@ namespace Accounts_Pos.ViewModel.Customer
                 window.Close();
             }
 
-            ((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerCodeTxt.Text = SelectedCustomer.CUSTOMER_CODE;
-            ((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerNameTxt.Text = SelectedCustomer.CUSTOMER_NAME;
-            if ((((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder!=null)&&!((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder.INVOICE_TO.Equals(((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerCodeTxt.Text))
+            if (Application.Current.Windows[0].Title == "SalesOrderEnquiryForm")
             {
-                ((SalesOrderEnquiryForm)Application.Current.Windows[0]).SalesOrderTxt.Text ="";
-                ((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder = null;
+                ((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerCodeTxt.Text = SelectedCustomer.CUSTOMER_CODE;
+                ((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerNameTxt.Text = SelectedCustomer.CUSTOMER_NAME;
+                if ((((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder != null) && !((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder.INVOICE_TO.Equals(((SalesOrderEnquiryForm)Application.Current.Windows[0]).CustomerCodeTxt.Text))
+                {
+                    ((SalesOrderEnquiryForm)Application.Current.Windows[0]).SalesOrderTxt.Text = "";
+                    ((SalesOrderEnquiryViewModel)Application.Current.Windows[0].DataContext).SelectedSalesOrder = null;
+                }
+            }
+            else if (Application.Current.Windows[0].Title == "RecurringSalesInvoice")
+            {
+                ((RecurringSalesInvoice)Application.Current.Windows[0]).CustomerCodeTxt.Text = SelectedCustomer.CUSTOMER_CODE;
+                ((RecurringSalesInvoice)Application.Current.Windows[0]).CustomerNameTxt.Text = SelectedCustomer.CUSTOMER_NAME;
+                
             }
   
             

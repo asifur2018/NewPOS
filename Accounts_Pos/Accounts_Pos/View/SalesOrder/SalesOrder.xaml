@@ -173,11 +173,11 @@
                                         </DataGridTextColumn.CellStyle>
                                     </DataGridTextColumn>
                                     <DataGridTextColumn    Width="100"  Header="Unit Price"  Binding="{Binding UNIT_PRICE, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  >
-                                        <DataGridTextColumn.CellStyle>
+                                        <!--<DataGridTextColumn.CellStyle>
                                             <Style TargetType="DataGridCell">
                                                 <EventSetter Event="PreviewMouseDoubleClick" Handler="ItemUnitPrice_PreviewMouseDown" />
                                             </Style>
-                                        </DataGridTextColumn.CellStyle>
+                                        </DataGridTextColumn.CellStyle>-->
                                     </DataGridTextColumn>
                                     <DataGridTextColumn    Width="50"  Header="Disc%"   Binding="{Binding DISCOUNT, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
                                         <DataGridTextColumn.CellStyle>

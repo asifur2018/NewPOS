@@ -361,6 +361,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCT_ASSEMBLED_ITEMS">
+      <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_ASSEMBLED_ITEMS">
+        <MappingFragment StoreEntitySet="PRODUCT_ASSEMBLED_ITEMS">
+          <ScalarProperty Name="PA_ID" ColumnName="PA_ID" />
+          <ScalarProperty Name="PA_ITEM_ID" ColumnName="PA_ITEM_ID" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="BIN" ColumnName="BIN" />
+          <ScalarProperty Name="PRODUCT_TYPE1" ColumnName="PRODUCT_TYPE1" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="COST_PRICE" ColumnName="COST_PRICE" />
+          <ScalarProperty Name="IS_DELETE" ColumnName="IS_DELETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PRODUCT_DOCUMENT">
       <EntityTypeMapping TypeName="ACCOUNTS_POSModel.PRODUCT_DOCUMENT">
         <MappingFragment StoreEntitySet="PRODUCT_DOCUMENT">
@@ -439,6 +454,39 @@
           <ScalarProperty Name="PRODUCT_TYPE_NAME" ColumnName="PRODUCT_TYPE_NAME" />
           <ScalarProperty Name="PRODUCT_TYPE_DESCRIPTION" ColumnName="PRODUCT_TYPE_DESCRIPTION" />
           <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECURRING_SALES_INVOICE">
+      <EntityTypeMapping TypeName="ACCOUNTS_POSModel.RECURRING_SALES_INVOICE">
+        <MappingFragment StoreEntitySet="RECURRING_SALES_INVOICE">
+          <ScalarProperty Name="INVOICE_TO" ColumnName="INVOICE_TO" />
+          <ScalarProperty Name="DELIVERY_TO" ColumnName="DELIVERY_TO" />
+          <ScalarProperty Name="ORDER_REF" ColumnName="ORDER_REF" />
+          <ScalarProperty Name="ORDER_DESC" ColumnName="ORDER_DESC" />
+          <ScalarProperty Name="SALES_PERSON" ColumnName="SALES_PERSON" />
+          <ScalarProperty Name="MARKET_CODE" ColumnName="MARKET_CODE" />
+          <ScalarProperty Name="FREQUENCY" ColumnName="FREQUENCY" />
+          <ScalarProperty Name="CURRENT_STATUS" ColumnName="CURRENT_STATUS" />
+          <ScalarProperty Name="LAST_POSTED" ColumnName="LAST_POSTED" />
+          <ScalarProperty Name="PROCESS_NEXT_OCCUR" ColumnName="PROCESS_NEXT_OCCUR" />
+          <ScalarProperty Name="NUM_OF_TIME_TO_POST" ColumnName="NUM_OF_TIME_TO_POST" />
+          <ScalarProperty Name="ORDER_NET_AMOUNT" ColumnName="ORDER_NET_AMOUNT" />
+          <ScalarProperty Name="RECURR_SALES_INVOICE_ID" ColumnName="RECURR_SALES_INVOICE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECURRING_SALES_LINE">
+      <EntityTypeMapping TypeName="ACCOUNTS_POSModel.RECURRING_SALES_LINE">
+        <MappingFragment StoreEntitySet="RECURRING_SALES_LINE">
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ORDER_QTY" ColumnName="ORDER_QTY" />
+          <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+          <ScalarProperty Name="DISCOUNT_PERCENT" ColumnName="DISCOUNT_PERCENT" />
+          <ScalarProperty Name="LINE_AMOUNT" ColumnName="LINE_AMOUNT" />
+          <ScalarProperty Name="RECURRING_SALES_LINE_ID" ColumnName="RECURRING_SALES_LINE_ID" />
+          <ScalarProperty Name="RECURRING_SALES_INVOICE_ID" ColumnName="RECURRING_SALES_INVOICE_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

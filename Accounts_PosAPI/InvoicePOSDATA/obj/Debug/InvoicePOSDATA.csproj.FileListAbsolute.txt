@@ -1182,3 +1182,4 @@ D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.Properties
 D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csproj.GenerateResource.Cache
 D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.exe
 D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.pdb
+D:\Git\NewPOS\Accounts_PosAPI\InvoicePOSDATA\obj\Debug\InvoicePOSDATA.csprojResolveAssemblyReference.cache
